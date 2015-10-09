@@ -1,0 +1,40 @@
+#ifndef _MAIL_MAN_H_
+#define _MAIL_MAN_H_
+#define MAXDATASIZE 4096
+#define MAXLEN 20
+
+#include <unistd.h>
+#include <iostream>
+#include <fstream>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <errno.h>
+#include <string.h>
+#include <string>
+#include <cstdio>
+#include <cstdlib>
+using namespace std;
+
+//Mailmab is the interface facing the internet
+class Mailman
+{
+private:
+	int socket_fd;
+	struct sockaddr_in server_addr;
+    struct sockaddr_in client_addr; 
+	char message[MAXDATASIZE];
+	char server_ip[MAXLEN], server_port[MAXLEN];
+	char client_ip[MAXLEN], client_port[MAXLEN];
+public:
+	void init(char* si, char* sp, char* ci, char* cp);
+	void bindCon();
+	void connectCon();
+	void closeCon();
+
+	void setMsg(string msg);
+	string getMsg();
+	string read();
+	void write();
+	void write(string msg);
+};
+#endif
