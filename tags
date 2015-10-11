@@ -1,0 +1,907 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ACE	source/globals.h	7;"	d
+ACT_ALLIN	source/globals.h	60;"	d
+ACT_BIG_BLIND	source/globals.h	61;"	d
+ACT_BLIND	source/globals.h	63;"	d
+ACT_CALL	source/globals.h	57;"	d
+ACT_CHECK	source/globals.h	58;"	d
+ACT_FOLD	source/globals.h	59;"	d
+ACT_RAISE	source/globals.h	56;"	d
+ACT_SMALL_BLIND	source/globals.h	62;"	d
+Action	source/model/action.h	/^class Action$/;"	c
+Action::act	source/model/action.h	/^	int act;$/;"	m	class:Action	access:public
+Action::bet	source/model/action.h	/^	int bet;$/;"	m	class:Action	access:public
+Action::state	source/model/action.h	/^	int state;$/;"	m	class:Action	access:public
+BASE_COMB_FLOP	source/globals.h	18;"	d
+BBLIND_INDEX	source/globals.h	100;"	d
+CLUB	source/globals.h	/^typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;$/;"	e	enum:__anon1
+COMM_SIZE	source/globals.h	13;"	d
+Caller	source/plyr/caller.h	/^class Caller: public Player$/;"	c	inherits:Player
+Caller::sendBet	source/plyr/caller.cpp	/^Action Caller::sendBet()$/;"	f	class:Caller	signature:()
+Caller::sendBet	source/plyr/caller.h	/^	Action sendBet();$/;"	p	class:Caller	access:public	signature:()
+Card	source/model/card.cpp	/^Card::Card()$/;"	f	class:Card	signature:()
+Card	source/model/card.cpp	/^Card::Card(int color, int figure)$/;"	f	class:Card	signature:(int color, int figure)
+Card	source/model/card.h	/^	Card();$/;"	p	class:Card	access:public	signature:()
+Card	source/model/card.h	/^	Card(int color, int figure);$/;"	p	class:Card	access:public	signature:(int color, int figure)
+Card	source/model/card.h	/^class Card$/;"	c
+Card::Card	source/model/card.cpp	/^Card::Card()$/;"	f	class:Card	signature:()
+Card::Card	source/model/card.cpp	/^Card::Card(int color, int figure)$/;"	f	class:Card	signature:(int color, int figure)
+Card::Card	source/model/card.h	/^	Card();$/;"	p	class:Card	access:public	signature:()
+Card::Card	source/model/card.h	/^	Card(int color, int figure);$/;"	p	class:Card	access:public	signature:(int color, int figure)
+Card::color	source/model/card.h	/^	int color; \/\/As Color$/;"	m	class:Card	access:public
+Card::figure	source/model/card.h	/^	int figure; \/\/2~14$/;"	m	class:Card	access:public
+Card::getCard	source/model/card.cpp	/^Card Card::getCard(char color, int figure)$/;"	f	class:Card	signature:(char color, int figure)
+Card::getCard	source/model/card.h	/^	static Card getCard(char color, int figure);$/;"	p	class:Card	access:public	signature:(char color, int figure)
+Card::inputCard	source/model/card.cpp	/^Card Card::inputCard()$/;"	f	class:Card	signature:()
+Card::inputCard	source/model/card.h	/^	static Card inputCard();$/;"	p	class:Card	access:public	signature:()
+Card::is	source/model/card.cpp	/^bool Card::is(Card card)$/;"	f	class:Card	signature:(Card card)
+Card::is	source/model/card.h	/^	bool is(Card card);$/;"	p	class:Card	access:public	signature:(Card card)
+Card::print	source/model/card.cpp	/^string Card::print()$/;"	f	class:Card	signature:()
+Card::print	source/model/card.h	/^	string print();$/;"	p	class:Card	access:public	signature:()
+CheckerPlus	source/model/checkplus.h	/^class CheckerPlus$/;"	c
+CheckerPlus::checkFlush	source/model/checkplus.cpp	/^bool CheckerPlus::checkFlush(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkFlush	source/model/checkplus.h	/^	static bool checkFlush(vector<Card> hand, Hand& ret); \/\/color leading$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkFour	source/model/checkplus.cpp	/^bool CheckerPlus::checkFour(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkFour	source/model/checkplus.h	/^	static bool checkFour(vector<Card> hand, Hand& ret); \/\/repeat$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkFullHouse	source/model/checkplus.cpp	/^bool CheckerPlus::checkFullHouse(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkFullHouse	source/model/checkplus.h	/^	static bool checkFullHouse(vector<Card> hand, Hand& ret); \/\/trip two$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkHand	source/model/checkplus.cpp	/^Hand CheckerPlus::checkHand(vector<Card> handcard)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard)
+CheckerPlus::checkHand	source/model/checkplus.h	/^	static Hand checkHand(vector<Card> hand);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand)
+CheckerPlus::checkHighCard	source/model/checkplus.cpp	/^bool CheckerPlus::checkHighCard(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkHighCard	source/model/checkplus.h	/^	static bool checkHighCard(vector<Card> hand, Hand& ret);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkPair	source/model/checkplus.cpp	/^bool CheckerPlus::checkPair(vector<Card> handcard, Hand& ret) $/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkPair	source/model/checkplus.h	/^	static bool checkPair(vector<Card> hand, Hand& ret) ; \/\/repeat$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkStraight	source/model/checkplus.cpp	/^bool CheckerPlus::checkStraight(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkStraight	source/model/checkplus.h	/^	static bool checkStraight(vector<Card> hand, Hand& ret); \/\/start$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkStraightFlush	source/model/checkplus.cpp	/^bool CheckerPlus::checkStraightFlush(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkStraightFlush	source/model/checkplus.h	/^	static bool checkStraightFlush(vector<Card> hand, Hand& ret); $/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkTrip	source/model/checkplus.cpp	/^bool CheckerPlus::checkTrip(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkTrip	source/model/checkplus.h	/^	static bool checkTrip(vector<Card> hand, Hand& ret); \/\/repeat$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::checkTwoPairs	source/model/checkplus.cpp	/^bool CheckerPlus::checkTwoPairs(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+CheckerPlus::checkTwoPairs	source/model/checkplus.h	/^	static bool checkTwoPairs(vector<Card> hand, Hand& ret); \/\/higher lower$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+CheckerPlus::commDiff	source/model/checkplus.h	/^	static vector<int> commDiff;$/;"	m	class:CheckerPlus	access:private
+CheckerPlus::figCnt	source/model/checkplus.h	/^	static vector<FigCnt> figCnt;$/;"	m	class:CheckerPlus	access:private
+CheckerPlus::findMostColor	source/model/checkplus.cpp	/^void CheckerPlus::findMostColor(vector<Card> handcard,int& mostColor,int& theColor)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard,int& mostColor,int& theColor)
+CheckerPlus::findMostColor	source/model/checkplus.h	/^	static void findMostColor(vector<Card> handcard, int& mostColor, int& theColor);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> handcard, int& mostColor, int& theColor)
+CheckerPlus::sort	source/model/checkplus.cpp	/^void CheckerPlus::sort(vector<Card>& handcard)$/;"	f	class:CheckerPlus	signature:(vector<Card>& handcard)
+CheckerPlus::sort	source/model/checkplus.h	/^	static void sort(vector<Card>& hand);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card>& hand)
+Color	source/globals.h	/^typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;$/;"	t	typeref:enum:__anon1
+DEAL	source/globals.h	35;"	d
+DEALER_INDEX	source/globals.h	98;"	d
+DIAMOND	source/globals.h	/^typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;$/;"	e	enum:__anon1
+D_BET	source/globals.h	36;"	d
+EMPTY_PLAYER	source/globals.h	85;"	d
+FIGURE_START	source/globals.h	10;"	d
+FLOP	source/globals.h	37;"	d
+FLUSH	source/globals.h	28;"	d
+FLUSH_IMPOSS	source/globals.h	46;"	d
+FLUSH_THRESH	source/globals.h	45;"	d
+FOUR	source/globals.h	30;"	d
+FULLHOUSE	source/globals.h	29;"	d
+F_BET	source/globals.h	38;"	d
+FigCnt	source/model/checkplus.h	/^class FigCnt$/;"	c
+FigCnt::color	source/model/checkplus.h	/^	int color;$/;"	m	class:FigCnt	access:public
+FigCnt::figure	source/model/checkplus.h	/^	int figure;$/;"	m	class:FigCnt	access:public
+FlopRaiser	source/plyr/floprai.cpp	/^FlopRaiser::FlopRaiser(string pid)$/;"	f	class:FlopRaiser	signature:(string pid)
+FlopRaiser	source/plyr/floprai.h	/^	FlopRaiser(string pid);$/;"	p	class:FlopRaiser	access:public	signature:(string pid)
+FlopRaiser	source/plyr/floprai.h	/^class FlopRaiser: public Player$/;"	c	inherits:Player
+FlopRaiser::FlopRaiser	source/plyr/floprai.cpp	/^FlopRaiser::FlopRaiser(string pid)$/;"	f	class:FlopRaiser	signature:(string pid)
+FlopRaiser::FlopRaiser	source/plyr/floprai.h	/^	FlopRaiser(string pid);$/;"	p	class:FlopRaiser	access:public	signature:(string pid)
+FlopRaiser::dealBet	source/plyr/floprai.cpp	/^Action FlopRaiser::dealBet()$/;"	f	class:FlopRaiser	signature:()
+FlopRaiser::dealBet	source/plyr/floprai.h	/^	Action dealBet();$/;"	p	class:FlopRaiser	access:private	signature:()
+FlopRaiser::flopBet	source/plyr/floprai.cpp	/^Action FlopRaiser::flopBet()$/;"	f	class:FlopRaiser	signature:()
+FlopRaiser::flopBet	source/plyr/floprai.h	/^	Action flopBet();$/;"	p	class:FlopRaiser	access:private	signature:()
+FlopRaiser::sendBet	source/plyr/floprai.cpp	/^Action FlopRaiser::sendBet()$/;"	f	class:FlopRaiser	signature:()
+FlopRaiser::sendBet	source/plyr/floprai.h	/^	Action sendBet(); $/;"	p	class:FlopRaiser	access:public	signature:()
+FoldPlayer	source/plyr/folder.cpp	/^FoldPlayer::FoldPlayer()$/;"	f	class:FoldPlayer	signature:()
+FoldPlayer	source/plyr/folder.h	/^	FoldPlayer();$/;"	p	class:FoldPlayer	access:public	signature:()
+FoldPlayer	source/plyr/folder.h	/^class FoldPlayer: public Player$/;"	c	inherits:Player
+FoldPlayer::FoldPlayer	source/plyr/folder.cpp	/^FoldPlayer::FoldPlayer()$/;"	f	class:FoldPlayer	signature:()
+FoldPlayer::FoldPlayer	source/plyr/folder.h	/^	FoldPlayer();$/;"	p	class:FoldPlayer	access:public	signature:()
+FoldPlayer::sendBet	source/plyr/folder.cpp	/^Action FoldPlayer::sendBet()$/;"	f	class:FoldPlayer	signature:()
+FoldPlayer::sendBet	source/plyr/folder.h	/^	Action sendBet(); $/;"	p	class:FoldPlayer	access:public	signature:()
+HAND_SIZE	source/globals.h	11;"	d
+HEART	source/globals.h	/^typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;$/;"	e	enum:__anon1
+HIGHCARD	source/globals.h	23;"	d
+HOLE_SIZE	source/globals.h	12;"	d
+Hand	source/model/hand.cpp	/^Hand::Hand()$/;"	f	class:Hand	signature:()
+Hand	source/model/hand.cpp	/^Hand::Hand(int rank)$/;"	f	class:Hand	signature:(int rank)
+Hand	source/model/hand.h	/^	Hand();$/;"	p	class:Hand	access:public	signature:()
+Hand	source/model/hand.h	/^	Hand(int rank);$/;"	p	class:Hand	access:public	signature:(int rank)
+Hand	source/model/hand.h	/^class Hand$/;"	c
+Hand::Hand	source/model/hand.cpp	/^Hand::Hand()$/;"	f	class:Hand	signature:()
+Hand::Hand	source/model/hand.cpp	/^Hand::Hand(int rank)$/;"	f	class:Hand	signature:(int rank)
+Hand::Hand	source/model/hand.h	/^	Hand();$/;"	p	class:Hand	access:public	signature:()
+Hand::Hand	source/model/hand.h	/^	Hand(int rank);$/;"	p	class:Hand	access:public	signature:(int rank)
+Hand::compare	source/model/hand.cpp	/^int Hand::compare(Hand* hand)$/;"	f	class:Hand	signature:(Hand* hand)
+Hand::compare	source/model/hand.h	/^	int compare(Hand* hand);$/;"	p	class:Hand	access:public	signature:(Hand* hand)
+Hand::first	source/model/hand.h	/^	vector<int> first;$/;"	m	class:Hand	access:public
+Hand::print	source/model/hand.cpp	/^void Hand::print()$/;"	f	class:Hand	signature:()
+Hand::print	source/model/hand.h	/^	void print();$/;"	p	class:Hand	access:public	signature:()
+Hand::printDetails	source/model/hand.cpp	/^void Hand::printDetails()$/;"	f	class:Hand	signature:()
+Hand::printDetails	source/model/hand.h	/^	void printDetails();$/;"	p	class:Hand	access:public	signature:()
+Hand::rank	source/model/hand.h	/^	int rank;$/;"	m	class:Hand	access:public
+MAXDATASIZE	source/comm/mailman.h	3;"	d
+MAXLEN	source/comm/mailman.h	4;"	d
+MAX_PLAYER	source/globals.h	86;"	d
+Mailman	source/comm/mailman.h	/^class Mailman$/;"	c
+Mailman::bindCon	source/comm/mailman.cpp	/^void Mailman::bindCon()$/;"	f	class:Mailman	signature:()
+Mailman::bindCon	source/comm/mailman.h	/^	void bindCon();$/;"	p	class:Mailman	access:public	signature:()
+Mailman::client_addr	source/comm/mailman.h	/^    struct sockaddr_in client_addr; $/;"	m	class:Mailman	typeref:struct:Mailman::sockaddr_in	access:private
+Mailman::client_ip	source/comm/mailman.h	/^	char client_ip[MAXLEN], client_port[MAXLEN];$/;"	m	class:Mailman	access:private
+Mailman::client_port	source/comm/mailman.h	/^	char client_ip[MAXLEN], client_port[MAXLEN];$/;"	m	class:Mailman	access:private
+Mailman::closeCon	source/comm/mailman.cpp	/^void Mailman::closeCon()$/;"	f	class:Mailman	signature:()
+Mailman::closeCon	source/comm/mailman.h	/^	void closeCon();$/;"	p	class:Mailman	access:public	signature:()
+Mailman::connectCon	source/comm/mailman.cpp	/^void Mailman::connectCon()$/;"	f	class:Mailman	signature:()
+Mailman::connectCon	source/comm/mailman.h	/^	void connectCon();$/;"	p	class:Mailman	access:public	signature:()
+Mailman::getMsg	source/comm/mailman.cpp	/^string Mailman::getMsg()$/;"	f	class:Mailman	signature:()
+Mailman::getMsg	source/comm/mailman.h	/^	string getMsg();$/;"	p	class:Mailman	access:public	signature:()
+Mailman::init	source/comm/mailman.cpp	/^void Mailman::init(char* si, char* sp, char* ci, char* cp)$/;"	f	class:Mailman	signature:(char* si, char* sp, char* ci, char* cp)
+Mailman::init	source/comm/mailman.h	/^	void init(char* si, char* sp, char* ci, char* cp);$/;"	p	class:Mailman	access:public	signature:(char* si, char* sp, char* ci, char* cp)
+Mailman::message	source/comm/mailman.h	/^	char message[MAXDATASIZE];$/;"	m	class:Mailman	access:private
+Mailman::read	source/comm/mailman.cpp	/^string Mailman::read()$/;"	f	class:Mailman	signature:()
+Mailman::read	source/comm/mailman.h	/^	string read();$/;"	p	class:Mailman	access:public	signature:()
+Mailman::server_addr	source/comm/mailman.h	/^	struct sockaddr_in server_addr;$/;"	m	class:Mailman	typeref:struct:Mailman::sockaddr_in	access:private
+Mailman::server_ip	source/comm/mailman.h	/^	char server_ip[MAXLEN], server_port[MAXLEN];$/;"	m	class:Mailman	access:private
+Mailman::server_port	source/comm/mailman.h	/^	char server_ip[MAXLEN], server_port[MAXLEN];$/;"	m	class:Mailman	access:private
+Mailman::setMsg	source/comm/mailman.cpp	/^void Mailman::setMsg(string msg)$/;"	f	class:Mailman	signature:(string msg)
+Mailman::setMsg	source/comm/mailman.h	/^	void setMsg(string msg);$/;"	p	class:Mailman	access:public	signature:(string msg)
+Mailman::socket_fd	source/comm/mailman.h	/^	int socket_fd;$/;"	m	class:Mailman	access:private
+Mailman::write	source/comm/mailman.cpp	/^void Mailman::write()$/;"	f	class:Mailman	signature:()
+Mailman::write	source/comm/mailman.cpp	/^void Mailman::write(string msg)$/;"	f	class:Mailman	signature:(string msg)
+Mailman::write	source/comm/mailman.h	/^	void write();$/;"	p	class:Mailman	access:public	signature:()
+Mailman::write	source/comm/mailman.h	/^	void write(string msg);$/;"	p	class:Mailman	access:public	signature:(string msg)
+NAME_FLOP_RAISER	source/globals.h	81;"	d
+NAME_FOLD_PLAYER	source/globals.h	77;"	d
+NAME_HUMAN_PLAYER	source/globals.h	75;"	d
+NAME_SIMU_PLAYER	source/globals.h	76;"	d
+NAME_SNARE_PLAYER	source/globals.h	78;"	d
+NAME_SNORE_PLAYER	source/globals.h	80;"	d
+NAME_SNOW_PLAYER	source/globals.h	79;"	d
+NOT_THIS_RANK	source/globals.h	22;"	d
+N_COLOR	source/globals.h	5;"	d
+N_FIGURE	source/globals.h	6;"	d
+N_FLOP	source/globals.h	17;"	d
+N_HAND	source/globals.h	16;"	d
+N_HTL	source/globals.h	19;"	d
+N_RIVER	source/globals.h	97;"	d
+N_START_HAND	source/globals.h	104;"	d
+N_TURN	source/globals.h	96;"	d
+PAIR	source/globals.h	24;"	d
+PID_FLOP_RAISER	source/globals.h	74;"	d
+PID_FOLD_PLAYER	source/globals.h	68;"	d
+PID_HUMAN_PLAYER	source/globals.h	66;"	d
+PID_SHREWD_PLAYER	source/globals.h	71;"	d
+PID_SIMU_PLAYER	source/globals.h	67;"	d
+PID_SNARE_PLAYER	source/globals.h	69;"	d
+PID_SNARL_PLAYER	source/globals.h	70;"	d
+PID_SNORE_PLAYER	source/globals.h	73;"	d
+PID_SNOW_PLAYER	source/globals.h	72;"	d
+PWins	source/plyr/snowpl.h	/^	vector<StartHand> PWins[MAX_PLAYER+1];$/;"	m	class:SnowPlayer	access:public
+Parser	source/comm/parser.h	/^class Parser$/;"	c
+Parser::getAction	source/comm/parser.cpp	/^Action Parser::getAction(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::getCard	source/comm/parser.cpp	/^Card Parser::getCard(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::getCard	source/comm/parser.h	/^	Card getCard(string& msg); \/\/match eol or space at end$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::getPlayerInfo	source/comm/parser.cpp	/^PlayerInfo Parser::getPlayerInfo(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::getPlayerInfo	source/comm/parser.h	/^	PlayerInfo getPlayerInfo(string& msg); \/\/match eol or space at end$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::getRdState	source/comm/parser.cpp	/^RdState Parser::getRdState(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::matchChar	source/comm/parser.cpp	/^void Parser::matchChar(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::matchChar	source/comm/parser.h	/^	void matchChar(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::matchHead	source/comm/parser.cpp	/^void Parser::matchHead(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::matchHead	source/comm/parser.h	/^	void matchHead(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::matchTail	source/comm/parser.cpp	/^void Parser::matchTail(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::matchTail	source/comm/parser.h	/^	void matchTail(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::matchWColon	source/comm/parser.cpp	/^void Parser::matchWColon(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::matchWColon	source/comm/parser.h	/^	void matchWColon(string& msg); \/\/2W: = W + 2W:$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::matchWord	source/comm/parser.cpp	/^void Parser::matchWord(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::matchWord	source/comm/parser.h	/^	void matchWord(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+Parser::nextInt	source/comm/parser.cpp	/^int Parser::nextInt(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+Parser::nextInt	source/comm/parser.h	/^	int nextInt(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+Player	source/model/player.h	/^class Player$/;"	c
+Player::SBlindId	source/model/player.h	/^	string SBlindId;$/;"	m	class:Player	access:public
+Player::action	source/model/player.h	/^	vector<Action> action[MAX_PLAYER];$/;"	m	class:Player	access:public
+Player::bigBlind	source/model/player.h	/^	int bigBlind;$/;"	m	class:Player	access:public
+Player::cntRd	source/model/player.h	/^	int cntRd;$/;"	m	class:Player	access:public
+Player::comm	source/model/player.h	/^	vector<Card> comm;$/;"	m	class:Player	access:public
+Player::findIndex	source/model/player.cpp	/^int Player::findIndex(string pid)$/;"	f	class:Player	signature:(string pid)
+Player::findIndex	source/model/player.h	/^	int findIndex(string pid);$/;"	p	class:Player	access:public	signature:(string pid)
+Player::getInPlayers	source/model/player.cpp	/^int Player::getInPlayers()$/;"	f	class:Player	signature:()
+Player::getInPlayers	source/model/player.h	/^	int getInPlayers();$/;"	p	class:Player	access:public	signature:()
+Player::getLeastBuyin	source/model/player.cpp	/^int Player::getLeastBuyin()$/;"	f	class:Player	signature:()
+Player::getLeastBuyin	source/model/player.h	/^	int getLeastBuyin();$/;"	p	class:Player	access:public	signature:()
+Player::getPotOdds	source/model/player.cpp	/^float Player::getPotOdds()$/;"	f	class:Player	signature:()
+Player::getPotOdds	source/model/player.h	/^	float getPotOdds();$/;"	p	class:Player	access:public	signature:()
+Player::getStartJetton	source/model/player.cpp	/^int Player::getStartJetton()$/;"	f	class:Player	signature:()
+Player::getStartJetton	source/model/player.h	/^	int getStartJetton();$/;"	p	class:Player	access:public	signature:()
+Player::hole	source/model/player.h	/^	vector<Card> hole;$/;"	m	class:Player	access:public
+Player::inBet	source/model/player.h	/^	int inBet;$/;"	m	class:Player	access:public
+Player::init	source/model/player.cpp	/^void Player::init()$/;"	f	class:Player	signature:()
+Player::init	source/model/player.h	/^	void init(); \/\/clear vectors at the start of a game$/;"	p	class:Player	access:public	signature:()
+Player::isAfterSB	source/model/player.cpp	/^bool Player::isAfterSB(string thePid)$/;"	f	class:Player	signature:(string thePid)
+Player::isAfterSB	source/model/player.h	/^	bool isAfterSB(string thePid);$/;"	p	class:Player	access:public	signature:(string thePid)
+Player::isThisRd	source/model/player.cpp	/^bool Player::isThisRd(string pid)$/;"	f	class:Player	signature:(string pid)
+Player::isThisRd	source/model/player.h	/^	bool isThisRd(string pid);$/;"	p	class:Player	access:public	signature:(string pid)
+Player::jetton	source/model/player.h	/^	int jetton;$/;"	m	class:Player	access:public
+Player::lastNotify	source/model/player.h	/^	int lastNotify;$/;"	m	class:Player	access:public
+Player::lastrd	source/model/player.h	/^	vector<RdState> lastrd;$/;"	m	class:Player	access:public
+Player::lstRdBet	source/model/player.h	/^	int lstRdBet;$/;"	m	class:Player	access:public
+Player::lstRdJet	source/model/player.h	/^	int lstRdJet;$/;"	m	class:Player	access:public
+Player::money	source/model/player.h	/^	int money;$/;"	m	class:Player	access:public
+Player::name	source/model/player.h	/^	string name;$/;"	m	class:Player	access:public
+Player::opHole	source/model/player.h	/^	vector<Card> opHole[MAX_PLAYER];$/;"	m	class:Player	access:public
+Player::phand	source/model/player.h	/^	int phand[MAX_PLAYER];$/;"	m	class:Player	access:public
+Player::pid	source/model/player.h	/^	string pid;$/;"	m	class:Player	access:public
+Player::pot	source/model/player.h	/^	int pot;$/;"	m	class:Player	access:public
+Player::potsh	source/model/player.h	/^	int potsh[MAX_PLAYER];$/;"	m	class:Player	access:public
+Player::pstate	source/model/player.h	/^	vector<PlayerInfo> pstate;$/;"	m	class:Player	access:public
+Player::rcvFlop	source/model/player.cpp	/^void Player::rcvFlop(vector<Card> flop)$/;"	f	class:Player	signature:(vector<Card> flop)
+Player::rcvFlop	source/model/player.h	/^	void rcvFlop(vector<Card> flop); \/\/start set state=flop, end state++$/;"	p	class:Player	access:public	signature:(vector<Card> flop)
+Player::rcvHole	source/model/player.cpp	/^void Player::rcvHole(vector<Card> hole)$/;"	f	class:Player	signature:(vector<Card> hole)
+Player::rcvHole	source/model/player.h	/^	void rcvHole(vector<Card> hole);$/;"	p	class:Player	access:public	signature:(vector<Card> hole)
+Player::rcvLstRound	source/model/player.cpp	/^void Player::rcvLstRound(vector<RdState> lastrd)$/;"	f	class:Player	signature:(vector<RdState> lastrd)
+Player::rcvLstRound	source/model/player.h	/^	void rcvLstRound(vector<RdState> lastrd);$/;"	p	class:Player	access:public	signature:(vector<RdState> lastrd)
+Player::rcvOppoAct	source/model/player.cpp	/^void Player::rcvOppoAct(string pid, Action act)$/;"	f	class:Player	signature:(string pid, Action act)
+Player::rcvOppoAct	source/model/player.h	/^	void rcvOppoAct(string pid, Action act);$/;"	p	class:Player	access:public	signature:(string pid, Action act)
+Player::rcvPHand	source/model/player.cpp	/^void Player::rcvPHand(string pid, int hand)$/;"	f	class:Player	signature:(string pid, int hand)
+Player::rcvPHand	source/model/player.h	/^	void rcvPHand(string pid, int hand);$/;"	p	class:Player	access:public	signature:(string pid, int hand)
+Player::rcvPHole	source/model/player.cpp	/^void Player::rcvPHole(string pid, Card card)$/;"	f	class:Player	signature:(string pid, Card card)
+Player::rcvPHole	source/model/player.h	/^	void rcvPHole(string pid, Card card);$/;"	p	class:Player	access:public	signature:(string pid, Card card)
+Player::rcvPot	source/model/player.cpp	/^void Player::rcvPot(int pot)$/;"	f	class:Player	signature:(int pot)
+Player::rcvPot	source/model/player.h	/^	void rcvPot(int pot);$/;"	p	class:Player	access:public	signature:(int pot)
+Player::rcvPotwin	source/model/player.cpp	/^void Player::rcvPotwin(string pid, int share)$/;"	f	class:Player	signature:(string pid, int share)
+Player::rcvPotwin	source/model/player.h	/^	void rcvPotwin(string pid, int share);$/;"	p	class:Player	access:public	signature:(string pid, int share)
+Player::rcvRiver	source/model/player.cpp	/^void Player::rcvRiver(Card card)$/;"	f	class:Player	signature:(Card card)
+Player::rcvRiver	source/model/player.h	/^	void rcvRiver(Card card);$/;"	p	class:Player	access:public	signature:(Card card)
+Player::rcvSeat	source/model/player.cpp	/^void Player::rcvSeat(vector<PlayerInfo> players)$/;"	f	class:Player	signature:(vector<PlayerInfo> players)
+Player::rcvSeat	source/model/player.h	/^	void rcvSeat(vector<PlayerInfo> players); \/\/blind is a oppo action$/;"	p	class:Player	access:public	signature:(vector<PlayerInfo> players)
+Player::rcvTurn	source/model/player.cpp	/^void Player::rcvTurn(Card card)$/;"	f	class:Player	signature:(Card card)
+Player::rcvTurn	source/model/player.h	/^	void rcvTurn(Card card);$/;"	p	class:Player	access:public	signature:(Card card)
+Player::reflect	source/model/player.cpp	/^void Player::reflect()$/;"	f	class:Player	signature:()
+Player::reflect	source/model/player.h	/^	virtual void reflect();$/;"	p	class:Player	access:public	signature:()
+Player::sendBet	source/model/player.h	/^	virtual Action sendBet()=0; \/\/the way player bets differ $/;"	p	class:Player	access:public	signature:()
+Player::sendReg	source/model/player.cpp	/^vector<string> Player::sendReg()$/;"	f	class:Player	signature:()
+Player::sendReg	source/model/player.h	/^	vector<string> sendReg();$/;"	p	class:Player	access:public	signature:()
+Player::setReg	source/model/player.cpp	/^void Player::setReg(char* pid, char* name)$/;"	f	class:Player	signature:(char* pid, char* name)
+Player::setReg	source/model/player.h	/^	void setReg(char* pid, char* name);$/;"	p	class:Player	access:public	signature:(char* pid, char* name)
+Player::shareOfPot	source/model/player.h	/^	vector<int> shareOfPot;$/;"	m	class:Player	access:public
+Player::state	source/model/player.h	/^	int state;$/;"	m	class:Player	access:public
+Player::tmp	source/model/player.h	/^	bool tmp;$/;"	m	class:Player	access:public
+Player::type	source/model/player.h	/^	int type;$/;"	m	class:Player	access:public
+Player::~Player	source/model/player.cpp	/^Player::~Player()$/;"	f	class:Player	signature:()
+Player::~Player	source/model/player.h	/^	virtual ~Player();$/;"	p	class:Player	access:public	signature:()
+PlayerInfo	source/model/plyrinfo.cpp	/^PlayerInfo::PlayerInfo()$/;"	f	class:PlayerInfo	signature:()
+PlayerInfo	source/model/plyrinfo.cpp	/^PlayerInfo::PlayerInfo(string pid, int jetton, int money)$/;"	f	class:PlayerInfo	signature:(string pid, int jetton, int money)
+PlayerInfo	source/model/plyrinfo.h	/^	PlayerInfo();$/;"	p	class:PlayerInfo	access:public	signature:()
+PlayerInfo	source/model/plyrinfo.h	/^	PlayerInfo(string pid, int jetton, int money);$/;"	p	class:PlayerInfo	access:public	signature:(string pid, int jetton, int money)
+PlayerInfo	source/model/plyrinfo.h	/^class PlayerInfo$/;"	c
+PlayerInfo::PlayerInfo	source/model/plyrinfo.cpp	/^PlayerInfo::PlayerInfo()$/;"	f	class:PlayerInfo	signature:()
+PlayerInfo::PlayerInfo	source/model/plyrinfo.cpp	/^PlayerInfo::PlayerInfo(string pid, int jetton, int money)$/;"	f	class:PlayerInfo	signature:(string pid, int jetton, int money)
+PlayerInfo::PlayerInfo	source/model/plyrinfo.h	/^	PlayerInfo();$/;"	p	class:PlayerInfo	access:public	signature:()
+PlayerInfo::PlayerInfo	source/model/plyrinfo.h	/^	PlayerInfo(string pid, int jetton, int money);$/;"	p	class:PlayerInfo	access:public	signature:(string pid, int jetton, int money)
+PlayerInfo::inGame	source/model/plyrinfo.h	/^	bool inGame;$/;"	m	class:PlayerInfo	access:public
+PlayerInfo::jetton	source/model/plyrinfo.h	/^	int jetton;$/;"	m	class:PlayerInfo	access:public
+PlayerInfo::match	source/model/plyrinfo.cpp	/^bool PlayerInfo::match(PlayerInfo* plyr)$/;"	f	class:PlayerInfo	signature:(PlayerInfo* plyr)
+PlayerInfo::match	source/model/plyrinfo.h	/^	bool match(PlayerInfo* plyr);$/;"	p	class:PlayerInfo	access:public	signature:(PlayerInfo* plyr)
+PlayerInfo::money	source/model/plyrinfo.h	/^	int money;$/;"	m	class:PlayerInfo	access:public
+PlayerInfo::pid	source/model/plyrinfo.h	/^	string pid;$/;"	m	class:PlayerInfo	access:public
+PlayerInfo::setPlayerInfo	source/model/plyrinfo.cpp	/^void PlayerInfo::setPlayerInfo(string pid, int jetton, int money)$/;"	f	class:PlayerInfo	signature:(string pid, int jetton, int money)
+PlayerInfo::setPlayerInfo	source/model/plyrinfo.h	/^	void setPlayerInfo(string pid, int jetton, int money);$/;"	p	class:PlayerInfo	access:public	signature:(string pid, int jetton, int money)
+PlayerShell	source/comm/controller.h	/^class PlayerShell$/;"	c
+PlayerShell	source/comm/plyrshel.h	/^class PlayerShell$/;"	c
+PlayerShell::init	source/comm/controller.h	/^	void init(int ch, char* id, char* si, char* sp, char* ci, char* cp); \/\/init$/;"	p	class:PlayerShell	access:public	signature:(int ch, char* id, char* si, char* sp, char* ci, char* cp)
+PlayerShell::init	source/comm/plyrshel.cpp	/^void PlayerShell::init(int ch,char* pid,char* si,char* sp,char* ci,char* cp)$/;"	f	class:PlayerShell	signature:(int ch,char* pid,char* si,char* sp,char* ci,char* cp)
+PlayerShell::init	source/comm/plyrshel.h	/^	void init(int ch, char* id, char* si, char* sp, char* ci, char* cp); \/\/init$/;"	p	class:PlayerShell	access:public	signature:(int ch, char* id, char* si, char* sp, char* ci, char* cp)
+PlayerShell::mailman	source/comm/controller.h	/^	Mailman mailman;$/;"	m	class:PlayerShell	access:public
+PlayerShell::mailman	source/comm/plyrshel.h	/^	Mailman mailman;$/;"	m	class:PlayerShell	access:public
+PlayerShell::matchChar	source/comm/controller.h	/^	void matchChar(string& piece); \/\/return the string after cutting a char$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::matchChar	source/comm/plyrshel.cpp	/^void PlayerShell::matchChar(string& piece)$/;"	f	class:PlayerShell	signature:(string& piece)
+PlayerShell::matchChar	source/comm/plyrshel.h	/^	void matchChar(string& piece); \/\/return the string after cutting a char$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::matchWord	source/comm/controller.h	/^	void matchWord(string& piece); \/\/return the string after cutting word<space>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::matchWord	source/comm/plyrshel.cpp	/^void PlayerShell::matchWord(string& piece) $/;"	f	class:PlayerShell	signature:(string& piece)
+PlayerShell::matchWord	source/comm/plyrshel.h	/^	void matchWord(string& piece); \/\/return the string after cutting word<space>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::nextInt	source/comm/controller.h	/^	int nextInt(string& piece); \/\/shortens the string$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::nextInt	source/comm/plyrshel.cpp	/^int PlayerShell::nextInt(string& piece)$/;"	f	class:PlayerShell	signature:(string& piece)
+PlayerShell::nextInt	source/comm/plyrshel.h	/^	int nextInt(string& piece); \/\/shortens the string$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::nextWord	source/comm/controller.h	/^	string nextWord(string& piece); \/\/delim by <space> or <colon>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::nextWord	source/comm/plyrshel.cpp	/^string PlayerShell::nextWord(string& piece)$/;"	f	class:PlayerShell	signature:(string& piece)
+PlayerShell::nextWord	source/comm/plyrshel.h	/^	string nextWord(string& piece); \/\/delim by <space> or <colon>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+PlayerShell::player	source/comm/controller.h	/^	Player* player;$/;"	m	class:PlayerShell	access:public
+PlayerShell::player	source/comm/plyrshel.h	/^	Player* player;$/;"	m	class:PlayerShell	access:public
+PlayerShell::readBlind	source/comm/controller.h	/^	void readBlind(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readBlind	source/comm/handler.cpp	/^void PlayerShell::readBlind(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+PlayerShell::readBlind	source/comm/plyrshel.cpp	/^void PlayerShell::readBlind(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+PlayerShell::readBlind	source/comm/plyrshel.h	/^	void readBlind(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readFlop	source/comm/controller.h	/^	void readFlop(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readFlop	source/comm/plyrshel.cpp	/^void PlayerShell::readFlop(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+PlayerShell::readFlop	source/comm/plyrshel.h	/^	void readFlop(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readHold	source/comm/controller.h	/^	void readHold(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readHold	source/comm/handler.cpp	/^void PlayerShell::readHold(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+PlayerShell::readHold	source/comm/plyrshel.cpp	/^void PlayerShell::readHold(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+PlayerShell::readHold	source/comm/plyrshel.h	/^	void readHold(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readInquire	source/comm/controller.h	/^	void readInquire(string msg);$/;"	p	class:PlayerShell	access:public	signature:(string msg)
+PlayerShell::readInquire	source/comm/handler.cpp	/^void PlayerShell::readInquire(string msg)$/;"	f	class:PlayerShell	signature:(string msg)
+PlayerShell::readInquire	source/comm/plyrshel.cpp	/^void PlayerShell::readInquire(string msg)$/;"	f	class:PlayerShell	signature:(string msg)
+PlayerShell::readInquire	source/comm/plyrshel.h	/^	void readInquire(string msg);$/;"	p	class:PlayerShell	access:public	signature:(string msg)
+PlayerShell::readNotify	source/comm/controller.h	/^	void readNotify(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readNotify	source/comm/plyrshel.cpp	/^void PlayerShell::readNotify(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+PlayerShell::readNotify	source/comm/plyrshel.h	/^	void readNotify(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readPotwin	source/comm/controller.h	/^	void readPotwin(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readPotwin	source/comm/plyrshel.cpp	/^void PlayerShell::readPotwin(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+PlayerShell::readPotwin	source/comm/plyrshel.h	/^	void readPotwin(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readRiver	source/comm/controller.h	/^	void readRiver(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readRiver	source/comm/plyrshel.cpp	/^void PlayerShell::readRiver(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+PlayerShell::readRiver	source/comm/plyrshel.h	/^	void readRiver(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readSeat	source/comm/controller.h	/^	void readSeat(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readSeat	source/comm/handler.cpp	/^void PlayerShell::readSeat(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+PlayerShell::readSeat	source/comm/plyrshel.cpp	/^void PlayerShell::readSeat(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+PlayerShell::readSeat	source/comm/plyrshel.h	/^	void readSeat(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readShowdown	source/comm/controller.h	/^	void readShowdown(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readShowdown	source/comm/plyrshel.cpp	/^void PlayerShell::readShowdown(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+PlayerShell::readShowdown	source/comm/plyrshel.h	/^	void readShowdown(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readTurn	source/comm/controller.h	/^	void readTurn(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::readTurn	source/comm/plyrshel.cpp	/^void PlayerShell::readTurn(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+PlayerShell::readTurn	source/comm/plyrshel.h	/^	void readTurn(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+PlayerShell::start	source/comm/controller.h	/^	void start();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::start	source/comm/plyrshel.cpp	/^void PlayerShell::start()$/;"	f	class:PlayerShell	signature:()
+PlayerShell::start	source/comm/plyrshel.h	/^	void start();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::sticky	source/comm/controller.h	/^	string sticky(string& message, string header);$/;"	p	class:PlayerShell	access:private	signature:(string& message, string header)
+PlayerShell::sticky	source/comm/handler.cpp	/^string PlayerShell::sticky(string& message, string header)$/;"	f	class:PlayerShell	signature:(string& message, string header)
+PlayerShell::sticky	source/comm/plyrshel.cpp	/^string PlayerShell::sticky(string& message, string header)$/;"	f	class:PlayerShell	signature:(string& message, string header)
+PlayerShell::sticky	source/comm/plyrshel.h	/^	string sticky(string& message, string header);$/;"	p	class:PlayerShell	access:private	signature:(string& message, string header)
+PlayerShell::writeAction	source/comm/controller.h	/^	void writeAction();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::writeAction	source/comm/plyrshel.cpp	/^void PlayerShell::writeAction()$/;"	f	class:PlayerShell	signature:()
+PlayerShell::writeAction	source/comm/plyrshel.h	/^	void writeAction();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::writeReg	source/comm/controller.h	/^	void writeReg();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::writeReg	source/comm/handler.cpp	/^void PlayerShell::writeReg()$/;"	f	class:PlayerShell	signature:()
+PlayerShell::writeReg	source/comm/plyrshel.cpp	/^void PlayerShell::writeReg()$/;"	f	class:PlayerShell	signature:()
+PlayerShell::writeReg	source/comm/plyrshel.h	/^	void writeReg();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::~PlayerShell	source/comm/controller.h	/^	~PlayerShell();$/;"	p	class:PlayerShell	access:public	signature:()
+PlayerShell::~PlayerShell	source/comm/plyrshel.cpp	/^PlayerShell::~PlayerShell()$/;"	f	class:PlayerShell	signature:()
+PlayerShell::~PlayerShell	source/comm/plyrshel.h	/^	~PlayerShell();$/;"	p	class:PlayerShell	access:public	signature:()
+RIVER	source/globals.h	41;"	d
+R_BET	source/globals.h	42;"	d
+RdState	source/model/rdstate.cpp	/^RdState::RdState(string pid, int jetton, int money, int inBet, int lastAct, int state)$/;"	f	class:RdState	signature:(string pid, int jetton, int money, int inBet, int lastAct, int state)
+RdState	source/model/rdstate.h	/^	RdState(string,int,int,int,int,int);$/;"	p	class:RdState	access:public	signature:(string,int,int,int,int,int)
+RdState	source/model/rdstate.h	/^class RdState$/;"	c
+RdState::RdState	source/model/rdstate.cpp	/^RdState::RdState(string pid, int jetton, int money, int inBet, int lastAct, int state)$/;"	f	class:RdState	signature:(string pid, int jetton, int money, int inBet, int lastAct, int state)
+RdState::RdState	source/model/rdstate.h	/^	RdState(string,int,int,int,int,int);$/;"	p	class:RdState	access:public	signature:(string,int,int,int,int,int)
+RdState::inBet	source/model/rdstate.h	/^	int inBet;$/;"	m	class:RdState	access:public
+RdState::jetton	source/model/rdstate.h	/^	int jetton;$/;"	m	class:RdState	access:public
+RdState::lastAct	source/model/rdstate.h	/^	int lastAct;$/;"	m	class:RdState	access:public
+RdState::money	source/model/rdstate.h	/^	int money;$/;"	m	class:RdState	access:public
+RdState::pid	source/model/rdstate.h	/^	string pid;$/;"	m	class:RdState	access:public
+RdState::state	source/model/rdstate.h	/^	int state; \/\/in which round is last act$/;"	m	class:RdState	access:public
+SBLIND_INDEX	source/globals.h	99;"	d
+SBlindId	source/model/player.h	/^	string SBlindId;$/;"	m	class:Player	access:public
+SEAT_BIG_BLIND	source/globals.h	51;"	d
+SEAT_BUTTON	source/globals.h	50;"	d
+SEAT_NOT_BLIND	source/globals.h	53;"	d
+SEAT_SMALL_BLIND	source/globals.h	52;"	d
+SHUFFLE	source/globals.h	34;"	d
+SPADE	source/globals.h	/^typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;$/;"	e	enum:__anon1
+STRAIGHT	source/globals.h	27;"	d
+STRAIGHTFLUSH	source/globals.h	31;"	d
+STR_ALLIN	source/globals.h	92;"	d
+STR_CALL	source/globals.h	90;"	d
+STR_CHECK	source/globals.h	89;"	d
+STR_FOLD	source/globals.h	93;"	d
+STR_RAISE	source/globals.h	91;"	d
+ShrewdPlayer	source/plyr/shrewdpl.cpp	/^ShrewdPlayer::ShrewdPlayer(string pid)$/;"	f	class:ShrewdPlayer	signature:(string pid)
+ShrewdPlayer	source/plyr/shrewdpl.h	/^	ShrewdPlayer(string pid);$/;"	p	class:ShrewdPlayer	access:public	signature:(string pid)
+ShrewdPlayer	source/plyr/shrewdpl.h	/^class ShrewdPlayer: public Player$/;"	c	inherits:Player
+ShrewdPlayer::ShrewdPlayer	source/plyr/shrewdpl.cpp	/^ShrewdPlayer::ShrewdPlayer(string pid)$/;"	f	class:ShrewdPlayer	signature:(string pid)
+ShrewdPlayer::ShrewdPlayer	source/plyr/shrewdpl.h	/^	ShrewdPlayer(string pid);$/;"	p	class:ShrewdPlayer	access:public	signature:(string pid)
+ShrewdPlayer::dealBet	source/plyr/shrewdpl.cpp	/^Action ShrewdPlayer::dealBet()$/;"	f	class:ShrewdPlayer	signature:()
+ShrewdPlayer::dealBet	source/plyr/shrewdpl.h	/^	Action dealBet();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+ShrewdPlayer::flopBet	source/plyr/shrewdpl.cpp	/^Action ShrewdPlayer::flopBet()$/;"	f	class:ShrewdPlayer	signature:()
+ShrewdPlayer::flopBet	source/plyr/shrewdpl.h	/^	Action flopBet();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+ShrewdPlayer::getEE	source/plyr/shrewdpl.h	/^	float getEE();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+ShrewdPlayer::getLeastRaise	source/plyr/shrewdpl.h	/^	int getLeastRaise();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+ShrewdPlayer::getPoint	source/plyr/shrewdpl.h	/^	int getPoint();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+ShrewdPlayer::sendBet	source/plyr/shrewdpl.cpp	/^Action ShrewdPlayer::sendBet()$/;"	f	class:ShrewdPlayer	signature:()
+ShrewdPlayer::sendBet	source/plyr/shrewdpl.h	/^	Action sendBet();$/;"	p	class:ShrewdPlayer	access:public	signature:()
+Simu	source/comm/simu.h	/^class Simu$/;"	c
+Simu::deck	source/comm/simu.h	/^	vector<Card> deck; \/\/a real deck for dealing$/;"	m	class:Simu	access:public
+Simu::initDeck	source/comm/simu.cpp	/^void Simu::initDeck()$/;"	f	class:Simu	signature:()
+Simu::initDeck	source/comm/simu.h	/^	void initDeck();$/;"	p	class:Simu	access:public	signature:()
+Simu::nPlayers	source/comm/simu.h	/^	int nPlayers; \/\/num of players$/;"	m	class:Simu	access:public
+Simu::printDeck	source/comm/simu.cpp	/^void Simu::printDeck()$/;"	f	class:Simu	signature:()
+Simu::printDeck	source/comm/simu.h	/^	void printDeck(); \/\/for deck$/;"	p	class:Simu	access:public	signature:()
+Simu::setPlayers	source/comm/simu.cpp	/^void Simu::setPlayers(int nPlayers)$/;"	f	class:Simu	signature:(int nPlayers)
+Simu::setPlayers	source/comm/simu.h	/^	void setPlayers(int nPlayers); \/\/for nPlayers$/;"	p	class:Simu	access:public	signature:(int nPlayers)
+Simu::shuffle	source/comm/simu.cpp	/^void Simu::shuffle()$/;"	f	class:Simu	signature:()
+Simu::shuffle	source/comm/simu.h	/^	void shuffle(); $/;"	p	class:Simu	access:public	signature:()
+SimuPlayer	source/comm/simuplayer.cpp	/^SimuPlayer::SimuPlayer()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer	source/comm/simuplayer.h	/^	SimuPlayer();$/;"	p	class:SimuPlayer	access:public	signature:()
+SimuPlayer	source/comm/simuplayer.h	/^class SimuPlayer: public Simu$/;"	c	inherits:Simu
+SimuPlayer::SimuPlayer	source/comm/simuplayer.cpp	/^SimuPlayer::SimuPlayer()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::SimuPlayer	source/comm/simuplayer.h	/^	SimuPlayer();$/;"	p	class:SimuPlayer	access:public	signature:()
+SimuPlayer::comm	source/comm/simuplayer.h	/^	vector<Card> comm; \/\/common card$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::deal	source/comm/simuplayer.cpp	/^void SimuPlayer::deal()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::deal	source/comm/simuplayer.h	/^	void deal(); \/\/deal to other players: called multiple times$/;"	p	class:SimuPlayer	access:private	signature:()
+SimuPlayer::dealNextUnseen	source/comm/simuplayer.cpp	/^void SimuPlayer::dealNextUnseen(vector<Card>& vec)$/;"	f	class:SimuPlayer	signature:(vector<Card>& vec)
+SimuPlayer::dealNextUnseen	source/comm/simuplayer.h	/^	void dealNextUnseen(vector<Card>& vec);$/;"	p	class:SimuPlayer	access:private	signature:(vector<Card>& vec)
+SimuPlayer::flop	source/comm/simuplayer.cpp	/^void SimuPlayer::flop()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::flop	source/comm/simuplayer.h	/^	void flop();$/;"	p	class:SimuPlayer	access:private	signature:()
+SimuPlayer::hole	source/comm/simuplayer.h	/^	vector<Card> hole; \/\/hole card of main player$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::isWin	source/comm/simuplayer.cpp	/^bool SimuPlayer::isWin()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::isWin	source/comm/simuplayer.h	/^	bool isWin(); $/;"	p	class:SimuPlayer	access:private	signature:()
+SimuPlayer::mainWin	source/comm/simuplayer.h	/^	bool mainWin;$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::myHand	source/comm/simuplayer.h	/^	Hand myHand;$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::oppoHand	source/comm/simuplayer.h	/^	vector<Hand> oppoHand;$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::oppoHole	source/comm/simuplayer.h	/^	vector<Card> oppoHole; \/\/hole card of opponents: 2*nPlayers-2$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::print	source/comm/simuplayer.cpp	/^void SimuPlayer::print()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::print	source/comm/simuplayer.h	/^	void print();$/;"	p	class:SimuPlayer	access:public	signature:()
+SimuPlayer::reco	source/comm/simuplayer.h	/^	vector<Card> reco;$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::river	source/comm/simuplayer.cpp	/^void SimuPlayer::river()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::river	source/comm/simuplayer.h	/^	void river();$/;"	p	class:SimuPlayer	access:private	signature:()
+SimuPlayer::seen	source/comm/simuplayer.h	/^	vector<Card> seen; \/\/all seen cards in comm and hole$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::setState	source/comm/simuplayer.cpp	/^void SimuPlayer::setState(int state, vector<Card> hole, vector<Card> comm)$/;"	f	class:SimuPlayer	signature:(int state, vector<Card> hole, vector<Card> comm)
+SimuPlayer::setState	source/comm/simuplayer.h	/^	void setState(int state, vector<Card> hole, vector<Card> comm);$/;"	p	class:SimuPlayer	access:public	signature:(int state, vector<Card> hole, vector<Card> comm)
+SimuPlayer::simulate	source/comm/simuplayer.cpp	/^float SimuPlayer::simulate(int times)$/;"	f	class:SimuPlayer	signature:(int times)
+SimuPlayer::simulate	source/comm/simuplayer.h	/^	float simulate(int times);$/;"	p	class:SimuPlayer	access:public	signature:(int times)
+SimuPlayer::state	source/comm/simuplayer.h	/^	int state; \/\/state of the game$/;"	m	class:SimuPlayer	access:private
+SimuPlayer::turn	source/comm/simuplayer.cpp	/^void SimuPlayer::turn()$/;"	f	class:SimuPlayer	signature:()
+SimuPlayer::turn	source/comm/simuplayer.h	/^	void turn();$/;"	p	class:SimuPlayer	access:private	signature:()
+SnarePlayer	source/plyr/snarepl.cpp	/^SnarePlayer::SnarePlayer(string pid)$/;"	f	class:SnarePlayer	signature:(string pid)
+SnarePlayer	source/plyr/snarepl.h	/^	SnarePlayer(string pid);$/;"	p	class:SnarePlayer	access:public	signature:(string pid)
+SnarePlayer	source/plyr/snarepl.h	/^class SnarePlayer: public Player$/;"	c	inherits:Player
+SnarePlayer::SnarePlayer	source/plyr/snarepl.cpp	/^SnarePlayer::SnarePlayer(string pid)$/;"	f	class:SnarePlayer	signature:(string pid)
+SnarePlayer::SnarePlayer	source/plyr/snarepl.h	/^	SnarePlayer(string pid);$/;"	p	class:SnarePlayer	access:public	signature:(string pid)
+SnarePlayer::dealBet	source/plyr/snarepl.cpp	/^Action SnarePlayer::dealBet()$/;"	f	class:SnarePlayer	signature:()
+SnarePlayer::dealBet	source/plyr/snarepl.h	/^	Action dealBet();$/;"	p	class:SnarePlayer	access:private	signature:()
+SnarePlayer::flopBet	source/plyr/snarepl.cpp	/^Action SnarePlayer::flopBet()$/;"	f	class:SnarePlayer	signature:()
+SnarePlayer::flopBet	source/plyr/snarepl.h	/^	Action flopBet();$/;"	p	class:SnarePlayer	access:private	signature:()
+SnarePlayer::getEE	source/plyr/snarepl.cpp	/^float SnarePlayer::getEE()$/;"	f	class:SnarePlayer	signature:()
+SnarePlayer::getEE	source/plyr/snarepl.h	/^	float getEE();$/;"	p	class:SnarePlayer	access:private	signature:()
+SnarePlayer::getPoint	source/plyr/snarepl.cpp	/^int SnarePlayer::getPoint()$/;"	f	class:SnarePlayer	signature:()
+SnarePlayer::getPoint	source/plyr/snarepl.h	/^	int getPoint();$/;"	p	class:SnarePlayer	access:private	signature:()
+SnarePlayer::sendBet	source/plyr/snarepl.cpp	/^Action SnarePlayer::sendBet()$/;"	f	class:SnarePlayer	signature:()
+SnarePlayer::sendBet	source/plyr/snarepl.h	/^	Action sendBet();$/;"	p	class:SnarePlayer	access:public	signature:()
+SnarePlayer::sp	source/plyr/snarepl.h	/^	SimuPlayer sp;$/;"	m	class:SnarePlayer	access:private
+SnarlPlayer	source/plyr/snarlpl.cpp	/^SnarlPlayer::SnarlPlayer(string pid)$/;"	f	class:SnarlPlayer	signature:(string pid)
+SnarlPlayer	source/plyr/snarlpl.h	/^	SnarlPlayer(string pid);$/;"	p	class:SnarlPlayer	access:public	signature:(string pid)
+SnarlPlayer	source/plyr/snarlpl.h	/^class SnarlPlayer: public Player$/;"	c	inherits:Player
+SnarlPlayer::SnarlPlayer	source/plyr/snarlpl.cpp	/^SnarlPlayer::SnarlPlayer(string pid)$/;"	f	class:SnarlPlayer	signature:(string pid)
+SnarlPlayer::SnarlPlayer	source/plyr/snarlpl.h	/^	SnarlPlayer(string pid);$/;"	p	class:SnarlPlayer	access:public	signature:(string pid)
+SnarlPlayer::cntPlayers	source/plyr/snarlpl.cpp	/^int SnarlPlayer::cntPlayers(int iPlayer, int jAction)$/;"	f	class:SnarlPlayer	signature:(int iPlayer, int jAction)
+SnarlPlayer::cntPlayers	source/plyr/snarlpl.h	/^	int cntPlayers(int iPlayer, int jAction);$/;"	p	class:SnarlPlayer	access:private	signature:(int iPlayer, int jAction)
+SnarlPlayer::cntRaise	source/plyr/snarlpl.h	/^	int cntRaise[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+SnarlPlayer::dealBet	source/plyr/snarlpl.cpp	/^Action SnarlPlayer::dealBet()$/;"	f	class:SnarlPlayer	signature:()
+SnarlPlayer::dealBet	source/plyr/snarlpl.h	/^	Action dealBet();$/;"	p	class:SnarlPlayer	access:private	signature:()
+SnarlPlayer::findPerPl	source/plyr/snarlpl.cpp	/^int SnarlPlayer::findPerPl(string pid)$/;"	f	class:SnarlPlayer	signature:(string pid)
+SnarlPlayer::findPerPl	source/plyr/snarlpl.h	/^	int findPerPl(string pid);$/;"	p	class:SnarlPlayer	access:private	signature:(string pid)
+SnarlPlayer::firstTime	source/plyr/snarlpl.h	/^	bool firstTime;$/;"	m	class:SnarlPlayer	access:public
+SnarlPlayer::flopBet	source/plyr/snarlpl.cpp	/^Action SnarlPlayer::flopBet()$/;"	f	class:SnarlPlayer	signature:()
+SnarlPlayer::flopBet	source/plyr/snarlpl.h	/^	Action flopBet();$/;"	p	class:SnarlPlayer	access:private	signature:()
+SnarlPlayer::getPoint	source/plyr/snarlpl.cpp	/^int SnarlPlayer::getPoint()$/;"	f	class:SnarlPlayer	signature:()
+SnarlPlayer::getPoint	source/plyr/snarlpl.h	/^	int getPoint();$/;"	p	class:SnarlPlayer	access:private	signature:()
+SnarlPlayer::indexOf	source/plyr/snarlpl.h	/^	string indexOf[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+SnarlPlayer::playerBluff	source/plyr/snarlpl.h	/^	float playerBluff[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+SnarlPlayer::playerWin	source/plyr/snarlpl.h	/^	float playerWin[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+SnarlPlayer::reflect	source/plyr/snarlpl.cpp	/^void SnarlPlayer::reflect()$/;"	f	class:SnarlPlayer	signature:()
+SnarlPlayer::reflect	source/plyr/snarlpl.h	/^	virtual void reflect();$/;"	p	class:SnarlPlayer	access:public	signature:()
+SnarlPlayer::sendBet	source/plyr/snarlpl.cpp	/^Action SnarlPlayer::sendBet()$/;"	f	class:SnarlPlayer	signature:()
+SnarlPlayer::sendBet	source/plyr/snarlpl.h	/^	Action sendBet();$/;"	p	class:SnarlPlayer	access:public	signature:()
+SnarlPlayer::sp	source/plyr/snarlpl.h	/^	SimuPlayer sp;$/;"	m	class:SnarlPlayer	access:private
+SnorePlayer	source/plyr/snorepl.cpp	/^SnorePlayer::SnorePlayer(string pid)$/;"	f	class:SnorePlayer	signature:(string pid)
+SnorePlayer	source/plyr/snorepl.h	/^	SnorePlayer(string pid);$/;"	p	class:SnorePlayer	access:public	signature:(string pid)
+SnorePlayer	source/plyr/snorepl.h	/^class SnorePlayer: public Player$/;"	c	inherits:Player
+SnorePlayer::SnorePlayer	source/plyr/snorepl.cpp	/^SnorePlayer::SnorePlayer(string pid)$/;"	f	class:SnorePlayer	signature:(string pid)
+SnorePlayer::SnorePlayer	source/plyr/snorepl.h	/^	SnorePlayer(string pid);$/;"	p	class:SnorePlayer	access:public	signature:(string pid)
+SnorePlayer::dealBet	source/plyr/snorepl.cpp	/^Action SnorePlayer::dealBet()$/;"	f	class:SnorePlayer	signature:()
+SnorePlayer::dealBet	source/plyr/snorepl.h	/^	Action dealBet();$/;"	p	class:SnorePlayer	access:private	signature:()
+SnorePlayer::flopBet	source/plyr/snorepl.cpp	/^Action SnorePlayer::flopBet()$/;"	f	class:SnorePlayer	signature:()
+SnorePlayer::flopBet	source/plyr/snorepl.h	/^	Action flopBet();$/;"	p	class:SnorePlayer	access:private	signature:()
+SnorePlayer::getEE	source/plyr/snorepl.h	/^	float getEE();$/;"	p	class:SnorePlayer	access:private	signature:()
+SnorePlayer::getLeastRaise	source/plyr/snorepl.h	/^	int getLeastRaise();$/;"	p	class:SnorePlayer	access:private	signature:()
+SnorePlayer::getPoint	source/plyr/snorepl.h	/^	int getPoint();$/;"	p	class:SnorePlayer	access:private	signature:()
+SnorePlayer::sendBet	source/plyr/snorepl.cpp	/^Action SnorePlayer::sendBet()$/;"	f	class:SnorePlayer	signature:()
+SnorePlayer::sendBet	source/plyr/snorepl.h	/^	Action sendBet();$/;"	p	class:SnorePlayer	access:public	signature:()
+SnowPlayer	source/plyr/snowpl.cpp	/^SnowPlayer::SnowPlayer(string pid)$/;"	f	class:SnowPlayer	signature:(string pid)
+SnowPlayer	source/plyr/snowpl.h	/^	SnowPlayer(string pid);$/;"	p	class:SnowPlayer	access:public	signature:(string pid)
+SnowPlayer	source/plyr/snowpl.h	/^class SnowPlayer:public Player$/;"	c	inherits:Player
+SnowPlayer::PWins	source/plyr/snowpl.h	/^	vector<StartHand> PWins[MAX_PLAYER+1];$/;"	m	class:SnowPlayer	access:public
+SnowPlayer::SnowPlayer	source/plyr/snowpl.cpp	/^SnowPlayer::SnowPlayer(string pid)$/;"	f	class:SnowPlayer	signature:(string pid)
+SnowPlayer::SnowPlayer	source/plyr/snowpl.h	/^	SnowPlayer(string pid);$/;"	p	class:SnowPlayer	access:public	signature:(string pid)
+SnowPlayer::findWins	source/plyr/snowpl.cpp	/^float SnowPlayer::findWins()$/;"	f	class:SnowPlayer	signature:()
+SnowPlayer::findWins	source/plyr/snowpl.h	/^	float findWins();$/;"	p	class:SnowPlayer	access:public	signature:()
+SnowPlayer::sendBet	source/plyr/snowpl.cpp	/^Action SnowPlayer::sendBet()$/;"	f	class:SnowPlayer	signature:()
+SnowPlayer::sendBet	source/plyr/snowpl.h	/^	Action sendBet();$/;"	p	class:SnowPlayer	access:public	signature:()
+StartHand	source/model/shand.h	/^class StartHand$/;"	c
+StartHand::figure	source/model/shand.h	/^	int figure[HOLE_SIZE];$/;"	m	class:StartHand	access:public
+StartHand::isSuited	source/model/shand.h	/^	bool isSuited;$/;"	m	class:StartHand	access:public
+StartHand::pwin	source/model/shand.h	/^	float pwin;$/;"	m	class:StartHand	access:public
+TRIP	source/globals.h	26;"	d
+TURN	source/globals.h	39;"	d
+TWOPAIRS	source/globals.h	25;"	d
+T_BET	source/globals.h	40;"	d
+UTG_INDEX	source/globals.h	101;"	d
+VPATH	makeproject/makefile	/^VPATH=..\/source$/;"	m
+_ACTION_H_	source/model/action.h	2;"	d
+_CALLER_H_	source/plyr/caller.h	2;"	d
+_CARD_H_	source/model/card.h	2;"	d
+_CHECK_PLUS_H_	source/model/checkplus.h	2;"	d
+_CONTROLLER_H_	source/comm/controller.h	2;"	d
+_CONTROLLER_H_	source/comm/plyrshel.h	2;"	d
+_FLOP_RAISER_H_	source/plyr/floprai.h	2;"	d
+_FOLDER_H_	source/plyr/folder.h	2;"	d
+_GLOBALS_H_	source/globals.h	2;"	d
+_HAND_H_	source/model/hand.h	2;"	d
+_MAIL_MAN_H_	source/comm/mailman.h	2;"	d
+_PARSER_H_	source/comm/parser.h	2;"	d
+_PLAYER_H_	source/model/player.h	2;"	d
+_PLAYER_INFO_H_	source/model/plyrinfo.h	2;"	d
+_ROUND_STATE_H_	source/model/rdstate.h	2;"	d
+_SHREWD_PLAYER_H_	source/plyr/shrewdpl.h	2;"	d
+_SIMU_H_	source/comm/simu.h	2;"	d
+_SIMU_PLAYER_H_	source/comm/simuplayer.h	2;"	d
+_SNARE_PLAYER_H_	source/plyr/snarepl.h	2;"	d
+_SNORE_PLAYER_H_	source/plyr/snorepl.h	2;"	d
+_SNOW_PLAYER_H_	source/plyr/snowpl.h	2;"	d
+_SNRAL_PLAYER_H_	source/plyr/snarlpl.h	2;"	d
+_STARTING_HAND_H_	source/model/shand.h	2;"	d
+act	source/model/action.h	/^	int act;$/;"	m	class:Action	access:public
+action	source/model/player.h	/^	vector<Action> action[MAX_PLAYER];$/;"	m	class:Player	access:public
+aout	source/plyr/snarlpl.cpp	/^static ofstream aout;$/;"	v	file:
+bet	source/model/action.h	/^	int bet;$/;"	m	class:Action	access:public
+bigBlind	source/model/player.h	/^	int bigBlind;$/;"	m	class:Player	access:public
+bindCon	source/comm/mailman.cpp	/^void Mailman::bindCon()$/;"	f	class:Mailman	signature:()
+bindCon	source/comm/mailman.h	/^	void bindCon();$/;"	p	class:Mailman	access:public	signature:()
+checkFlush	source/model/checkplus.cpp	/^bool CheckerPlus::checkFlush(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkFlush	source/model/checkplus.h	/^	static bool checkFlush(vector<Card> hand, Hand& ret); \/\/color leading$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkFour	source/model/checkplus.cpp	/^bool CheckerPlus::checkFour(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkFour	source/model/checkplus.h	/^	static bool checkFour(vector<Card> hand, Hand& ret); \/\/repeat$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkFullHouse	source/model/checkplus.cpp	/^bool CheckerPlus::checkFullHouse(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkFullHouse	source/model/checkplus.h	/^	static bool checkFullHouse(vector<Card> hand, Hand& ret); \/\/trip two$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkHand	source/model/checkplus.cpp	/^Hand CheckerPlus::checkHand(vector<Card> handcard)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard)
+checkHand	source/model/checkplus.h	/^	static Hand checkHand(vector<Card> hand);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand)
+checkHighCard	source/model/checkplus.cpp	/^bool CheckerPlus::checkHighCard(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkHighCard	source/model/checkplus.h	/^	static bool checkHighCard(vector<Card> hand, Hand& ret);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkPair	source/model/checkplus.cpp	/^bool CheckerPlus::checkPair(vector<Card> handcard, Hand& ret) $/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkPair	source/model/checkplus.h	/^	static bool checkPair(vector<Card> hand, Hand& ret) ; \/\/repeat$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkStraight	source/model/checkplus.cpp	/^bool CheckerPlus::checkStraight(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkStraight	source/model/checkplus.h	/^	static bool checkStraight(vector<Card> hand, Hand& ret); \/\/start$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkStraightFlush	source/model/checkplus.cpp	/^bool CheckerPlus::checkStraightFlush(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkStraightFlush	source/model/checkplus.h	/^	static bool checkStraightFlush(vector<Card> hand, Hand& ret); $/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkTrip	source/model/checkplus.cpp	/^bool CheckerPlus::checkTrip(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkTrip	source/model/checkplus.h	/^	static bool checkTrip(vector<Card> hand, Hand& ret); \/\/repeat$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+checkTwoPairs	source/model/checkplus.cpp	/^bool CheckerPlus::checkTwoPairs(vector<Card> handcard, Hand& ret)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard, Hand& ret)
+checkTwoPairs	source/model/checkplus.h	/^	static bool checkTwoPairs(vector<Card> hand, Hand& ret); \/\/higher lower$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> hand, Hand& ret)
+client_addr	source/comm/mailman.h	/^    struct sockaddr_in client_addr; $/;"	m	class:Mailman	typeref:struct:Mailman::sockaddr_in	access:private
+client_ip	source/comm/mailman.h	/^	char client_ip[MAXLEN], client_port[MAXLEN];$/;"	m	class:Mailman	access:private
+client_port	source/comm/mailman.h	/^	char client_ip[MAXLEN], client_port[MAXLEN];$/;"	m	class:Mailman	access:private
+closeCon	source/comm/mailman.cpp	/^void Mailman::closeCon()$/;"	f	class:Mailman	signature:()
+closeCon	source/comm/mailman.h	/^	void closeCon();$/;"	p	class:Mailman	access:public	signature:()
+cntPlayers	source/plyr/snarlpl.cpp	/^int SnarlPlayer::cntPlayers(int iPlayer, int jAction)$/;"	f	class:SnarlPlayer	signature:(int iPlayer, int jAction)
+cntPlayers	source/plyr/snarlpl.h	/^	int cntPlayers(int iPlayer, int jAction);$/;"	p	class:SnarlPlayer	access:private	signature:(int iPlayer, int jAction)
+cntRaise	source/plyr/snarlpl.h	/^	int cntRaise[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+cntRd	source/model/player.h	/^	int cntRd;$/;"	m	class:Player	access:public
+color	source/model/card.h	/^	int color; \/\/As Color$/;"	m	class:Card	access:public
+color	source/model/checkplus.h	/^	int color;$/;"	m	class:FigCnt	access:public
+comm	source/comm/simuplayer.h	/^	vector<Card> comm; \/\/common card$/;"	m	class:SimuPlayer	access:private
+comm	source/model/player.h	/^	vector<Card> comm;$/;"	m	class:Player	access:public
+commDiff	source/model/checkplus.h	/^	static vector<int> commDiff;$/;"	m	class:CheckerPlus	access:private
+compare	source/model/hand.cpp	/^int Hand::compare(Hand* hand)$/;"	f	class:Hand	signature:(Hand* hand)
+compare	source/model/hand.h	/^	int compare(Hand* hand);$/;"	p	class:Hand	access:public	signature:(Hand* hand)
+connectCon	source/comm/mailman.cpp	/^void Mailman::connectCon()$/;"	f	class:Mailman	signature:()
+connectCon	source/comm/mailman.h	/^	void connectCon();$/;"	p	class:Mailman	access:public	signature:()
+deal	source/comm/simuplayer.cpp	/^void SimuPlayer::deal()$/;"	f	class:SimuPlayer	signature:()
+deal	source/comm/simuplayer.h	/^	void deal(); \/\/deal to other players: called multiple times$/;"	p	class:SimuPlayer	access:private	signature:()
+dealBet	source/plyr/floprai.cpp	/^Action FlopRaiser::dealBet()$/;"	f	class:FlopRaiser	signature:()
+dealBet	source/plyr/floprai.h	/^	Action dealBet();$/;"	p	class:FlopRaiser	access:private	signature:()
+dealBet	source/plyr/shrewdpl.cpp	/^Action ShrewdPlayer::dealBet()$/;"	f	class:ShrewdPlayer	signature:()
+dealBet	source/plyr/shrewdpl.h	/^	Action dealBet();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+dealBet	source/plyr/snarepl.cpp	/^Action SnarePlayer::dealBet()$/;"	f	class:SnarePlayer	signature:()
+dealBet	source/plyr/snarepl.h	/^	Action dealBet();$/;"	p	class:SnarePlayer	access:private	signature:()
+dealBet	source/plyr/snarlpl.cpp	/^Action SnarlPlayer::dealBet()$/;"	f	class:SnarlPlayer	signature:()
+dealBet	source/plyr/snarlpl.h	/^	Action dealBet();$/;"	p	class:SnarlPlayer	access:private	signature:()
+dealBet	source/plyr/snorepl.cpp	/^Action SnorePlayer::dealBet()$/;"	f	class:SnorePlayer	signature:()
+dealBet	source/plyr/snorepl.h	/^	Action dealBet();$/;"	p	class:SnorePlayer	access:private	signature:()
+dealNextUnseen	source/comm/simuplayer.cpp	/^void SimuPlayer::dealNextUnseen(vector<Card>& vec)$/;"	f	class:SimuPlayer	signature:(vector<Card>& vec)
+dealNextUnseen	source/comm/simuplayer.h	/^	void dealNextUnseen(vector<Card>& vec);$/;"	p	class:SimuPlayer	access:private	signature:(vector<Card>& vec)
+deck	source/comm/simu.h	/^	vector<Card> deck; \/\/a real deck for dealing$/;"	m	class:Simu	access:public
+dout	source/plyr/shrewdpl.cpp	/^ofstream dout;$/;"	v
+figCnt	source/model/checkplus.h	/^	static vector<FigCnt> figCnt;$/;"	m	class:CheckerPlus	access:private
+figure	source/model/card.h	/^	int figure; \/\/2~14$/;"	m	class:Card	access:public
+figure	source/model/checkplus.h	/^	int figure;$/;"	m	class:FigCnt	access:public
+figure	source/model/shand.h	/^	int figure[HOLE_SIZE];$/;"	m	class:StartHand	access:public
+findIndex	source/model/player.cpp	/^int Player::findIndex(string pid)$/;"	f	class:Player	signature:(string pid)
+findIndex	source/model/player.h	/^	int findIndex(string pid);$/;"	p	class:Player	access:public	signature:(string pid)
+findMostColor	source/model/checkplus.cpp	/^void CheckerPlus::findMostColor(vector<Card> handcard,int& mostColor,int& theColor)$/;"	f	class:CheckerPlus	signature:(vector<Card> handcard,int& mostColor,int& theColor)
+findMostColor	source/model/checkplus.h	/^	static void findMostColor(vector<Card> handcard, int& mostColor, int& theColor);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card> handcard, int& mostColor, int& theColor)
+findPerPl	source/plyr/snarlpl.cpp	/^int SnarlPlayer::findPerPl(string pid)$/;"	f	class:SnarlPlayer	signature:(string pid)
+findPerPl	source/plyr/snarlpl.h	/^	int findPerPl(string pid);$/;"	p	class:SnarlPlayer	access:private	signature:(string pid)
+findWins	source/plyr/snowpl.cpp	/^float SnowPlayer::findWins()$/;"	f	class:SnowPlayer	signature:()
+findWins	source/plyr/snowpl.h	/^	float findWins();$/;"	p	class:SnowPlayer	access:public	signature:()
+first	source/model/hand.h	/^	vector<int> first;$/;"	m	class:Hand	access:public
+firstTime	source/plyr/snarlpl.h	/^	bool firstTime;$/;"	m	class:SnarlPlayer	access:public
+flop	source/comm/simuplayer.cpp	/^void SimuPlayer::flop()$/;"	f	class:SimuPlayer	signature:()
+flop	source/comm/simuplayer.h	/^	void flop();$/;"	p	class:SimuPlayer	access:private	signature:()
+flopBet	source/plyr/floprai.cpp	/^Action FlopRaiser::flopBet()$/;"	f	class:FlopRaiser	signature:()
+flopBet	source/plyr/floprai.h	/^	Action flopBet();$/;"	p	class:FlopRaiser	access:private	signature:()
+flopBet	source/plyr/shrewdpl.cpp	/^Action ShrewdPlayer::flopBet()$/;"	f	class:ShrewdPlayer	signature:()
+flopBet	source/plyr/shrewdpl.h	/^	Action flopBet();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+flopBet	source/plyr/snarepl.cpp	/^Action SnarePlayer::flopBet()$/;"	f	class:SnarePlayer	signature:()
+flopBet	source/plyr/snarepl.h	/^	Action flopBet();$/;"	p	class:SnarePlayer	access:private	signature:()
+flopBet	source/plyr/snarlpl.cpp	/^Action SnarlPlayer::flopBet()$/;"	f	class:SnarlPlayer	signature:()
+flopBet	source/plyr/snarlpl.h	/^	Action flopBet();$/;"	p	class:SnarlPlayer	access:private	signature:()
+flopBet	source/plyr/snorepl.cpp	/^Action SnorePlayer::flopBet()$/;"	f	class:SnorePlayer	signature:()
+flopBet	source/plyr/snorepl.h	/^	Action flopBet();$/;"	p	class:SnorePlayer	access:private	signature:()
+getAction	source/comm/parser.cpp	/^Action Parser::getAction(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+getCard	source/comm/parser.cpp	/^Card Parser::getCard(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+getCard	source/comm/parser.h	/^	Card getCard(string& msg); \/\/match eol or space at end$/;"	p	class:Parser	access:private	signature:(string& msg)
+getCard	source/model/card.cpp	/^Card Card::getCard(char color, int figure)$/;"	f	class:Card	signature:(char color, int figure)
+getCard	source/model/card.h	/^	static Card getCard(char color, int figure);$/;"	p	class:Card	access:public	signature:(char color, int figure)
+getEE	source/plyr/shrewdpl.h	/^	float getEE();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+getEE	source/plyr/snarepl.cpp	/^float SnarePlayer::getEE()$/;"	f	class:SnarePlayer	signature:()
+getEE	source/plyr/snarepl.h	/^	float getEE();$/;"	p	class:SnarePlayer	access:private	signature:()
+getEE	source/plyr/snorepl.h	/^	float getEE();$/;"	p	class:SnorePlayer	access:private	signature:()
+getInPlayers	source/model/player.cpp	/^int Player::getInPlayers()$/;"	f	class:Player	signature:()
+getInPlayers	source/model/player.h	/^	int getInPlayers();$/;"	p	class:Player	access:public	signature:()
+getLeastBuyin	source/model/player.cpp	/^int Player::getLeastBuyin()$/;"	f	class:Player	signature:()
+getLeastBuyin	source/model/player.h	/^	int getLeastBuyin();$/;"	p	class:Player	access:public	signature:()
+getLeastRaise	source/plyr/shrewdpl.h	/^	int getLeastRaise();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+getLeastRaise	source/plyr/snorepl.h	/^	int getLeastRaise();$/;"	p	class:SnorePlayer	access:private	signature:()
+getMsg	source/comm/mailman.cpp	/^string Mailman::getMsg()$/;"	f	class:Mailman	signature:()
+getMsg	source/comm/mailman.h	/^	string getMsg();$/;"	p	class:Mailman	access:public	signature:()
+getPlayerInfo	source/comm/parser.cpp	/^PlayerInfo Parser::getPlayerInfo(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+getPlayerInfo	source/comm/parser.h	/^	PlayerInfo getPlayerInfo(string& msg); \/\/match eol or space at end$/;"	p	class:Parser	access:private	signature:(string& msg)
+getPoint	source/plyr/shrewdpl.h	/^	int getPoint();$/;"	p	class:ShrewdPlayer	access:private	signature:()
+getPoint	source/plyr/snarepl.cpp	/^int SnarePlayer::getPoint()$/;"	f	class:SnarePlayer	signature:()
+getPoint	source/plyr/snarepl.h	/^	int getPoint();$/;"	p	class:SnarePlayer	access:private	signature:()
+getPoint	source/plyr/snarlpl.cpp	/^int SnarlPlayer::getPoint()$/;"	f	class:SnarlPlayer	signature:()
+getPoint	source/plyr/snarlpl.h	/^	int getPoint();$/;"	p	class:SnarlPlayer	access:private	signature:()
+getPoint	source/plyr/snorepl.h	/^	int getPoint();$/;"	p	class:SnorePlayer	access:private	signature:()
+getPotOdds	source/model/player.cpp	/^float Player::getPotOdds()$/;"	f	class:Player	signature:()
+getPotOdds	source/model/player.h	/^	float getPotOdds();$/;"	p	class:Player	access:public	signature:()
+getRdState	source/comm/parser.cpp	/^RdState Parser::getRdState(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+getStartJetton	source/model/player.cpp	/^int Player::getStartJetton()$/;"	f	class:Player	signature:()
+getStartJetton	source/model/player.h	/^	int getStartJetton();$/;"	p	class:Player	access:public	signature:()
+handler	source/comm/handler.h	/^class handler$/;"	c
+hole	source/comm/simuplayer.h	/^	vector<Card> hole; \/\/hole card of main player$/;"	m	class:SimuPlayer	access:private
+hole	source/model/player.h	/^	vector<Card> hole;$/;"	m	class:Player	access:public
+inBet	source/model/player.h	/^	int inBet;$/;"	m	class:Player	access:public
+inBet	source/model/rdstate.h	/^	int inBet;$/;"	m	class:RdState	access:public
+inGame	source/model/plyrinfo.h	/^	bool inGame;$/;"	m	class:PlayerInfo	access:public
+indexOf	source/plyr/snarlpl.h	/^	string indexOf[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+init	source/comm/controller.h	/^	void init(int ch, char* id, char* si, char* sp, char* ci, char* cp); \/\/init$/;"	p	class:PlayerShell	access:public	signature:(int ch, char* id, char* si, char* sp, char* ci, char* cp)
+init	source/comm/mailman.cpp	/^void Mailman::init(char* si, char* sp, char* ci, char* cp)$/;"	f	class:Mailman	signature:(char* si, char* sp, char* ci, char* cp)
+init	source/comm/mailman.h	/^	void init(char* si, char* sp, char* ci, char* cp);$/;"	p	class:Mailman	access:public	signature:(char* si, char* sp, char* ci, char* cp)
+init	source/comm/plyrshel.cpp	/^void PlayerShell::init(int ch,char* pid,char* si,char* sp,char* ci,char* cp)$/;"	f	class:PlayerShell	signature:(int ch,char* pid,char* si,char* sp,char* ci,char* cp)
+init	source/comm/plyrshel.h	/^	void init(int ch, char* id, char* si, char* sp, char* ci, char* cp); \/\/init$/;"	p	class:PlayerShell	access:public	signature:(int ch, char* id, char* si, char* sp, char* ci, char* cp)
+init	source/model/player.cpp	/^void Player::init()$/;"	f	class:Player	signature:()
+init	source/model/player.h	/^	void init(); \/\/clear vectors at the start of a game$/;"	p	class:Player	access:public	signature:()
+initDeck	source/comm/simu.cpp	/^void Simu::initDeck()$/;"	f	class:Simu	signature:()
+initDeck	source/comm/simu.h	/^	void initDeck();$/;"	p	class:Simu	access:public	signature:()
+inputCard	source/model/card.cpp	/^Card Card::inputCard()$/;"	f	class:Card	signature:()
+inputCard	source/model/card.h	/^	static Card inputCard();$/;"	p	class:Card	access:public	signature:()
+is	source/model/card.cpp	/^bool Card::is(Card card)$/;"	f	class:Card	signature:(Card card)
+is	source/model/card.h	/^	bool is(Card card);$/;"	p	class:Card	access:public	signature:(Card card)
+isAfterSB	source/model/player.cpp	/^bool Player::isAfterSB(string thePid)$/;"	f	class:Player	signature:(string thePid)
+isAfterSB	source/model/player.h	/^	bool isAfterSB(string thePid);$/;"	p	class:Player	access:public	signature:(string thePid)
+isSuited	source/model/shand.h	/^	bool isSuited;$/;"	m	class:StartHand	access:public
+isThisRd	source/model/player.cpp	/^bool Player::isThisRd(string pid)$/;"	f	class:Player	signature:(string pid)
+isThisRd	source/model/player.h	/^	bool isThisRd(string pid);$/;"	p	class:Player	access:public	signature:(string pid)
+isWin	source/comm/simuplayer.cpp	/^bool SimuPlayer::isWin()$/;"	f	class:SimuPlayer	signature:()
+isWin	source/comm/simuplayer.h	/^	bool isWin(); $/;"	p	class:SimuPlayer	access:private	signature:()
+jetton	source/model/player.h	/^	int jetton;$/;"	m	class:Player	access:public
+jetton	source/model/plyrinfo.h	/^	int jetton;$/;"	m	class:PlayerInfo	access:public
+jetton	source/model/rdstate.h	/^	int jetton;$/;"	m	class:RdState	access:public
+lastAct	source/model/rdstate.h	/^	int lastAct;$/;"	m	class:RdState	access:public
+lastNotify	source/model/player.h	/^	int lastNotify;$/;"	m	class:Player	access:public
+lastrd	source/model/player.h	/^	vector<RdState> lastrd;$/;"	m	class:Player	access:public
+lstRdBet	source/model/player.h	/^	int lstRdBet;$/;"	m	class:Player	access:public
+lstRdJet	source/model/player.h	/^	int lstRdJet;$/;"	m	class:Player	access:public
+mailman	source/comm/controller.h	/^	Mailman mailman;$/;"	m	class:PlayerShell	access:public
+mailman	source/comm/plyrshel.h	/^	Mailman mailman;$/;"	m	class:PlayerShell	access:public
+main	source/main.cpp	/^int main(int argc,char* argv[])$/;"	f	signature:(int argc,char* argv[])
+mainWin	source/comm/simuplayer.h	/^	bool mainWin;$/;"	m	class:SimuPlayer	access:private
+match	source/model/plyrinfo.cpp	/^bool PlayerInfo::match(PlayerInfo* plyr)$/;"	f	class:PlayerInfo	signature:(PlayerInfo* plyr)
+match	source/model/plyrinfo.h	/^	bool match(PlayerInfo* plyr);$/;"	p	class:PlayerInfo	access:public	signature:(PlayerInfo* plyr)
+matchChar	source/comm/controller.h	/^	void matchChar(string& piece); \/\/return the string after cutting a char$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+matchChar	source/comm/parser.cpp	/^void Parser::matchChar(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+matchChar	source/comm/parser.h	/^	void matchChar(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+matchChar	source/comm/plyrshel.cpp	/^void PlayerShell::matchChar(string& piece)$/;"	f	class:PlayerShell	signature:(string& piece)
+matchChar	source/comm/plyrshel.h	/^	void matchChar(string& piece); \/\/return the string after cutting a char$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+matchHead	source/comm/parser.cpp	/^void Parser::matchHead(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+matchHead	source/comm/parser.h	/^	void matchHead(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+matchTail	source/comm/parser.cpp	/^void Parser::matchTail(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+matchTail	source/comm/parser.h	/^	void matchTail(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+matchWColon	source/comm/parser.cpp	/^void Parser::matchWColon(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+matchWColon	source/comm/parser.h	/^	void matchWColon(string& msg); \/\/2W: = W + 2W:$/;"	p	class:Parser	access:private	signature:(string& msg)
+matchWord	source/comm/controller.h	/^	void matchWord(string& piece); \/\/return the string after cutting word<space>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+matchWord	source/comm/parser.cpp	/^void Parser::matchWord(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+matchWord	source/comm/parser.h	/^	void matchWord(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+matchWord	source/comm/plyrshel.cpp	/^void PlayerShell::matchWord(string& piece) $/;"	f	class:PlayerShell	signature:(string& piece)
+matchWord	source/comm/plyrshel.h	/^	void matchWord(string& piece); \/\/return the string after cutting word<space>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+message	source/comm/mailman.h	/^	char message[MAXDATASIZE];$/;"	m	class:Mailman	access:private
+money	source/model/player.h	/^	int money;$/;"	m	class:Player	access:public
+money	source/model/plyrinfo.h	/^	int money;$/;"	m	class:PlayerInfo	access:public
+money	source/model/rdstate.h	/^	int money;$/;"	m	class:RdState	access:public
+myHand	source/comm/simuplayer.h	/^	Hand myHand;$/;"	m	class:SimuPlayer	access:private
+nPlayers	source/comm/simu.h	/^	int nPlayers; \/\/num of players$/;"	m	class:Simu	access:public
+name	source/model/player.h	/^	string name;$/;"	m	class:Player	access:public
+nextInt	source/comm/controller.h	/^	int nextInt(string& piece); \/\/shortens the string$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+nextInt	source/comm/parser.cpp	/^int Parser::nextInt(string& msg)$/;"	f	class:Parser	signature:(string& msg)
+nextInt	source/comm/parser.h	/^	int nextInt(string& msg);$/;"	p	class:Parser	access:private	signature:(string& msg)
+nextInt	source/comm/plyrshel.cpp	/^int PlayerShell::nextInt(string& piece)$/;"	f	class:PlayerShell	signature:(string& piece)
+nextInt	source/comm/plyrshel.h	/^	int nextInt(string& piece); \/\/shortens the string$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+nextWord	source/comm/controller.h	/^	string nextWord(string& piece); \/\/delim by <space> or <colon>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+nextWord	source/comm/plyrshel.cpp	/^string PlayerShell::nextWord(string& piece)$/;"	f	class:PlayerShell	signature:(string& piece)
+nextWord	source/comm/plyrshel.h	/^	string nextWord(string& piece); \/\/delim by <space> or <colon>$/;"	p	class:PlayerShell	access:private	signature:(string& piece)
+objects	makeproject/makefile	/^objects=main.o plyrshel.o simuplayer.o player.o rdstate.o plyrinfo.o card.o mailman.o simu.o hand.o checkplus.o shrewdpl.o snorepl.o$/;"	m
+opHole	source/model/player.h	/^	vector<Card> opHole[MAX_PLAYER];$/;"	m	class:Player	access:public
+oppoHand	source/comm/simuplayer.h	/^	vector<Hand> oppoHand;$/;"	m	class:SimuPlayer	access:private
+oppoHole	source/comm/simuplayer.h	/^	vector<Card> oppoHole; \/\/hole card of opponents: 2*nPlayers-2$/;"	m	class:SimuPlayer	access:private
+phand	source/model/player.h	/^	int phand[MAX_PLAYER];$/;"	m	class:Player	access:public
+pid	source/model/player.h	/^	string pid;$/;"	m	class:Player	access:public
+pid	source/model/plyrinfo.h	/^	string pid;$/;"	m	class:PlayerInfo	access:public
+pid	source/model/rdstate.h	/^	string pid;$/;"	m	class:RdState	access:public
+player	source/comm/controller.h	/^	Player* player;$/;"	m	class:PlayerShell	access:public
+player	source/comm/plyrshel.h	/^	Player* player;$/;"	m	class:PlayerShell	access:public
+playerBluff	source/plyr/snarlpl.h	/^	float playerBluff[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+playerWin	source/plyr/snarlpl.h	/^	float playerWin[MAX_PLAYER];$/;"	m	class:SnarlPlayer	access:public
+pot	source/model/player.h	/^	int pot;$/;"	m	class:Player	access:public
+potsh	source/model/player.h	/^	int potsh[MAX_PLAYER];$/;"	m	class:Player	access:public
+print	source/comm/simuplayer.cpp	/^void SimuPlayer::print()$/;"	f	class:SimuPlayer	signature:()
+print	source/comm/simuplayer.h	/^	void print();$/;"	p	class:SimuPlayer	access:public	signature:()
+print	source/model/card.cpp	/^string Card::print()$/;"	f	class:Card	signature:()
+print	source/model/card.h	/^	string print();$/;"	p	class:Card	access:public	signature:()
+print	source/model/hand.cpp	/^void Hand::print()$/;"	f	class:Hand	signature:()
+print	source/model/hand.h	/^	void print();$/;"	p	class:Hand	access:public	signature:()
+printDeck	source/comm/simu.cpp	/^void Simu::printDeck()$/;"	f	class:Simu	signature:()
+printDeck	source/comm/simu.h	/^	void printDeck(); \/\/for deck$/;"	p	class:Simu	access:public	signature:()
+printDetails	source/model/hand.cpp	/^void Hand::printDetails()$/;"	f	class:Hand	signature:()
+printDetails	source/model/hand.h	/^	void printDetails();$/;"	p	class:Hand	access:public	signature:()
+pstate	source/model/player.h	/^	vector<PlayerInfo> pstate;$/;"	m	class:Player	access:public
+pwin	source/model/shand.h	/^	float pwin;$/;"	m	class:StartHand	access:public
+rank	source/model/hand.h	/^	int rank;$/;"	m	class:Hand	access:public
+rcvFlop	source/model/player.cpp	/^void Player::rcvFlop(vector<Card> flop)$/;"	f	class:Player	signature:(vector<Card> flop)
+rcvFlop	source/model/player.h	/^	void rcvFlop(vector<Card> flop); \/\/start set state=flop, end state++$/;"	p	class:Player	access:public	signature:(vector<Card> flop)
+rcvHole	source/model/player.cpp	/^void Player::rcvHole(vector<Card> hole)$/;"	f	class:Player	signature:(vector<Card> hole)
+rcvHole	source/model/player.h	/^	void rcvHole(vector<Card> hole);$/;"	p	class:Player	access:public	signature:(vector<Card> hole)
+rcvLstRound	source/model/player.cpp	/^void Player::rcvLstRound(vector<RdState> lastrd)$/;"	f	class:Player	signature:(vector<RdState> lastrd)
+rcvLstRound	source/model/player.h	/^	void rcvLstRound(vector<RdState> lastrd);$/;"	p	class:Player	access:public	signature:(vector<RdState> lastrd)
+rcvOppoAct	source/model/player.cpp	/^void Player::rcvOppoAct(string pid, Action act)$/;"	f	class:Player	signature:(string pid, Action act)
+rcvOppoAct	source/model/player.h	/^	void rcvOppoAct(string pid, Action act);$/;"	p	class:Player	access:public	signature:(string pid, Action act)
+rcvPHand	source/model/player.cpp	/^void Player::rcvPHand(string pid, int hand)$/;"	f	class:Player	signature:(string pid, int hand)
+rcvPHand	source/model/player.h	/^	void rcvPHand(string pid, int hand);$/;"	p	class:Player	access:public	signature:(string pid, int hand)
+rcvPHole	source/model/player.cpp	/^void Player::rcvPHole(string pid, Card card)$/;"	f	class:Player	signature:(string pid, Card card)
+rcvPHole	source/model/player.h	/^	void rcvPHole(string pid, Card card);$/;"	p	class:Player	access:public	signature:(string pid, Card card)
+rcvPot	source/model/player.cpp	/^void Player::rcvPot(int pot)$/;"	f	class:Player	signature:(int pot)
+rcvPot	source/model/player.h	/^	void rcvPot(int pot);$/;"	p	class:Player	access:public	signature:(int pot)
+rcvPotwin	source/model/player.cpp	/^void Player::rcvPotwin(string pid, int share)$/;"	f	class:Player	signature:(string pid, int share)
+rcvPotwin	source/model/player.h	/^	void rcvPotwin(string pid, int share);$/;"	p	class:Player	access:public	signature:(string pid, int share)
+rcvRiver	source/model/player.cpp	/^void Player::rcvRiver(Card card)$/;"	f	class:Player	signature:(Card card)
+rcvRiver	source/model/player.h	/^	void rcvRiver(Card card);$/;"	p	class:Player	access:public	signature:(Card card)
+rcvSeat	source/model/player.cpp	/^void Player::rcvSeat(vector<PlayerInfo> players)$/;"	f	class:Player	signature:(vector<PlayerInfo> players)
+rcvSeat	source/model/player.h	/^	void rcvSeat(vector<PlayerInfo> players); \/\/blind is a oppo action$/;"	p	class:Player	access:public	signature:(vector<PlayerInfo> players)
+rcvTurn	source/model/player.cpp	/^void Player::rcvTurn(Card card)$/;"	f	class:Player	signature:(Card card)
+rcvTurn	source/model/player.h	/^	void rcvTurn(Card card);$/;"	p	class:Player	access:public	signature:(Card card)
+read	source/comm/mailman.cpp	/^string Mailman::read()$/;"	f	class:Mailman	signature:()
+read	source/comm/mailman.h	/^	string read();$/;"	p	class:Mailman	access:public	signature:()
+readBlind	source/comm/controller.h	/^	void readBlind(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readBlind	source/comm/handler.cpp	/^void PlayerShell::readBlind(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+readBlind	source/comm/plyrshel.cpp	/^void PlayerShell::readBlind(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+readBlind	source/comm/plyrshel.h	/^	void readBlind(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readFlop	source/comm/controller.h	/^	void readFlop(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readFlop	source/comm/plyrshel.cpp	/^void PlayerShell::readFlop(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+readFlop	source/comm/plyrshel.h	/^	void readFlop(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readHold	source/comm/controller.h	/^	void readHold(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readHold	source/comm/handler.cpp	/^void PlayerShell::readHold(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+readHold	source/comm/plyrshel.cpp	/^void PlayerShell::readHold(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+readHold	source/comm/plyrshel.h	/^	void readHold(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readInquire	source/comm/controller.h	/^	void readInquire(string msg);$/;"	p	class:PlayerShell	access:public	signature:(string msg)
+readInquire	source/comm/handler.cpp	/^void PlayerShell::readInquire(string msg)$/;"	f	class:PlayerShell	signature:(string msg)
+readInquire	source/comm/plyrshel.cpp	/^void PlayerShell::readInquire(string msg)$/;"	f	class:PlayerShell	signature:(string msg)
+readInquire	source/comm/plyrshel.h	/^	void readInquire(string msg);$/;"	p	class:PlayerShell	access:public	signature:(string msg)
+readNotify	source/comm/controller.h	/^	void readNotify(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readNotify	source/comm/plyrshel.cpp	/^void PlayerShell::readNotify(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+readNotify	source/comm/plyrshel.h	/^	void readNotify(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readPotwin	source/comm/controller.h	/^	void readPotwin(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readPotwin	source/comm/plyrshel.cpp	/^void PlayerShell::readPotwin(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+readPotwin	source/comm/plyrshel.h	/^	void readPotwin(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readRiver	source/comm/controller.h	/^	void readRiver(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readRiver	source/comm/plyrshel.cpp	/^void PlayerShell::readRiver(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+readRiver	source/comm/plyrshel.h	/^	void readRiver(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readSeat	source/comm/controller.h	/^	void readSeat(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readSeat	source/comm/handler.cpp	/^void PlayerShell::readSeat(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+readSeat	source/comm/plyrshel.cpp	/^void PlayerShell::readSeat(string& message)$/;"	f	class:PlayerShell	signature:(string& message)
+readSeat	source/comm/plyrshel.h	/^	void readSeat(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readShowdown	source/comm/controller.h	/^	void readShowdown(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readShowdown	source/comm/plyrshel.cpp	/^void PlayerShell::readShowdown(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+readShowdown	source/comm/plyrshel.h	/^	void readShowdown(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readTurn	source/comm/controller.h	/^	void readTurn(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+readTurn	source/comm/plyrshel.cpp	/^void PlayerShell::readTurn(string& msg)$/;"	f	class:PlayerShell	signature:(string& msg)
+readTurn	source/comm/plyrshel.h	/^	void readTurn(string& msg);$/;"	p	class:PlayerShell	access:public	signature:(string& msg)
+reco	source/comm/simuplayer.h	/^	vector<Card> reco;$/;"	m	class:SimuPlayer	access:private
+reflect	source/model/player.cpp	/^void Player::reflect()$/;"	f	class:Player	signature:()
+reflect	source/model/player.h	/^	virtual void reflect();$/;"	p	class:Player	access:public	signature:()
+reflect	source/plyr/snarlpl.cpp	/^void SnarlPlayer::reflect()$/;"	f	class:SnarlPlayer	signature:()
+reflect	source/plyr/snarlpl.h	/^	virtual void reflect();$/;"	p	class:SnarlPlayer	access:public	signature:()
+river	source/comm/simuplayer.cpp	/^void SimuPlayer::river()$/;"	f	class:SimuPlayer	signature:()
+river	source/comm/simuplayer.h	/^	void river();$/;"	p	class:SimuPlayer	access:private	signature:()
+rout	source/plyr/snarlpl.cpp	/^static ofstream rout;$/;"	v	file:
+seen	source/comm/simuplayer.h	/^	vector<Card> seen; \/\/all seen cards in comm and hole$/;"	m	class:SimuPlayer	access:private
+sendBet	source/model/player.h	/^	virtual Action sendBet()=0; \/\/the way player bets differ $/;"	p	class:Player	access:public	signature:()
+sendBet	source/plyr/caller.cpp	/^Action Caller::sendBet()$/;"	f	class:Caller	signature:()
+sendBet	source/plyr/caller.h	/^	Action sendBet();$/;"	p	class:Caller	access:public	signature:()
+sendBet	source/plyr/floprai.cpp	/^Action FlopRaiser::sendBet()$/;"	f	class:FlopRaiser	signature:()
+sendBet	source/plyr/floprai.h	/^	Action sendBet(); $/;"	p	class:FlopRaiser	access:public	signature:()
+sendBet	source/plyr/folder.cpp	/^Action FoldPlayer::sendBet()$/;"	f	class:FoldPlayer	signature:()
+sendBet	source/plyr/folder.h	/^	Action sendBet(); $/;"	p	class:FoldPlayer	access:public	signature:()
+sendBet	source/plyr/shrewdpl.cpp	/^Action ShrewdPlayer::sendBet()$/;"	f	class:ShrewdPlayer	signature:()
+sendBet	source/plyr/shrewdpl.h	/^	Action sendBet();$/;"	p	class:ShrewdPlayer	access:public	signature:()
+sendBet	source/plyr/snarepl.cpp	/^Action SnarePlayer::sendBet()$/;"	f	class:SnarePlayer	signature:()
+sendBet	source/plyr/snarepl.h	/^	Action sendBet();$/;"	p	class:SnarePlayer	access:public	signature:()
+sendBet	source/plyr/snarlpl.cpp	/^Action SnarlPlayer::sendBet()$/;"	f	class:SnarlPlayer	signature:()
+sendBet	source/plyr/snarlpl.h	/^	Action sendBet();$/;"	p	class:SnarlPlayer	access:public	signature:()
+sendBet	source/plyr/snorepl.cpp	/^Action SnorePlayer::sendBet()$/;"	f	class:SnorePlayer	signature:()
+sendBet	source/plyr/snorepl.h	/^	Action sendBet();$/;"	p	class:SnorePlayer	access:public	signature:()
+sendBet	source/plyr/snowpl.cpp	/^Action SnowPlayer::sendBet()$/;"	f	class:SnowPlayer	signature:()
+sendBet	source/plyr/snowpl.h	/^	Action sendBet();$/;"	p	class:SnowPlayer	access:public	signature:()
+sendReg	source/model/player.cpp	/^vector<string> Player::sendReg()$/;"	f	class:Player	signature:()
+sendReg	source/model/player.h	/^	vector<string> sendReg();$/;"	p	class:Player	access:public	signature:()
+server_addr	source/comm/mailman.h	/^	struct sockaddr_in server_addr;$/;"	m	class:Mailman	typeref:struct:Mailman::sockaddr_in	access:private
+server_ip	source/comm/mailman.h	/^	char server_ip[MAXLEN], server_port[MAXLEN];$/;"	m	class:Mailman	access:private
+server_port	source/comm/mailman.h	/^	char server_ip[MAXLEN], server_port[MAXLEN];$/;"	m	class:Mailman	access:private
+setMsg	source/comm/mailman.cpp	/^void Mailman::setMsg(string msg)$/;"	f	class:Mailman	signature:(string msg)
+setMsg	source/comm/mailman.h	/^	void setMsg(string msg);$/;"	p	class:Mailman	access:public	signature:(string msg)
+setPlayerInfo	source/model/plyrinfo.cpp	/^void PlayerInfo::setPlayerInfo(string pid, int jetton, int money)$/;"	f	class:PlayerInfo	signature:(string pid, int jetton, int money)
+setPlayerInfo	source/model/plyrinfo.h	/^	void setPlayerInfo(string pid, int jetton, int money);$/;"	p	class:PlayerInfo	access:public	signature:(string pid, int jetton, int money)
+setPlayers	source/comm/simu.cpp	/^void Simu::setPlayers(int nPlayers)$/;"	f	class:Simu	signature:(int nPlayers)
+setPlayers	source/comm/simu.h	/^	void setPlayers(int nPlayers); \/\/for nPlayers$/;"	p	class:Simu	access:public	signature:(int nPlayers)
+setReg	source/model/player.cpp	/^void Player::setReg(char* pid, char* name)$/;"	f	class:Player	signature:(char* pid, char* name)
+setReg	source/model/player.h	/^	void setReg(char* pid, char* name);$/;"	p	class:Player	access:public	signature:(char* pid, char* name)
+setState	source/comm/simuplayer.cpp	/^void SimuPlayer::setState(int state, vector<Card> hole, vector<Card> comm)$/;"	f	class:SimuPlayer	signature:(int state, vector<Card> hole, vector<Card> comm)
+setState	source/comm/simuplayer.h	/^	void setState(int state, vector<Card> hole, vector<Card> comm);$/;"	p	class:SimuPlayer	access:public	signature:(int state, vector<Card> hole, vector<Card> comm)
+shareOfPot	source/model/player.h	/^	vector<int> shareOfPot;$/;"	m	class:Player	access:public
+shuffle	source/comm/simu.cpp	/^void Simu::shuffle()$/;"	f	class:Simu	signature:()
+shuffle	source/comm/simu.h	/^	void shuffle(); $/;"	p	class:Simu	access:public	signature:()
+simulate	source/comm/simuplayer.cpp	/^float SimuPlayer::simulate(int times)$/;"	f	class:SimuPlayer	signature:(int times)
+simulate	source/comm/simuplayer.h	/^	float simulate(int times);$/;"	p	class:SimuPlayer	access:public	signature:(int times)
+sin	source/plyr/snowpl.cpp	/^static ifstream sin;$/;"	v	file:
+socket_fd	source/comm/mailman.h	/^	int socket_fd;$/;"	m	class:Mailman	access:private
+sort	source/model/checkplus.cpp	/^void CheckerPlus::sort(vector<Card>& handcard)$/;"	f	class:CheckerPlus	signature:(vector<Card>& handcard)
+sort	source/model/checkplus.h	/^	static void sort(vector<Card>& hand);$/;"	p	class:CheckerPlus	access:public	signature:(vector<Card>& hand)
+sout	source/plyr/snarepl.cpp	/^ofstream sout;$/;"	v
+sout	source/plyr/snarlpl.cpp	/^static ofstream sout;$/;"	v	file:
+sp	source/plyr/snarepl.h	/^	SimuPlayer sp;$/;"	m	class:SnarePlayer	access:private
+sp	source/plyr/snarlpl.h	/^	SimuPlayer sp;$/;"	m	class:SnarlPlayer	access:private
+start	source/comm/controller.h	/^	void start();$/;"	p	class:PlayerShell	access:public	signature:()
+start	source/comm/plyrshel.cpp	/^void PlayerShell::start()$/;"	f	class:PlayerShell	signature:()
+start	source/comm/plyrshel.h	/^	void start();$/;"	p	class:PlayerShell	access:public	signature:()
+state	source/comm/simuplayer.h	/^	int state; \/\/state of the game$/;"	m	class:SimuPlayer	access:private
+state	source/model/action.h	/^	int state;$/;"	m	class:Action	access:public
+state	source/model/player.h	/^	int state;$/;"	m	class:Player	access:public
+state	source/model/rdstate.h	/^	int state; \/\/in which round is last act$/;"	m	class:RdState	access:public
+sticky	source/comm/controller.h	/^	string sticky(string& message, string header);$/;"	p	class:PlayerShell	access:private	signature:(string& message, string header)
+sticky	source/comm/handler.cpp	/^string PlayerShell::sticky(string& message, string header)$/;"	f	class:PlayerShell	signature:(string& message, string header)
+sticky	source/comm/plyrshel.cpp	/^string PlayerShell::sticky(string& message, string header)$/;"	f	class:PlayerShell	signature:(string& message, string header)
+sticky	source/comm/plyrshel.h	/^	string sticky(string& message, string header);$/;"	p	class:PlayerShell	access:private	signature:(string& message, string header)
+tmp	source/model/player.h	/^	bool tmp;$/;"	m	class:Player	access:public
+turn	source/comm/simuplayer.cpp	/^void SimuPlayer::turn()$/;"	f	class:SimuPlayer	signature:()
+turn	source/comm/simuplayer.h	/^	void turn();$/;"	p	class:SimuPlayer	access:private	signature:()
+type	source/model/player.h	/^	int type;$/;"	m	class:Player	access:public
+write	source/comm/mailman.cpp	/^void Mailman::write()$/;"	f	class:Mailman	signature:()
+write	source/comm/mailman.cpp	/^void Mailman::write(string msg)$/;"	f	class:Mailman	signature:(string msg)
+write	source/comm/mailman.h	/^	void write();$/;"	p	class:Mailman	access:public	signature:()
+write	source/comm/mailman.h	/^	void write(string msg);$/;"	p	class:Mailman	access:public	signature:(string msg)
+writeAction	source/comm/controller.h	/^	void writeAction();$/;"	p	class:PlayerShell	access:public	signature:()
+writeAction	source/comm/plyrshel.cpp	/^void PlayerShell::writeAction()$/;"	f	class:PlayerShell	signature:()
+writeAction	source/comm/plyrshel.h	/^	void writeAction();$/;"	p	class:PlayerShell	access:public	signature:()
+writeReg	source/comm/controller.h	/^	void writeReg();$/;"	p	class:PlayerShell	access:public	signature:()
+writeReg	source/comm/handler.cpp	/^void PlayerShell::writeReg()$/;"	f	class:PlayerShell	signature:()
+writeReg	source/comm/plyrshel.cpp	/^void PlayerShell::writeReg()$/;"	f	class:PlayerShell	signature:()
+writeReg	source/comm/plyrshel.h	/^	void writeReg();$/;"	p	class:PlayerShell	access:public	signature:()
+~Player	source/model/player.cpp	/^Player::~Player()$/;"	f	class:Player	signature:()
+~Player	source/model/player.h	/^	virtual ~Player();$/;"	p	class:Player	access:public	signature:()
+~PlayerShell	source/comm/controller.h	/^	~PlayerShell();$/;"	p	class:PlayerShell	access:public	signature:()
+~PlayerShell	source/comm/plyrshel.cpp	/^PlayerShell::~PlayerShell()$/;"	f	class:PlayerShell	signature:()
+~PlayerShell	source/comm/plyrshel.h	/^	~PlayerShell();$/;"	p	class:PlayerShell	access:public	signature:()

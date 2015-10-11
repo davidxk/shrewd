@@ -22,5 +22,8 @@ private:
 	void matchTail(string& msg);
 	void matchWColon(string& msg); //2W: = W + 2W:
 	PlayerInfo getPlayerInfo(string& msg); //match eol or space at end
+	int nextInt(string& msg);
+	void matchChar(string& msg);
+	void matchWord(string& msg);
 };
 #endif
