@@ -18,6 +18,7 @@ public:
 	PlayerInfo(string pid, int jetton, int money);
 	void setPlayerInfo(string pid, int jetton, int money);
 	bool match(PlayerInfo* plyr);
+	string print();
 };
 
 #endif

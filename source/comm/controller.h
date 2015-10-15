@@ -11,8 +11,8 @@
 using namespace std;
 
 //Controller initiates manages the whole communication process
-//Controller performs the tasks by collaborating with the handler
-//Controller initiates the player 
+//Controller performs the tasks by calling on the handler
+//Controller only manages the order of the steps
 class PlayerShell
 {
 public:

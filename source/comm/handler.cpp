@@ -1,10 +1,6 @@
-//A Handler send/rcv msg from mailman analyze it with parser 
-// and passes the data it to player
-//A Handler works closely with the mailman, the parser and the player
-//A Handler is a private class internal to the Controller 
-//View it as an assembly of private methods 
+#include "handler.h"
 
-void PlayerShell::writeReg()
+void Handler::writeReg()
 {
 	vector<string> regInfo=player->sendReg();
 	string msg = "reg: ";
@@ -14,7 +10,31 @@ void PlayerShell::writeReg()
 	mailman.write(msg);
 }
 
-void PlayerShell::readSeat(string& message)
+void PlayerShell::writeAction()
+{
+	Action action=player->sendBet();
+	player->lastNotify=player->state;
+	string actName, moneyStr;
+	char smoney[20];
+	switch(action.act)
+	{
+		case ACT_CHECK: actName=STR_CHECK; break;
+		case ACT_CALL: actName=STR_CALL; break;
+		case ACT_RAISE:
+			actName=STR_RAISE;
+			actName+=' ';
+			sprintf(smoney,"%d",action.bet);
+			moneyStr.assign(smoney); //convert int to str cont
+			break;
+		case ACT_ALLIN: actName=STR_ALLIN; break;
+		case ACT_FOLD: actName=STR_FOLD; break;
+		default:break;
+	}
+	string msg = actName + moneyStr + " \n";
+	mailman.write(msg);
+}
+
+void Handler::readSeat(string& message)
 {
 	string msg=sticky(message,"seat/");
 	psr->matchHead(msg);
@@ -33,7 +53,7 @@ void PlayerShell::readSeat(string& message)
 	//consume tail if needed here
 }
 	
-void PlayerShell::readBlind(string& message)
+void Handler::readBlind(string& message)
 {
 	string msg=sticky(message,"blind/");
 	psr->matchHead(msg);
@@ -72,7 +92,7 @@ void PlayerShell::readBlind(string& message)
 	}
 }
 
-void PlayerShell::readHold(string& message)
+void Handler::readHold(string& message)
 {
 	string msg=sticky(message,"hold/");
 	psr->matchHead(msg);
@@ -85,13 +105,13 @@ void PlayerShell::readHold(string& message)
 	//consume tail if needed here
 }
 
-void PlayerShell::readInquire(string msg)
+void Handler::readInquire(string msg)
 {
 	//A player reads what he expects to see so the handler simply passes on
 
 }
 
-void PlayerShell::readFlop(string& msg)
+void Handler::readFlop(string& msg)
 {
 	psr->matchHead(msg);
 
@@ -105,7 +125,7 @@ void PlayerShell::readFlop(string& msg)
 	//consume tail if needed here
 }
 
-void PlayerShell::readTurn(string& msg)
+void Handler::readTurn(string& msg)
 {
 	psr->matchHead(msg);
 
@@ -114,7 +134,7 @@ void PlayerShell::readTurn(string& msg)
 	player->cntRd=0; //optimize here later
 }
 
-void PlayerShell::readRiver(string& msg)
+void Handler::readRiver(string& msg)
 {
 	psr->matchHead(msg);
 
@@ -123,7 +143,7 @@ void PlayerShell::readRiver(string& msg)
 	player->cntRd=0; //optimize here later
 }
 
-void PlayerShell::readShowdown(string& msg)
+void Handler::readShowdown(string& msg)
 {
 	psr->matchHead(msg);
 	psr->matchHead(msg);
@@ -168,7 +188,7 @@ void PlayerShell::readShowdown(string& msg)
 	psr->matchTail(msg);
 }
 
-void PlayerShell::readPotwin(string& msg)
+void Handler::readPotwin(string& msg)
 {
 	string msg=sticky(message, "pot-win/");
 	psr->matchHead(msg);
@@ -193,7 +213,7 @@ void PlayerShell::readPotwin(string& msg)
 
 
 
-string PlayerShell::sticky(string& message, string header)
+string Handler::sticky(string& message, string header)
 {
 	//msg is a copy of the message
 	int start=message.find(header);

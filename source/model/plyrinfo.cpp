@@ -1,4 +1,4 @@
-#include "globals.h"
+#include "../globals.h"
 #include "plyrinfo.h"
 
 PlayerInfo::PlayerInfo()
@@ -25,4 +25,19 @@ bool PlayerInfo::match(PlayerInfo* plyr)
 	return plyr->pid==this->pid&&
 		plyr->jetton==this->jetton&&
 		plyr->money==this->money;
+}
+
+string PlayerInfo::print()
+{
+	char jet_ch[20], mon_ch[20];
+	sprintf(jet_ch, "%d", jetton);
+	sprintf(mon_ch, "%d", money);
+
+	string str="Player #";
+	str += pid + "\t@";
+	str += jet_ch;
+	str += "\t$";
+	str += mon_ch;
+	str += inGame ? "\tinGame\n" : "\tFold\n";
+	return str;
 }

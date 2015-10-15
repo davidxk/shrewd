@@ -12,7 +12,7 @@ public:
 public:
 	Hand();
 	Hand(int rank);
-	void print();
+	string print();
 	void printDetails();
 	int compare(Hand* hand);
 };

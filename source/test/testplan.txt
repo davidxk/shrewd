@@ -1,0 +1,45 @@
+##Unit test
+
+##Model
+* Card: trustable
+####PlayerInfo
+string print()
+input: PlayerInfo("7777", 30, 250);
+output: proper readable output
+
+####Action
+string print()
+input: Action(ACT_RAISE, 100, 0)
+output: proper readable output
+
+####Parser
+void Parser::matchHead(string& msg)
+input: "asd-fgh/ \njkl"
+output: "jkl"
+
+void Parser::matchTail(string& msg)
+input: "/asd-fgh\njkl"
+output: "jkl"
+
+void Parser::matchWColon(string& msg)
+input: "asd: fgh"
+output: "fgh"
+
+Card Parser::getCard(string& msg)
+input: "HEARTS 3 \nCLUBS K \n"
+output: "CLUBS K \n"
+input: "HEARTS 3 CLUBS K \n"
+output: "CLUBS K \n"
+
+PlayerInfo Parser::getPlayerInfo(string& msg)
+input: "7777 30 250\nsmall blind: "
+output: "small blind: "
+input: "7777 1900 8000 100 call" 
+output: "100 call"
+
+RdState Parser::getRdState(string& msg)
+input: ""
+output: ""
+
+Action Parser::getAction(string& msg)
+

@@ -9,7 +9,7 @@ void Parser::matchHead(string& msg)
 
 void Parser::matchTail(string& msg)
 {
-	const regex pattern("/[\w-]*\n");
+	const regex pattern("/[\w-]* \n");
 	string replace;
 	msg = regex_replace(msg, pattern, replace);
 }
@@ -31,9 +31,10 @@ Card Parser::getCard(string& msg)
 
 	sscanf(msg.c_str(), "%s %d", &tmp, &figure); //careful on %s
 
-	const regex pattern("\w* \w*[\d\D]");
+	const regex pattern("\w* \w* ");
 	string replace;
 	msg = regex_replace(msg, pattern, replace);
+	if(msg[0]=='\n') matchChar(msg);
 
 	return Card::getCard(color, figure);
 }
@@ -43,9 +44,10 @@ PlayerInfo Parser::getPlayerInfo(string& msg)
 	int pid, jetton, money;
 	sscanf(msg.c_str(),"%d %d %d", &pid, &jetton, &money);
 
-	const regex pattern("\d* \d* \d*[\d\D]");
+	const regex pattern("\d* \d* \d* ");
 	string replace;
 	msg = regex_replace(msg, pattern, replace);
+	if(msg[0]=='\n') matchChar(msg);
 
 	char pid_ch[20];
 	sprintf(pid_ch, "%d", pid);
@@ -103,7 +105,7 @@ void Parser::matchChar(string& msg)
 
 void Parser::matchWord(string& msg)
 {
-	const regex pattern("\w*.");
+	const regex pattern("\w* ");
 	string replace;
 	msg = regex_replace(msg, pattern, replace);
 }

@@ -26,21 +26,23 @@ int Hand::compare(Hand* hand)
 	return 0;
 }
 
-void Hand::print()
+string Hand::print()
 {
+	string str;
 	switch(rank)
 	{
-		case HIGHCARD: cout<<"HghCard"; break;
-		case PAIR: cout<<"APair"; break;
-		case TWOPAIRS: cout<<"2Pairs"; break;
-		case TRIP: cout<<"Three"; break;
-		case FLUSH: cout<<"Flush"; break;
-		case STRAIGHT: cout<<"Strght"; break;
-		case FULLHOUSE: cout<<"FulHose"; break;
-		case FOUR: cout<<"Four"; break;
-		case STRAIGHTFLUSH: cout<<"StFlush"; break;
-		default: cout<<"Error: Unknown Rank of Hand: "<<rank<<endl;
+		case HIGHCARD: str="HghCard"; break;
+		case PAIR: str="APair"; break;
+		case TWOPAIRS: str="2Pairs"; break;
+		case TRIP: str="Three"; break;
+		case FLUSH: str="Flush"; break;
+		case STRAIGHT: str="Strght"; break;
+		case FULLHOUSE: str="FulHose"; break;
+		case FOUR: str="Four"; break;
+		case STRAIGHTFLUSH: str="StFlush"; break;
+		default: str="Error: Unknown Rank of Hand: "<<rank<<endl;
 	}
+	return str;
 }
 
 void Hand::printDetails()
