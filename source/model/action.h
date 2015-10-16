@@ -10,7 +10,7 @@ public:
 	int act;
 	int bet;
 	int state;
-	Action(int act, int bet, int state);
+	Action(int act=-1, int bet=-1, int state=-1);
 	string print();
 };
 #endif

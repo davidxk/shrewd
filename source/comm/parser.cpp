@@ -1,24 +1,28 @@
 #include "parser.h"
+#include "../common.h"
 
 void Parser::matchHead(string& msg)
 {
-	const regex pattern("[\w-]*/ \n"); //watch out for
+	const regex pattern("[\\w-]*/ \n"); //watch out for
 	string replace;
-	msg = regex_replace(msg, pattern, replace);
+	msg = regex_replace(msg, pattern, replace, 
+			regex_constants::format_first_only);
 }
 
 void Parser::matchTail(string& msg)
 {
-	const regex pattern("/[\w-]* \n");
+	const regex pattern("/[\\w-]* \n");
 	string replace;
-	msg = regex_replace(msg, pattern, replace);
+	msg = regex_replace(msg, pattern, replace,
+			regex_constants::format_first_only);
 }
 
 void Parser::matchWColon(string& msg)
 {
-	const regex pattern("\w*: ");
+	const regex pattern("\\w*: ");
 	string replace;
-	msg = regex_replace(msg, pattern, replace);
+	msg = regex_replace(msg, pattern, replace,
+			regex_constants::format_first_only);
 }
 
 
@@ -29,11 +33,12 @@ Card Parser::getCard(string& msg)
 	char color = msg[0], tmp[20];
 	int figure;
 
-	sscanf(msg.c_str(), "%s %d", &tmp, &figure); //careful on %s
+	sscanf(msg.c_str(), "%s %d", tmp, &figure); //careful on %s
 
-	const regex pattern("\w* \w* ");
+	const regex pattern("\\w* \\w* ");
 	string replace;
-	msg = regex_replace(msg, pattern, replace);
+	msg = regex_replace(msg, pattern, replace, 
+			regex_constants::format_first_only);
 	if(msg[0]=='\n') matchChar(msg);
 
 	return Card::getCard(color, figure);
@@ -44,27 +49,18 @@ PlayerInfo Parser::getPlayerInfo(string& msg)
 	int pid, jetton, money;
 	sscanf(msg.c_str(),"%d %d %d", &pid, &jetton, &money);
 
-	const regex pattern("\d* \d* \d* ");
+	const regex pattern("\\d* \\d* \\d* ");
 	string replace;
-	msg = regex_replace(msg, pattern, replace);
+	msg = regex_replace(msg, pattern, replace,
+			regex_constants::format_first_only);
 	if(msg[0]=='\n') matchChar(msg);
 
-	char pid_ch[20];
-	sprintf(pid_ch, "%d", pid);
-
-	return PlayerInfo(string(pid_ch), jetton, money);
-}
-
-RdState Parser::getRdState(string& msg)
-{
-	PlayerInfo info=getPlayerInfo(msg);
-	Action anAct=getAction(string& msg);
-	return RdState();
+	return PlayerInfo(intToStr(pid), jetton, money);
 }
 
 Action Parser::getAction(string& msg)
 {
-	int bet=psr->nextInt(msg); 
+	int bet=nextInt(msg); 
 	matchWord(msg); //now at act
 
 	int act;
@@ -88,6 +84,13 @@ Action Parser::getAction(string& msg)
 	return sact;
 }
 
+RdState Parser::getRdState(string& msg)
+{
+	PlayerInfo info=getPlayerInfo(msg);
+	Action anAct=getAction(msg);
+	return RdState(info, anAct);
+}
+
 
 
 
@@ -105,7 +108,8 @@ void Parser::matchChar(string& msg)
 
 void Parser::matchWord(string& msg)
 {
-	const regex pattern("\w* ");
+	const regex pattern("\\w* ");
 	string replace;
-	msg = regex_replace(msg, pattern, replace);
+	msg = regex_replace(msg, pattern, replace, 
+			regex_constants::format_first_only);
 }

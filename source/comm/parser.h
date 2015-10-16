@@ -6,10 +6,10 @@
 #include <fstream>
 #include <cstdlib>
 #include <regex>
-#include "card.h"
-#include "plyrinfo.h"
-#include "rdstate.h"
-#include "action.h"
+#include "../model/card.h"
+#include "../model/plyrinfo.h"
+#include "../model/rdstate.h"
+#include "../model/action.h"
 using namespace std;
 
 //This class translates linear message into data structure 
@@ -21,8 +21,8 @@ public:
 	void matchWColon(string& msg);
 	Card getCard(string& msg);
 	PlayerInfo getPlayerInfo(string& msg);
-	RdState getRdState(string& msg);
 	Action getAction(string& msg);
+	RdState getRdState(string& msg);
 	int nextInt(string& msg);
 	void matchChar(string& msg);
 	void matchWord(string& msg);

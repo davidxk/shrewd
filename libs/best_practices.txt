@@ -3,6 +3,6 @@
 
 ####Model Class
 * define print() method for model class
-* * use istream in print() method
+* * use ostream as: ostream& print(ostream& out) 
 * define Constructor(params .. )
-* * use member initiator in constructor
+* * use member initiator list in constructor

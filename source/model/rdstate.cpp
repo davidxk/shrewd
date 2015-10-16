@@ -1,11 +1,14 @@
 #include "rdstate.h"
+#include "../common.h"
 
-RdState::RdState(string pid, int jetton, int money, int inBet, int lastAct, int state)
+RdState::RdState(PlayerInfo aPi, Action aLstAct, int aInBet, int aState):
+	pi(aPi), lstAct(aLstAct), inBet(aInBet), state(aState) { }
+
+string RdState::print()
 {
-	this->pid=pid;
-	this->jetton=jetton;
-	this->money=money;
-	this->inBet=inBet;
-	this->lastAct=lastAct;
-	this->state=state;
+	string str;
+	str += pi.print() + lstAct.print() + intToStr(inBet);
+	str += "inBet @state";
+	str += intToStr(state) + "\n";
+	return str;
 }
