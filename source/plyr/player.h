@@ -6,11 +6,11 @@
 #include <cstdlib>
 #include <vector>
 #include <fstream>
-#include "globals.h"
-#include "card.h"
-#include "plyrinfo.h"
-#include "rdstate.h"
-#include "action.h"
+#include "../globals.h"
+#include "../model/card.h"
+#include "../model/plyrinfo.h"
+#include "../model/rdstate.h"
+#include "../model/action.h"
 using namespace std;
 
 //A player reads the bet of others and bets
@@ -22,7 +22,7 @@ class Player
 public:
 	//reg info
 	int type;
-	string pid;
+	int pid;
 	string name;
 	//game state
 	int state;
@@ -61,18 +61,18 @@ public:
 	void rcvTurn(Card card);
 	void rcvRiver(Card card);
 	void rcvLstRound(vector<RdState> lastrd);
-	void rcvOppoAct(string pid, Action act);
-	void rcvPHole(string pid, Card card);
-	void rcvPHand(string pid, int hand);
-	void rcvPotwin(string pid, int share);
-	bool isAfterSB(string thePid);
-	bool isThisRd(string pid);
+	void rcvOppoAct(int pid, Action act);
+	void rcvPHole(int pid, Card card);
+	void rcvPHand(int pid, int hand);
+	void rcvPotwin(int pid, int share);
+	bool isAfterSB(int thePid);
+	bool isThisRd(int pid);
 	int getLeastBuyin();
 	int getStartJetton();
 	int getInPlayers();
 	float getPotOdds();
 	//void rcvGameover();
-	int findIndex(string pid);
+	int findIndex(int pid);
 	virtual void reflect();
 	virtual ~Player();
 };

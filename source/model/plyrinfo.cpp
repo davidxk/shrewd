@@ -3,17 +3,18 @@
 
 PlayerInfo::PlayerInfo()
 {
+	pid=-1;
 	jetton=0;
 	money=0;
 	inGame=true;
 }
 
-PlayerInfo::PlayerInfo(string pid, int jetton, int money)
+PlayerInfo::PlayerInfo(int pid, int jetton, int money)
 {
 	setPlayerInfo(pid,jetton,money);
 }
 
-void PlayerInfo::setPlayerInfo(string pid, int jetton, int money)
+void PlayerInfo::setPlayerInfo(int pid, int jetton, int money)
 {
 	this->pid=pid;
 	this->jetton=jetton;
@@ -29,15 +30,14 @@ bool PlayerInfo::match(PlayerInfo* plyr)
 
 string PlayerInfo::print()
 {
-	char jet_ch[20], mon_ch[20];
+	char pid_ch[20], jet_ch[20], mon_ch[20];
+	sprintf(pid_ch, "%d", pid);
 	sprintf(jet_ch, "%d", jetton);
 	sprintf(mon_ch, "%d", money);
 
-	string str="Player #";
-	str += pid + "\t@";
-	str += jet_ch;
-	str += "\t$";
-	str += mon_ch;
+	string str="Player #"; str += pid_ch;
+	str += "\t@"; str += jet_ch;
+	str += "\t$"; str += mon_ch;
 	str += inGame ? "\tinGame\n" : "\tFold\n";
 	return str;
 }

@@ -1,0 +1,53 @@
+##Unit test
+***
+###Communication
+####Scanner
+void Scanner::matchHead(string& msg)
+
+* input: "asd-fgh/ \njkl"
+* output: "jkl"
+
+
+void Scanner::matchTail(string& msg)
+
+* input: "/asd-fgh \njkl"
+* output: "jkl"
+
+
+void Scanner::matchWColon(string& msg)
+
+* input: "asd: fgh"
+* output: "fgh"
+
+
+Card Scanner::getCard(string& msg)
+
+* input: "HEARTS 3 \nCLUBS K \n"
+* output: "CLUBS K \n"
+* input: "HEARTS 3 CLUBS K \n"
+* output: "CLUBS K \n"
+
+
+PlayerInfo Scanner::getPlayerInfo(string& msg)
+
+* input: "7777 30 250 \nsmall blind: "
+* output: "small blind: "
+* input: "7777 1900 8000 100 call" 
+* output: "100 call"
+
+
+Action Scanner::getAction(string& msg)
+
+* input: "100 call \n4444 "
+* output: "4444 "
+
+
+RdState Scanner::getRdState(string& msg)
+
+* input: "5555 1900 8000 100 call \n4444 2000 8000 0 fold "
+* output: "4444 2000 8000 0 fold"
+
+**Tested internally in previous cases**
+int Scanner::nextInt(string& msg)
+void Scanner::matchChar(string& msg)
+void Scanner::matchWord(string& msg)

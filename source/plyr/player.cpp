@@ -1,4 +1,5 @@
 #include "player.h"
+#include "../common.h"
 
 //static ofstream pout;
 void Player::init()
@@ -21,14 +22,14 @@ void Player::init()
 
 void Player::setReg(char* pid, char* name)
 {
-	this->pid.assign(pid);
+	sscanf(pid, "%d", &(this->pid));
 	this->name.assign(name);
 }
 
 vector<string> Player::sendReg()
 {
 	vector<string> reg;
-	reg.push_back(pid);
+	reg.push_back(intToStr(pid));
 	reg.push_back(name);
 	return reg;
 }
@@ -56,7 +57,7 @@ void Player::rcvSeat(vector<PlayerInfo> players)
 void Player::rcvHole(vector<Card> hole)
 {
 	this->hole=hole;
-	state=D_BET;
+	state=DEAL_BET;
 	lstRdJet=jetton;
 	tmp=false;
 }
@@ -69,7 +70,7 @@ void Player::rcvPot(int pot)
 void Player::rcvFlop(vector<Card> flop)
 {
 	this->comm=flop;
-	state=F_BET;
+	state=FLOP_BET;
 	lstRdJet=jetton;
 	tmp=false;
 }
@@ -77,7 +78,7 @@ void Player::rcvFlop(vector<Card> flop)
 void Player::rcvTurn(Card card)
 {
 	comm.push_back(card);
-	state=T_BET;
+	state=TURN_BET;
 	lstRdJet=jetton;
 	tmp=false;
 }
@@ -85,7 +86,7 @@ void Player::rcvTurn(Card card)
 void Player::rcvRiver(Card card)
 {
 	rcvTurn(card);
-	state=R_BET;
+	state=RIVER_BET;
 	lstRdJet=jetton;
 	tmp=false;
 }
@@ -95,21 +96,21 @@ void Player::rcvLstRound(vector<RdState> lastrd)
 	this->lastrd=lastrd;
 	//reinit my state for round
 	for(int i=0;i<lastrd.size();i++)
-		if(lastrd[i].pid==pid)
+		if(lastrd[i].pi.pid==pid)
 		{
-			jetton=lastrd[i].jetton;
-			money=lastrd[i].money;
+			jetton=lastrd[i].pi.jetton;
+			money=lastrd[i].pi.money;
 			inBet=lastrd[i].inBet;
 		}
 	if(!tmp) lstRdBet=inBet;
 	tmp=true;
 	//for(int i=0;i<lastrd.size();i++)
-		//pout<<lastrd[i].pid<<"\tjetton "<<lastrd[i].jetton<<endl
-			//<<"inBet "<<lastrd[i].inBet<<"\tisThRd "<<isThisRd(lastrd[i].pid)
+		//pout<<lastrd[i].pi.pid<<"\tjetton "<<lastrd[i].jetton<<endl
+			//<<"inBet "<<lastrd[i].inBet<<"\tisThRd "<<isThisRd(lastrd[i].pi.pid)
 			//<<"state "<<lastrd[i].state<<"cntRd "<<cntRd<<endl;
 }
 
-void Player::rcvOppoAct(string pid, Action act)
+void Player::rcvOppoAct(int pid, Action act)
 {
 	for(int i=0;i<pstate.size();i++)
 		if(pstate[i].pid==pid)
@@ -122,7 +123,7 @@ void Player::rcvOppoAct(string pid, Action act)
 	cout<<"Error: Player "<<pid<<" not found. "<<endl;
 }
 
-void Player::rcvPHole(string pid, Card card)
+void Player::rcvPHole(int pid, Card card)
 {
 	for(int i=0;i<pstate.size();i++)
 		if(pstate[i].pid==pid)
@@ -133,7 +134,7 @@ void Player::rcvPHole(string pid, Card card)
 	cout<<"Error: Player "<<pid<<" not found. "<<endl;
 }
 
-void Player::rcvPHand(string pid, int hand)
+void Player::rcvPHand(int pid, int hand)
 {
 	for(int i=0;i<pstate.size();i++)
 		if(pstate[i].pid==pid)
@@ -143,7 +144,7 @@ void Player::rcvPHand(string pid, int hand)
 		}
 }
 
-void Player::rcvPotwin(string pid, int share)
+void Player::rcvPotwin(int pid, int share)
 {
 	for(int i=0;i<pstate.size();i++)
 		if(pstate[i].pid==pid)
@@ -153,7 +154,7 @@ void Player::rcvPotwin(string pid, int share)
 		}
 }
 
-int Player::findIndex(string pid)
+int Player::findIndex(int pid)
 {
 	for(int i=0;i<pstate.size();i++)
 		if(pid==pstate[i].pid)
@@ -167,12 +168,12 @@ void Player::reflect()
 
 }
 
-bool Player::isAfterSB(string thePid)
+bool Player::isAfterSB(int thePid)
 {
 	return findIndex(thePid)>=SBLIND_INDEX;
 }
 
-bool Player::isThisRd(string pid)
+bool Player::isThisRd(int pid)
 {
 	if(cntRd==0)
 		return isAfterSB(pid);
@@ -185,19 +186,19 @@ int Player::getLeastBuyin()
 	if(lastrd[0].state!=state);
 	else
 		for(int i=0;i<lastrd.size();i++)
-			if(isThisRd(lastrd[i].pid))
+			if(isThisRd(lastrd[i].pi.pid))
 			{
-				if(lastrd[i].lastAct==ACT_RAISE||lastrd[i].lastAct==ACT_BLIND)
+				if(lastrd[i].lstAct.act==ACT_RAISE||lastrd[i].lstAct.act==ACT_BLIND)
 				{
 					if(lastrd[i].inBet>leastBuyin)
 					leastBuyin=lastrd[i].inBet;
 				}
-				else if(lastrd[i].lastAct==ACT_ALLIN)
+				else if(lastrd[i].lstAct.act==ACT_ALLIN)
 				{
-					int index=findIndex(lastrd[i].pid);
+					int index=findIndex(lastrd[i].pi.pid);
 					if(index==-1) 
 						cout<<"Error: SnarePl getLeastBuyin: "
-							<<"Player: "<<lastrd[i].pid
+							<<"Player: "<<lastrd[i].pi.pid
 							<<" not found in pstate. "<<endl;
 					else 
 					if(lastrd[index].inBet>leastBuyin)
@@ -218,9 +219,9 @@ int Player::getInPlayers()
 {
 	int cntFold=0, cntPlyrs;
 	for(int i=0;i<lastrd.size();i++)
-		if(lastrd[i].lastAct==ACT_FOLD)
+		if(lastrd[i].lstAct.act==ACT_FOLD)
 			cntFold++;
-	if(state<=D_BET&&cntRd==0)
+	if(state<=DEAL_BET&&cntRd==0)
 		return cntPlyrs=pstate.size()-cntFold;
 	else return cntPlyrs=lastrd.size()-cntFold;
 }

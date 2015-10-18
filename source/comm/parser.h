@@ -1,30 +1,33 @@
 #ifndef _PARSER_H_
 #define _PARSER_H_
 
-#include <iostream>
-#include <cstdio>
-#include <fstream>
-#include <cstdlib>
-#include <regex>
-#include "../model/card.h"
-#include "../model/plyrinfo.h"
-#include "../model/rdstate.h"
-#include "../model/action.h"
-using namespace std;
+#include "scanner.h"
+#include "mailman.h"
+#include "../plyr/player.h"
 
-//This class translates linear message into data structure 
+//A Parser analyzes message it with parser and passes the data it to player
+//A Parser works closely with the mailman, the scanner and the player
+//A Parser is a private class internal to the Controller 
+//View it as an assembly of private methods 
 class Parser
 {
 public:
-	void matchHead(string& msg);
-	void matchTail(string& msg);
-	void matchWColon(string& msg);
-	Card getCard(string& msg);
-	PlayerInfo getPlayerInfo(string& msg);
-	Action getAction(string& msg);
-	RdState getRdState(string& msg);
-	int nextInt(string& msg);
-	void matchChar(string& msg);
-	void matchWord(string& msg);
+	Player* player;
+	Mailman* mailman;
+	Scanner scan;
+public:
+	Parser(Player*, Mailman*);
+	void writeReg();
+	void readSeat(string& message);
+	void readBlind(string& message);
+	void readHold(string& message);
+	void readInquire(string msg);
+	void writeAction();
+	void readFlop(string& msg);
+	void readTurn(string& msg);
+	void readRiver(string& msg);
+	void readShowdown(string& msg);
+	void readPotwin(string& msg);
+	string sticky(string& message, string header);
 };
 #endif

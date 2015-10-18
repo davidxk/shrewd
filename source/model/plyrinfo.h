@@ -5,18 +5,17 @@
 #include <string>
 using namespace std;
 
-class PlayerInfo;
 class PlayerInfo
 {
 public:
-	string pid;
+	int pid;
 	int jetton;
 	int money;
 	bool inGame;
 public:
 	PlayerInfo();
-	PlayerInfo(string pid, int jetton, int money);
-	void setPlayerInfo(string pid, int jetton, int money);
+	PlayerInfo(int pid, int jetton, int money);
+	void setPlayerInfo(int pid, int jetton, int money);
 	bool match(PlayerInfo* plyr);
 	string print();
 };

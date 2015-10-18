@@ -5,20 +5,18 @@
 #define N_COLOR 4
 #define N_FIGURE 13
 #define ACE 14
-
-//basic
 #define FIGURE_START 2
 #define HAND_SIZE 5
 #define HOLE_SIZE 2
 #define COMM_SIZE 5
-
-//basic
 #define N_HAND 9
 #define N_FLOP 3
-#define BASE_COMB_FLOP 1081
-#define N_HTL 3
 
-//checkplus
+
+
+
+
+//wins for checkplus
 #define NOT_THIS_RANK -1
 #define HIGHCARD 0
 #define PAIR 1
@@ -30,27 +28,12 @@
 #define FOUR 7
 #define STRAIGHTFLUSH 8
 
-//simuplayer
-#define SHUFFLE 0
-#define DEAL  1
-#define D_BET 2
-#define FLOP  3
-#define F_BET 4
-#define TURN  5
-#define T_BET 6
-#define RIVER 7
-#define R_BET 8
-
-//checkplus
-#define FLUSH_THRESH 3
-#define FLUSH_IMPOSS -1
-typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;
-
-//simutab
-#define SEAT_BUTTON 3
-#define SEAT_BIG_BLIND 2
-#define SEAT_SMALL_BLIND 1
-#define SEAT_NOT_BLIND 0
+//states for simuplayer
+#define DEAL  -1
+#define DEAL_BET 0
+#define FLOP_BET 1
+#define TURN_BET 2
+#define RIVER_BET 3
 
 //player action
 #define ACT_RAISE 0
@@ -61,6 +44,10 @@ typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;
 #define ACT_BIG_BLIND -5
 #define ACT_SMALL_BLIND -6
 #define ACT_BLIND -7
+
+
+
+
 
 //player
 #define PID_HUMAN_PLAYER 0
@@ -80,17 +67,25 @@ typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;
 #define NAME_SNORE_PLAYER "Snore"
 #define NAME_FLOP_RAISER "FlopRaiser"
 
-
-//plyrinfo
-#define EMPTY_PLAYER "-1"
-#define MAX_PLAYER 8
-
-//controller
+//action names for handler
 #define STR_CHECK "check"
 #define STR_CALL "call"
 #define STR_RAISE "raise"
 #define STR_ALLIN "all_in"
 #define STR_FOLD "fold"
+
+
+
+
+
+//checkplus
+#define FLUSH_THRESH 3
+#define FLUSH_IMPOSS -1
+typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;
+
+//plyrinfo
+#define EMPTY_PLAYER "-1"
+#define MAX_PLAYER 8
 
 //snarl
 #define N_TURN 4

@@ -39,7 +39,7 @@ Card Card::getCard(char color, int figure)
 		case 'c': case 'C':
 			card.color=(int)CLUB; break;
 		default:
-			cout<<"Error: Invalid color. "<<endl;
+			cout<<"Error: Invalid color: "<<color<<endl;
 	}
 	return card;
 }

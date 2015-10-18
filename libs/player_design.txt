@@ -1,0 +1,40 @@
+Player contains the game state data. 
+A player should base his decision upon the following parameters:
+* state		maintained as cards are distributed
+* BB		maintained at Blind
+* pot		maintained at pot
+* mySeat	maintained at Seat
+* nPlyr		*Not yet designed. Should be @Inquiry*, Seat
+* comm		maintained as cards are distributed
+* seat		maintained at Seat
+* startStates	maintained at Seat
+
+* myState	maintained at Inquiry
+* hole		maintained at Hold
+* rdRecords	maintained at Inquiry
+
+* opHole	maintained at Showdown
+* phand		maintained at Showdown
+* potsh		maintained at Pot-win
+
+The listed parameters are retrieved with a number of methods, the more complex two of which is rcvSeat and rcvInquiry
+
+#####rcvSeat
+This method receives the following data:
+* seat
+* mySeat
+* nPlyr
+* startStates
+seat is received in [1 ~ n-1, 0] order so as to ensure [SB# ~ DEALER#] order.
+mySeat is received within the iterations
+nPlyr and startStates are initialized for the first round decision of pre-flop bet (DEAL_BET)
+
+#####rcvInquiry
+This method receives the following data:
+* nPlyr
+* myState
+* rdRecords
+
+nPlyr is updated using rdRecords
+myState can be updated with rdstate[last]
+rdRecords is harder to maintain

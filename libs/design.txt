@@ -1,0 +1,9 @@
+##System Design
+###Communication System
+####Message parsing
+* Scanner analyzes pieces of message (mostly on a line-wise bases), converting linear string to data structures
+* Parser parses complete messages, passing data to the Player
+
+####Data maintenance
+* Player receives data in ways it sees fit and maintain its integrity
+* PlayerWithTools provides a set of methods for easy access to the data

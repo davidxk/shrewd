@@ -2,7 +2,7 @@
 #define _FOLDER_H_
 
 #include "player.h"
-#include "action.h"
+#include "../model/action.h"
 
 //A FoldPlayer folds all the time to test the Shell
 class FoldPlayer: public Player

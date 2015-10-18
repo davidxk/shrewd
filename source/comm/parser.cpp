@@ -1,115 +1,239 @@
 #include "parser.h"
-#include "../common.h"
+#define PARSER_DEBUG 1
 
-void Parser::matchHead(string& msg)
+//fill in readInquiry after player settled
+Parser::Parser(Player* pPlayer, Mailman* pMailman):
+	player(pPlayer), mailman(pMailman) { }
+
+void Parser::writeReg()
 {
-	const regex pattern("[\\w-]*/ \n"); //watch out for
-	string replace;
-	msg = regex_replace(msg, pattern, replace, 
-			regex_constants::format_first_only);
+	vector<string> regInfo=player->sendReg();
+	string msg = "reg: ";
+	msg += regInfo[0] + ' ';
+	msg += regInfo[1] + ' ';
+	msg += "need_notify \n"; //could choose no need_notify
+	if(!PARSER_DEBUG) mailman->write(msg);
 }
 
-void Parser::matchTail(string& msg)
+void Parser::writeAction()
 {
-	const regex pattern("/[\\w-]* \n");
-	string replace;
-	msg = regex_replace(msg, pattern, replace,
-			regex_constants::format_first_only);
-}
-
-void Parser::matchWColon(string& msg)
-{
-	const regex pattern("\\w*: ");
-	string replace;
-	msg = regex_replace(msg, pattern, replace,
-			regex_constants::format_first_only);
-}
-
-
-
-
-Card Parser::getCard(string& msg)
-{
-	char color = msg[0], tmp[20];
-	int figure;
-
-	sscanf(msg.c_str(), "%s %d", tmp, &figure); //careful on %s
-
-	const regex pattern("\\w* \\w* ");
-	string replace;
-	msg = regex_replace(msg, pattern, replace, 
-			regex_constants::format_first_only);
-	if(msg[0]=='\n') matchChar(msg);
-
-	return Card::getCard(color, figure);
-}
-
-PlayerInfo Parser::getPlayerInfo(string& msg)
-{
-	int pid, jetton, money;
-	sscanf(msg.c_str(),"%d %d %d", &pid, &jetton, &money);
-
-	const regex pattern("\\d* \\d* \\d* ");
-	string replace;
-	msg = regex_replace(msg, pattern, replace,
-			regex_constants::format_first_only);
-	if(msg[0]=='\n') matchChar(msg);
-
-	return PlayerInfo(intToStr(pid), jetton, money);
-}
-
-Action Parser::getAction(string& msg)
-{
-	int bet=nextInt(msg); 
-	matchWord(msg); //now at act
-
-	int act;
-	switch(msg[3])
+	Action action=player->sendBet();
+	player->lastNotify=player->state;
+	string actName, moneyStr;
+	char smoney[20];
+	switch(action.act)
 	{
-		case 'n': act=ACT_BLIND; break;
-		case 'c': act=ACT_CHECK; break;
-		case 'l': act=ACT_CALL; break;
-		case 's': act=ACT_RAISE; break;
-		case '_': act=ACT_ALLIN; break;
-		case 'd': act=ACT_FOLD; break;
-		default: cout<<"Error: Unknown act. Protocal unmatch. "<<endl;
-				 act=ACT_SMALL_BLIND;
+		case ACT_CHECK: actName=STR_CHECK; break;
+		case ACT_CALL: actName=STR_CALL; break;
+		case ACT_RAISE:
+			actName=STR_RAISE;
+			actName+=' ';
+			sprintf(smoney,"%d",action.bet);
+			moneyStr.assign(smoney); //convert int to str cont
+			break;
+		case ACT_ALLIN: actName=STR_ALLIN; break;
+		case ACT_FOLD: actName=STR_FOLD; break;
+		default:break;
 	}
-	matchWord(msg); //now at next line ^
-
-	Action sact;
-	sact.act=act;
-	sact.bet=bet;
-	sact.state; //optimize here later
-	return sact;
-}
-
-RdState Parser::getRdState(string& msg)
-{
-	PlayerInfo info=getPlayerInfo(msg);
-	Action anAct=getAction(msg);
-	return RdState(info, anAct);
+	string msg = actName + moneyStr + " \n";
+	if(!PARSER_DEBUG) mailman->write(msg);
 }
 
 
 
 
-int Parser::nextInt(string& msg)
+
+void Parser::readSeat(string& message)
 {
-	int num;
-	sscanf(msg.c_str(), "%d", &num);
-	return num;
+	string msg=sticky(message,"seat/");
+	scan.matchHead(msg);
+	vector<PlayerInfo> seat;
+
+	for(int i=0;i<3;i++)
+	{
+		if(msg[0]!='s'&&msg[0]!='b') break;
+		if(i>0) scan.matchWord(msg);
+		scan.matchWColon(msg);
+		seat.push_back( scan.getPlayerInfo(msg) );
+	}
+	while(msg[0]!='/')
+		seat.push_back( scan.getPlayerInfo(msg) );
+
+	player->rcvSeat(seat);
+	//consume tail if needed here
+	if(PARSER_DEBUG) message=msg;
+}
+	
+void Parser::readBlind(string& message)
+{
+	string msg=sticky(message,"blind/");
+	scan.matchHead(msg);
+
+	int bet, pid, act=ACT_BLIND;
+
+	pid=scan.nextInt(msg);
+	scan.matchWColon(msg);
+	bet=scan.nextInt(msg); 
+	scan.matchWord(msg); //now at ^
+
+	Action sact(act, bet, DEAL_BET);
+	player->rcvOppoAct(pid, sact);
+	//optimize here later
+	player->SBlindId=pid;
+	player->bigBlind=bet*2;
+
+	if(msg[0]!='/')
+	{
+		sscanf(message.c_str(), "%d", &pid);
+		scan.matchWColon(msg);
+		bet=scan.nextInt(msg); 
+		scan.matchWord(msg); //now at ^
+
+		Action bact(act, bet, DEAL_BET);
+		player->rcvOppoAct(pid, sact);
+	}
+	//consume tail if needed here
+	if(PARSER_DEBUG) message=msg;
 }
 
-void Parser::matchChar(string& msg)
+void Parser::readHold(string& message)
 {
-	msg=msg.substr(1,msg.size()-1);
+	string msg=sticky(message,"hold/");
+	scan.matchHead(msg);
+
+	vector<Card> hole;
+	for(int i=0;i<HOLE_SIZE;i++)
+		hole.push_back(scan.getCard(msg));
+
+	player->rcvHole(hole);
+	//consume tail if needed here
+	if(PARSER_DEBUG) message=msg;
 }
 
-void Parser::matchWord(string& msg)
+void Parser::readInquire(string msg)
 {
-	const regex pattern("\\w* ");
-	string replace;
-	msg = regex_replace(msg, pattern, replace, 
-			regex_constants::format_first_only);
+	//A player reads what he expects to see so the handler simply passes on
+	//scan.matchHead(msg);
+	//while(msg[0]!='t')
+	//scan.getPlayerInfo(msg);
+	//scan.getAction(msg);
+	//}
+	//scan.matchWord(msg);
+	//scan.matchWColon(msg);
+	//scan.nextInt(msg);
+	//scan.matchWord(msg);
+	//consume tail if needed here
+}
+
+
+
+
+
+void Parser::readFlop(string& msg)
+{
+	scan.matchHead(msg);
+
+	vector<Card> comm;
+	for(int i=0;i<N_FLOP;i++)
+		comm.push_back(scan.getCard(msg));
+	//caution here, plyrshel judged if msg empty here 
+
+	player->rcvFlop(comm);
+	player->cntRd=0; //optimize here later
+	//consume tail if needed here
+}
+
+void Parser::readTurn(string& msg)
+{
+	scan.matchHead(msg);
+
+	player->rcvTurn( scan.getCard(msg) );
+	//caution here, plyrshel judged if msg empty here 
+	player->cntRd=0; //optimize here later
+}
+
+void Parser::readRiver(string& msg)
+{
+	scan.matchHead(msg);
+
+	player->rcvRiver( scan.getCard(msg) );
+	//caution here, plyrshel judged if msg empty here 
+	player->cntRd=0; //optimize here later
+}
+
+void Parser::readShowdown(string& msg)
+{
+	scan.matchHead(msg);
+	scan.matchHead(msg);
+
+	int pid, nut_hand;
+
+	for(int i=0;i<COMM_SIZE;i++)
+		scan.getCard(msg);
+	scan.matchTail(msg);
+
+	while(msg[0]!='/')
+	{
+		scan.matchWColon(msg);
+
+		pid=scan.nextInt(msg);
+		scan.matchWord(msg);
+
+		for(int i=0; i<2; i++)
+			player->rcvPHole(pid, scan.getCard(msg));
+		
+		//deal with nut hand with switch(msg[1]) cont
+		switch(msg[1])
+		{
+			case 'I': nut_hand=HIGHCARD; break;
+			case 'N': nut_hand=PAIR; break;
+			case 'W': nut_hand=TWOPAIRS; break;
+			case 'H': nut_hand=TRIP; break;
+			case 'L': nut_hand=FLUSH; break;
+			case 'U': nut_hand=FULLHOUSE; break;
+			case 'O': nut_hand=FOUR; break;
+			case 'T':
+					  if(msg[8]=='_') nut_hand=STRAIGHTFLUSH;
+					  else nut_hand=STRAIGHT;
+					  break;
+			default: cout<<"Error: Unknow hand. Protocal Unmatch. "<<endl;
+		}
+		player->rcvPHand(pid, nut_hand);
+		scan.matchWord(msg);
+	}
+	scan.matchTail(msg);
+}
+
+void Parser::readPotwin(string& message)
+{
+	string msg=sticky(message, "pot-win/");
+	scan.matchHead(msg);
+
+	int pid, share;
+
+	while(msg[0]!='/')
+	{
+		pid=scan.nextInt(msg);
+		scan.matchWColon(msg);
+		share=scan.nextInt(msg); 
+		scan.matchWord(msg); //now at ^
+
+		player->rcvPotwin(pid, share);
+	}
+	scan.matchTail(msg);
+	if(PARSER_DEBUG) message=msg;
+}
+
+
+
+
+
+string Parser::sticky(string& message, string header)
+{
+	//msg is a copy of the message
+	int start=message.find(header);
+	if(start==-1 && !PARSER_DEBUG) 
+		message=mailman->read();
+	else message=message.substr(start, message.size()-start);
+	return message;
 }
