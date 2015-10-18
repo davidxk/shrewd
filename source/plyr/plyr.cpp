@@ -20,6 +20,7 @@ void Player::init()
 	hole.clear();
 
 	state=DEAL;
+	isNewRd=false;
 }
 
 void Player::setReg(char* pid, char* name)
@@ -102,17 +103,7 @@ void Player::rcvLstRound(vector<RdState> lastrd)
 	if(lastrd.size()>0 && lastrd[lastrd.size()-1].pi.pid==pid)
 		myState=lastrd[i];
 
-	for(int i=lastrd.size()-1; i>=0; i--)
-		if(!newRd)
-			rdRecords[state].push_back(lastrd);
-
-		else
-		{
-			if(compareSeat(lastrd[i].pi.pid, rdEndPid)==_B_A_)
-				rdRecords[state].push_back(lastrd);
-			else
-				rdRecords[state-1].push_back(lastrd);
-		}
+	//append on rdRecords
 }
 
 void Player::rcvOppoAct(int pid, Action act)
@@ -122,16 +113,19 @@ void Player::rcvOppoAct(int pid, Action act)
 void Player::rcvPHole(int pid, Card card)
 {
 	opHole[ findSeat(pid) ].push_back(card);
+	isNewRd=true;
 }
 
 void Player::rcvPHand(int pid, int hand)
 {
 	phand[ findSeat(pid) ]=hand;
+	isNewRd=true;
 }
 
 void Player::rcvPotwin(int pid, int share)
 {
 	potsh[ findSeat(pid) ]=share;
+	isNewRd=true;
 }
 
 

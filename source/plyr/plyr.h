@@ -27,6 +27,7 @@ public:
 	int nPlyr;		//[n(#) inGame]
 	vector<Card> comm;	//[3 ~ 5]
 	vector<int> seat;	//[SB# ~ DEALER#]
+	vector<RdState> lastrd;
 	vector<PlayerInfo> startStates;	// for first rd reference
 
 	//my state
@@ -62,5 +63,7 @@ public:
 	void rcvPHole(int pid, Card card);
 	void rcvPHand(int pid, int hand);
 	void rcvPotwin(int pid, int share);
+private:
+	bool isNewRd;
 };
 #endif

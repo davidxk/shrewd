@@ -37,4 +37,6 @@ This method receives the following data:
 
 nPlyr is updated using rdRecords
 myState can be updated with rdstate[last]
-rdRecords is harder to maintain
+rdRecords is harder to maintain. It is difficult in that the actions in a Inquiry doesn't come with stage tags and right action, so Player must analyze the stage of each action. 
+(BTW: inBet of rdRecords should be maintained at all time. lastrd to be added)
+The solution is to expect the next player at all time. 
