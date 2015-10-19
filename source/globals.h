@@ -90,10 +90,10 @@ typedef enum{ CLUB, DIAMOND, HEART, SPADE }Color;
 //snarl
 #define N_TURN 4
 #define N_RIVER 5
-#define DEALER_INDEX 0
-#define SBLIND_INDEX 1
-#define BBLIND_INDEX 2
-#define UTG_INDEX 3
+#define DEALER_INDEX -1
+#define SBLIND_INDEX 0
+#define BBLIND_INDEX 1
+#define UTG_INDEX 2
 
 //snow
 #define N_START_HAND 169
