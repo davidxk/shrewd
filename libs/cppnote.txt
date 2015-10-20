@@ -1,0 +1,35 @@
+###Type safety
+> A::A(const B& b); B::B(double dd);
+
+> A a(2) => A( B( double(2) ) )
+
+> string cat = str + 5 => str + string(5)
+
+###Pointer
+####Reference
+**void function(const Ojbect& BigObj);**
+
+* Pass-by-reference is only the convinent way of writing pass-by-pointer
+* Pass-by-value take a lot of resources, thus we like to use pointers
+* Use const for pass-by-reference when appropriate
+
+**void function(int b[]);**
+
+* Exactyly the same as: function(int* b);
+
+####Function pointer
+int (\*fp) (float, char\* );
+
+fp=function
+
+* Dynamically call of function is called 'Callback'. 
+
+####Array
+a[i] == *(a+i)
+
+####Macros
+* use const intead of macros for type safety
+* use extern if necessary
+* examples needed
+
+**#if defined(DEBUG)**
