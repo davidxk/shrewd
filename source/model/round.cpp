@@ -24,7 +24,6 @@ void Round::rcvAction(int seatNo, int action)
 			next++; return;
 	}
 
-	//int last=next;
 	if(next!=rdEnd) next=getNext(next);
 	else 
 	{
@@ -32,7 +31,6 @@ void Round::rcvAction(int seatNo, int action)
 		next=getThis(SBLIND_INDEX); 
 		rdEnd=getPrev(next);
 	}
-	//if(last==next) rdEnd=next, next=getNext(next);
 }
 
 int Round::getNextSeat()

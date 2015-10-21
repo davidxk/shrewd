@@ -23,6 +23,8 @@ int Round::getNextSeat()
 	0 check, 3 check
 	0 check, 1 raise, 0 raise, 1 fold
 
+8 players, 0 SB, 1 BB, 2 call, 3 fold, 4 fold, 5 fold, 6 fold, 7 call, 0 call, 1 raise, 2 fold, 7 fold, 0 call
+	0 check, 1 raise, 0 fold
 
 * output: the proper next seat
 

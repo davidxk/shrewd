@@ -3,30 +3,45 @@
 int main()
 {
 	Round rd;
-	rd.init(4);
-	int pid1[]={ 0,1,2,3, 0,1,2, 0,1,2,3, 0,1, 0,1,2, 0, 0,1,2 };
+	int seat1[]={ 0,1,2,3, 0,1,2, 0,1,2,3, 0,1, 0,1,2, 0, 0,1,2 };
 	int act1[]={ -7,-7,-1,0, -1,-1,-1, -2,0,0,-3, -1,-1, 0,0,-1,-1, -2,-2,-2 };
 
-	int pid2[]={ 0, 1, 2, 3, 0, 1, 0, 1, 2, 3, 0, 0, 3, 0, 3, 0, 3 };
+	int seat2[]={ 0, 1, 2, 3, 0, 1, 0, 1, 2, 3, 0, 0, 3, 0, 3, 0, 3 };
 	int act2[]={-7, -7, -1, -1, -1, -2, 0, -3, -3, 0, -1, -2, -2, -2, 0, 0, -3};
 
-	for(int i=0; i<sizeof(pid1)/sizeof(int); i++)
+	int seat3[]={ 0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 7, 0, 0, 1, 0 };
+	int act3[]={ -7,  -7,  -1,  -3,  -3,  -3,  -3,  -1,  -1,  0,  -3,  -3,  -1, -2,  0,  -3 };
+
+	rd.init(4);
+	for(int i=0; i<sizeof(seat1)/sizeof(int); i++)
 	{
-		if(rd.getNextSeat()!=pid1[i])
-			cout<<"pid expectation error: 1st test, round "<<i<<endl
-				<<"Seat h"<<pid1[i]<<" act"<<act1[i]
+		if(rd.getNextSeat()!=seat1[i])
+			cout<<"seat expectation error: 1st test, round "<<i<<endl
+				<<"Seat h"<<seat1[i]<<" act"<<act1[i]
 				<<" expect"<<rd.getNextSeat()<<endl;
-		rd.rcvAction(pid1[i], act1[i]);
+		rd.rcvAction(seat1[i], act1[i]);
 	}
 
 	rd.init(4);
-	for(int i=0; i<sizeof(pid2)/sizeof(int); i++)
+	for(int i=0; i<sizeof(seat2)/sizeof(int); i++)
 	{
-		if(rd.getNextSeat()!=pid2[i])
-			cout<<"pid expectation error: 2nd test, round "<<i<<endl
-				<<"Seat h"<<pid2[i]<<" act"<<act2[i]
+		if(rd.getNextSeat()!=seat2[i])
+			cout<<"seat expectation error: 2nd test, round "<<i<<endl
+				<<"Seat h"<<seat2[i]<<" act"<<act2[i]
 				<<" expect"<<rd.getNextSeat()<<endl;
-		rd.rcvAction(pid2[i], act2[i]);
+		rd.rcvAction(seat2[i], act2[i]);
+	}
+
+	rd.init(8);
+	for(int i=0; i<sizeof(seat3)/sizeof(int); i++)
+	{
+		//implement the repeat action problem upon using
+		if(rd.getNextSeat()!=seat3[i]) i++;
+		if(rd.getNextSeat()!=seat3[i])
+			cout<<"seat expectation error: 2nd test, round "<<i<<endl
+				<<"Seat h"<<seat3[i]<<" act"<<act3[i]
+				<<" expect"<<rd.getNextSeat()<<endl;
+		rd.rcvAction(seat3[i], act3[i]);
 	}
 
 	return 0;
