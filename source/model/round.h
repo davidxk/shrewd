@@ -3,7 +3,10 @@
 
 //include here
 
-//description of the class here
+//class Round is part of the model
+//it helps to identify the next player to make a move
+//it maintains the list of in-game players and provide relative services
+//it is concerned with seats only
 class Round
 {
 public:
@@ -17,7 +20,7 @@ public:
 	vector<bool> inGame;
 
 	int getNInGame();
-	int getNPlyr();
+	int getInGame();
 private:
 	int next;
 	int rdEnd;

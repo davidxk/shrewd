@@ -33,3 +33,9 @@ a[i] == *(a+i)
 * examples needed
 
 **#if defined(DEBUG)**
+
+<%	{
+%>	}
+<:	[
+:>	]	
+%%	#
