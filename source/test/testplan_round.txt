@@ -20,7 +20,7 @@ int Round::getNextSeat()
 
 4 players, 0 SB, 1 BB, 2 call, 3 call, 0 call, 1 check
 	0 raise, 1 fold, 2 fold, 3 raise, 0 call
-	0 check, 1 check
+	0 check, 3 check
 	0 check, 1 raise, 0 raise, 1 fold
 
 

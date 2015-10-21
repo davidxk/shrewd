@@ -1,14 +1,15 @@
 #include "round.h"
+#include "../globals.h"
 
-void Round::init(nPlyr)
+void Round::init(int nPlyr)
 {
 	state=DEAL;
 	next=SBLIND_INDEX;
 	rdEnd=BBLIND_INDEX;
 
-	this->nPlyr=nPlyr;
-	vector<bool> inGame(nPlyr, false);
-	this->inGame=nInGame=inGame;
+	this->nPlyr=nInGame=nPlyr;
+	vector<bool> inGame(nPlyr, true);
+	this->inGame=inGame;
 }
 
 void Round::rcvAction(int seatNo, int action)
@@ -27,6 +28,7 @@ void Round::rcvAction(int seatNo, int action)
 	if(next!=rdEnd) next=getNext(next);
 	else 
 	{
+		state++;
 		next=getThis(SBLIND_INDEX); 
 		rdEnd=getPrev(next);
 	}
@@ -67,7 +69,7 @@ int Round::getThis(int seatNo)
 
 
 
-int Round::getInGame()
+vector<bool> Round::getInGame()
 {
 	return inGame;
 }
