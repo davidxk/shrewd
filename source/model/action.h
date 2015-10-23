@@ -8,8 +8,7 @@ class Action
 public:
 	int act;
 	int bet;
-	int state;
-	Action(int act, int bet, int state);
+	Action(int act, int bet=0);
 	string print();
 };
 #endif

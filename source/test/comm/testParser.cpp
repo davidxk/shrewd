@@ -22,6 +22,10 @@ int main()
 	psr.readHold(msg);
 	cout<<"case: "<<msg<<endl;
 
+	msg= "inquire/ \n5555 1900 8000 100 call \n4444 2000 8000 0 fold \n6666 1900 8000 100 call \n1111 2000 8000 0 fold \n7777 1900 8000 100 call \n3333 1900 8000 100 call \n2222 2000 8000 0 fold \n8888 1900 8000 100 blind \ntotal pot: 500 \n/inquire \n";
+	psr.readInquire(msg);
+	cout<<"case: "<<msg<<endl;
+
 	msg= "flop/ \nHEARTS 6 \nDIAMONDS 3 \nCLUBS 10 \n/flop \n";
 	psr.readFlop(msg);
 	cout<<"case: "<<msg<<endl;

@@ -77,7 +77,7 @@ void Parser::readBlind(string& message)
 	bet=scan.nextInt(msg); 
 	scan.matchWord(msg); //now at ^
 
-	Action sact(act, bet, DEAL_BET);
+	Action sact(act, bet);
 	player->rcvOppoAct(pid, sact);
 	//optimize here later
 	player->SBlindId=pid;
@@ -90,7 +90,7 @@ void Parser::readBlind(string& message)
 		bet=scan.nextInt(msg); 
 		scan.matchWord(msg); //now at ^
 
-		Action bact(act, bet, DEAL_BET);
+		Action bact(act, bet);
 		player->rcvOppoAct(pid, sact);
 	}
 	//consume tail if needed here
@@ -111,7 +111,7 @@ void Parser::readHold(string& message)
 	if(PARSER_DEBUG) message=msg;
 }
 
-void Parser::readInquire(string msg)
+void Parser::readInquire(string& msg)
 {
 	//A player reads what he expects to see so the handler simply passes on
 	scan.matchHead(msg);

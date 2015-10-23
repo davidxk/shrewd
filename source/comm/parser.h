@@ -21,7 +21,7 @@ public:
 	void readSeat(string& message);
 	void readBlind(string& message);
 	void readHold(string& message);
-	void readInquire(string msg);
+	void readInquire(string& msg);	//caution: plyrshell didn't use ref here
 	void writeAction();
 	void readFlop(string& msg);
 	void readTurn(string& msg);

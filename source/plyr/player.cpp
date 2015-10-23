@@ -183,7 +183,7 @@ bool Player::isThisRd(int pid)
 int Player::getLeastBuyin()
 {
 	int leastBuyin=0;
-	if(lastrd[0].state!=state);
+	if(lastrd[0].inBet!=state);
 	else
 		for(int i=0;i<lastrd.size();i++)
 			if(isThisRd(lastrd[i].pi.pid))

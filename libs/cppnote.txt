@@ -32,7 +32,7 @@
 ###Function
 * Check a invariant everywhere the private variable is changed 
 * void function( const Obj& obj) pass object by reference 
-* Use default parameter, instead of overloading when possible
+* Use default parameter for convenience when there is a legitimate default value
 * Overload the function with same purpose but in different form
 * delete[] array; //use it to delete array
 

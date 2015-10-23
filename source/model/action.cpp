@@ -2,8 +2,8 @@
 #include "../common.h"
 #include "action.h"
 
-Action::Action(int aAct, int aBet, int aState):
-	act(aAct), bet(aBet), state(aState) { }
+Action::Action(int aAct, int aBet):
+	act(aAct), bet(aBet) { }
 
 string Action::print()
 {
