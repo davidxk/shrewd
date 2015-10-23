@@ -6,6 +6,7 @@
 #include <vector>
 #include <fstream>
 #include "../globals.h"
+#include "../model/Round.h"
 #include "../model/card.h"
 #include "../model/rdstate.h"
 using namespace std;
@@ -28,7 +29,7 @@ public:
 	vector<Card> comm;	//[3 ~ 5]
 	vector<int> seat;	//[SB# ~ DEALER#]
 	vector<RdState> lastrd;
-	vector<PlayerInfo> startStates;	// for first rd reference
+	vector<PlayerInfo> plyrStates;	// for first rd reference
 
 	//my state
 	RdState myState;
@@ -36,6 +37,7 @@ public:
 
 	//record
 	vector<vector<RdState>> rdRecords;	//[DEAL_BET ~ RIVER_BET][SB# ~ ]
+	Round rd;
 
 	//result 
 	vector<Card> opHole[MAX_PLAYER];	//[#][2]

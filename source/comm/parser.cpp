@@ -2,6 +2,7 @@
 #define PARSER_DEBUG 1
 
 //fill in readInquiry after player settled
+//optimize out the not needed statements
 Parser::Parser(Player* pPlayer, Mailman* pMailman):
 	player(pPlayer), mailman(pMailman) { }
 
@@ -113,15 +114,24 @@ void Parser::readHold(string& message)
 void Parser::readInquire(string msg)
 {
 	//A player reads what he expects to see so the handler simply passes on
-	//scan.matchHead(msg);
-	//while(msg[0]!='t')
-	//scan.getPlayerInfo(msg);
-	//scan.getAction(msg);
-	//}
-	//scan.matchWord(msg);
-	//scan.matchWColon(msg);
-	//scan.nextInt(msg);
-	//scan.matchWord(msg);
+	scan.matchHead(msg);
+	vector<RdState> lastrd;
+	while(msg[0]!='t')
+	{
+		PlayerInfo pi = scan.getPlayerInfo(msg);
+		Action act = scan.getAction(msg);
+		RdState rdstate(pi, act);
+		//maintain inBet info
+
+		lastrd.push_back(rdstate);
+	}
+	player->rcvLstRound(lastrd);
+
+	scan.matchWord(msg);
+	scan.matchWColon(msg);
+	int pot = scan.nextInt(msg);
+	player->rcvPot(pot);
+	scan.matchWord(msg);
 	//consume tail if needed here
 }
 

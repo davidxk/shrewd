@@ -67,12 +67,17 @@ int Round::getThis(int seatNo)
 
 
 
-vector<bool> Round::getInGame()
+int Round::getState()
 {
-	return inGame;
+	return state;
 }
 
 int Round::getNInGame()
 {
 	return nInGame;
+}
+
+vector<bool> Round::getInGame()
+{
+	return inGame;
 }

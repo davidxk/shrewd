@@ -55,7 +55,7 @@ void Player::rcvSeat(vector<PlayerInfo> players)
 	}
 
 	nPlyr=players.size();
-	startStates=players;
+	plyrStates=players;
 }
 
 void Player::rcvBlind(int pid, int bet)
@@ -104,6 +104,21 @@ void Player::rcvLstRound(vector<RdState> lastrd)
 		myState=lastrd[i];
 
 	//append on rdRecords
+	int next=rd.getNextSeat();
+	do	//run at least once
+	{
+		for(int i=0; i<lastrd.size(); i++)
+			if(lastrd[i].pi.pid==seat[next])
+			{
+				rd.rcvAction(next, lastrd[i].lstAct.act);
+				rdRecords[rd.getState()].push_back(lastrd[i]);
+				//plyrStates[next] is refreshed here
+				//maintain inBet info
+				break;
+			}
+		next=rd.getNextSeat();
+	}
+	while( next != mySeat )	//all until my turn(right now)
 }
 
 void Player::rcvOppoAct(int pid, Action act)

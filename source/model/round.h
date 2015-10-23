@@ -21,6 +21,7 @@ public:
 	int getThis(int seatNo);
 	vector<bool> inGame;
 
+	int getState();
 	int getNInGame();
 	vector<bool> getInGame();
 private:
