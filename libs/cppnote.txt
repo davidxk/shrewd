@@ -1,41 +1,39 @@
-###Type safety
-> A::A(const B& b); B::B(double dd);
+**Solution = Abstract model + Implementation**
 
-> A a(2) => A( B( double(2) ) )
+###Modelling
+* The two parts, modelling and implementation, must be separated
+* A detailed record of the design of abstract model is necessary
 
-> string cat = str + 5 => str + string(5)
+###Relationship
+* A class is defined by its service: its external behaviour
+* A is-A relationship means B has the same key function as A
+* A has-A relationship means data member of B is also data member of A
+* A use-A relationship means B provide service of use to A
 
-###Pointer
-####Reference
-**void function(const Ojbect& BigObj);**
+###Inheritance
+* Inheritance has overhead
+* A derived class method must comply with the base class's abstract model 
+* Inherit only the class that are designed to be inherited
+* A base class should have detailed design record, well-understood interface, concealed implementation detail and virtual destructor
+* A abstract class is defined when it is expected to be kept as a general concept, that is not expected to be instantiated
+* Pure virtual functions are key functions that cannot be implemented for the class it belong to is non-specific and lacks detail that indicates what actions should be taken
+* An interface is made up solely of pure virtual functions
 
-* Pass-by-reference is only the convinent way of writing pass-by-pointer
-* Pass-by-value take a lot of resources, thus we like to use pointers
-* Use const for pass-by-reference when appropriate
+###Initiation
+* Initialization differs from assignment in that, an object is initialized the moment it is created
+* Use initialization syntax as much as possible, for better efficiency
+* new in constructor and delete in destructor always, to ensure appropriate initialization and memory reallocation
 
-**void function(int b[]);**
+###Virtual function
+* Declaration of 'virtual' is not required, but recommended 
+* Destructor is not inherited so declaring it as virtual is required
+* Calling a virtual method in constructor or destructor may cause error
 
-* Exactyly the same as: function(int* b);
+###Function
+* Check a invariant everywhere the private variable is changed 
+* void function( const Obj& obj) pass object by reference 
+* Use default parameter, instead of overloading when possible
+* Overload the function with same purpose but in different form
+* delete[] array; //use it to delete array
 
-####Function pointer
-int (\*fp) (float, char\* );
-
-fp=function
-
-* Dynamically call of function is called 'Callback'. 
-
-####Array
-a[i] == *(a+i)
-
-####Macros
-* use const intead of macros for type safety
-* use extern if necessary
-* examples needed
-
-**#if defined(DEBUG)**
-
-<%	{
-%>	}
-<:	[
-:>	]	
-%%	#
+* Use STL instead of fixed length array at all times unless the length is absolutely fixed
