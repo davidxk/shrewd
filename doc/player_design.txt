@@ -4,12 +4,12 @@ A player should base his decision upon the following parameters:
 * BB		maintained at Blind
 * pot		maintained at pot
 * mySeat	maintained at Seat
-* nPlyr		*Not yet designed. Should be @Inquiry*, Seat
+* nPlyr		maintained by class Round
 * comm		maintained as cards are distributed
 * seat		maintained at Seat
-* startStates	maintained at Seat
+* plyrStates	maintained at Seat, Inquiry
 
-* myState	maintained at Inquiry
+* myState	maintained at Seat, Inquiry
 * hole		maintained at Hold
 * rdRecords	maintained at Inquiry
 
@@ -23,20 +23,13 @@ The listed parameters are retrieved with a number of methods, the more complex t
 This method receives the following data:
 * seat
 * mySeat
-* nPlyr
-* startStates
+* myState
+* plyrStates
 seat is received in [1 ~ n-1, 0] order so as to ensure [SB# ~ DEALER#] order.
-mySeat is received within the iterations
+mySeat and myState is received within the iterations
 nPlyr and startStates are initialized for the first round decision of pre-flop bet (DEAL_BET)
 
 #####rcvInquiry
 This method receives the following data:
-* nPlyr
 * myState
 * rdRecords
-
-nPlyr is updated using rdRecords
-myState can be updated with rdstate[last]
-rdRecords is harder to maintain. It is difficult in that the actions in a Inquiry doesn't come with stage tags and right action, so Player must analyze the stage of each action. 
-(BTW: inBet of rdRecords should be maintained at all time. lastrd to be added)
-The solution is to expect the next player at all time. 

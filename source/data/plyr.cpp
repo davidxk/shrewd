@@ -43,18 +43,17 @@ vector<string> Player::sendReg()
 
 void Player::rcvSeat(vector<PlayerInfo> players)
 {
-	//this msg contains [SB# ~], [@? $?] and [n(#)] info
-	//get [SB# ~] info and my [@ $]
+	//this msg contains seat[SB# ~], plyr[@? $?], my[@? $?] and [n(#)] info
+	//get seat[SB# ~] info and my [@? $?] and mySeat
 	for(int i=0; i<players.size(); i++)
 	{
 		//start from small blind
 		int wrap_i = i+1<players.size() ? i+1 : 0;
 		seat.push_back(players[wrap_i].pi.pid);
 		if(players[wrap_i].pid==pid)
-			myState.pi=players[wrap_i];
+			myState.pi=players[wrap_i], mySeat=i;
 	}
 
-	//nPlyr=players.size();
 	rd.init(players.size());
 	plyrStates.resize(players.size());
 	for(int i=0; i<players.size(); i++)
@@ -101,7 +100,7 @@ void Player::rcvRiver(Card card)
 
 void Player::rcvLstRound(vector<RdState> lastrd)
 {
-	//start from here
+	//This msg contains my[@? $?], act[#? $?], 
 	//reinit my state for round
 	if(lastrd.size()>0 && lastrd[lastrd.size()-1].pi.pid==pid)
 		myState=lastrd[i];

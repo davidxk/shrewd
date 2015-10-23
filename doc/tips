@@ -1,0 +1,3 @@
+:cd %:p:h	cd to file dir
+perl -n		enclose diamond
+
