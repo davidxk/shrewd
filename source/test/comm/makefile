@@ -1,5 +1,4 @@
 VPATH = ../../comm/ ../../model/ ../../plyr/ ../../ 
-ODIR = obj/
 
 object2 = testParser.o parser.o\
 		  scanner.o mailman.o folder.o player.o\
@@ -20,4 +19,4 @@ folder.o: player.o
 
 .PHONY: clean
 clean:
-	rm testScanner $(object1) $(object2)
+	rm testParser testScanner $(object1) $(object2)

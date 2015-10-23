@@ -1,7 +1,7 @@
 #ifndef _FOLDER_H_
 #define _FOLDER_H_
 
-#include "player.h"
+#include "plyr.h"
 #include "../model/action.h"
 
 //A FoldPlayer folds all the time to test the Shell

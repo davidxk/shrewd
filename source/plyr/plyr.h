@@ -35,7 +35,7 @@ public:
 	vector<Card> hole;
 
 	//record
-	vector<vector<RdState>> rdRecords;	//[DEAL_BET ~ RIVER_BET][SB# ~ ]
+	vector<vector<RdState> > rdRecords;	//[DEAL_BET ~ RIVER_BET][SB# ~ ]
 	Round rd;
 
 	//result 
@@ -50,7 +50,7 @@ public:
 	void setReg(char* pid, char* name);
 	vector<string> sendReg();
 	void rcvSeat(vector<PlayerInfo> players); //blind is a oppo action
-	void rcvBlind(int pid, int bet, bool isSmall);
+	void rcvBlind(int bet);
 	void rcvHole(vector<Card> hole);
 	virtual Action sendBet()=0; //the way player bets differ 
 
@@ -64,7 +64,5 @@ public:
 	void rcvPHole(int pid, Card card);
 	void rcvPHand(int pid, int hand);
 	void rcvPotwin(int pid, int share);
-private:
-	bool isNewRd;
 };
 #endif

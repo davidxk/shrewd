@@ -3,7 +3,7 @@
 
 #include "scanner.h"
 #include "mailman.h"
-#include "../plyr/player.h"
+#include "../plyr/plyr.h"
 
 //A Parser analyzes message it with parser and passes the data it to player
 //A Parser works closely with the mailman, the scanner and the player

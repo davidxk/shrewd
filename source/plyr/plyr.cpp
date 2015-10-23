@@ -21,7 +21,6 @@ void Player::init()
 	plyrStates.clear();
 
 	state=DEAL;
-	isNewRd=false;
 }
 
 void Player::setReg(char* pid, char* name)
@@ -55,13 +54,14 @@ void Player::rcvSeat(vector<PlayerInfo> players)
 			myState.pi=players[wrap_i];
 	}
 
-	nPlyr=players.size();
+	//nPlyr=players.size();
+	rd.init(players.size());
 	plyrStates.resize(players.size());
 	for(int i=0; i<players.size(); i++)
 		plyrStates[i].pi=players[i];
 }
 
-void Player::rcvBlind(int pid, int bet)
+void Player::rcvBlind(int bet)
 {
 	BB=2*bet;
 }
@@ -132,19 +132,16 @@ void Player::rcvOppoAct(int pid, Action act)
 void Player::rcvPHole(int pid, Card card)
 {
 	opHole[ findSeat(pid) ].push_back(card);
-	isNewRd=true;
 }
 
 void Player::rcvPHand(int pid, int hand)
 {
 	phand[ findSeat(pid) ]=hand;
-	isNewRd=true;
 }
 
 void Player::rcvPotwin(int pid, int share)
 {
 	potsh[ findSeat(pid) ]=share;
-	isNewRd=true;
 }
 
 
