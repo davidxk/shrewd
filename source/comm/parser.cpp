@@ -120,8 +120,7 @@ void Parser::readInquire(string msg)
 	{
 		PlayerInfo pi = scan.getPlayerInfo(msg);
 		Action act = scan.getAction(msg);
-		RdState rdstate(pi, act);
-		//maintain inBet info
+		RdState rdstate(pi, act, 0);
 
 		lastrd.push_back(rdstate);
 	}

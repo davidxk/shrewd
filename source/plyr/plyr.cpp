@@ -18,6 +18,7 @@ void Player::init()
 	comm.clear();
 	seat.clear();
 	hole.clear();
+	plyrStates.clear();
 
 	state=DEAL;
 	isNewRd=false;
@@ -55,7 +56,9 @@ void Player::rcvSeat(vector<PlayerInfo> players)
 	}
 
 	nPlyr=players.size();
-	plyrStates=players;
+	plyrStates.resize(players.size());
+	for(int i=0; i<players.size(); i++)
+		plyrStates[i].pi=players[i];
 }
 
 void Player::rcvBlind(int pid, int bet)
@@ -112,8 +115,9 @@ void Player::rcvLstRound(vector<RdState> lastrd)
 			{
 				rd.rcvAction(next, lastrd[i].lstAct.act);
 				rdRecords[rd.getState()].push_back(lastrd[i]);
-				//plyrStates[next] is refreshed here
-				//maintain inBet info
+
+				lastrd[i].inBet = plyrStates[next].inBet + lastrd[i].lstAct.bet;
+				plyrStates[next] = lastrd[i];
 				break;
 			}
 		next=rd.getNextSeat();

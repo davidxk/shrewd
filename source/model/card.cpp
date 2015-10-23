@@ -1,15 +1,7 @@
 #include "card.h"
-#include "../globals.h"
 
-Card::Card()
-{
-}
-
-Card::Card(int color, int figure)
-{
-	this->figure=figure;
-	this->color=color;
-}
+Card::Card(int aColor, int aFigure):
+	color(aColor), figure(aFigure) { }
 
 bool Card::is(Card card)
 {

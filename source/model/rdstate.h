@@ -11,9 +11,8 @@ public:
 	PlayerInfo pi;
 	Action lstAct;
 	int inBet;
-	int state; //in which round is last act
 public:
-	RdState(PlayerInfo, Action, int = -1, int = -1);
+	RdState(PlayerInfo, Action, int = 0);
 	string print();
 };
 #endif

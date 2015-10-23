@@ -1,3 +1,4 @@
+#include "../../globals.h"
 #include "../../model/action.h"
 
 int main()

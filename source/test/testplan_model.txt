@@ -5,10 +5,14 @@
 
 ####PlayerInfo
 string print()
-* input: PlayerInfo("7777", 30, 250);
+* input: PlayerInfo(7777, 30, 250);
 * output: proper readable output
 
 ####Action
 string print()
 * input: Action(ACT_RAISE, 100, 0)
+* output: proper readable output
+
+####RdState
+* input: RdState(PlayerInfo(7777, 30, 250), Action(ACT_RAISE, 100, 0), 0)
 * output: proper readable output

@@ -1,25 +1,9 @@
 #include "../globals.h"
+#include "../common.h"
 #include "plyrinfo.h"
 
-PlayerInfo::PlayerInfo()
-{
-	pid=-1;
-	jetton=0;
-	money=0;
-	inGame=true;
-}
-
-PlayerInfo::PlayerInfo(int pid, int jetton, int money)
-{
-	setPlayerInfo(pid,jetton,money);
-}
-
-void PlayerInfo::setPlayerInfo(int pid, int jetton, int money)
-{
-	this->pid=pid;
-	this->jetton=jetton;
-	this->money=money;
-}
+PlayerInfo::PlayerInfo(int aPid, int aJetton, int aMoney):
+	pid(aPid), jetton(aJetton), money(aMoney) { }
 
 bool PlayerInfo::match(PlayerInfo* plyr)
 {
@@ -30,14 +14,9 @@ bool PlayerInfo::match(PlayerInfo* plyr)
 
 string PlayerInfo::print()
 {
-	char pid_ch[20], jet_ch[20], mon_ch[20];
-	sprintf(pid_ch, "%d", pid);
-	sprintf(jet_ch, "%d", jetton);
-	sprintf(mon_ch, "%d", money);
-
-	string str="Player #"; str += pid_ch;
-	str += "\t@"; str += jet_ch;
-	str += "\t$"; str += mon_ch;
-	str += inGame ? "\tinGame\n" : "\tFold\n";
+	string str="Player #"; 
+	str += intToStr(pid) + "\t@";
+	str += intToStr(jetton) + "\t$";
+	str += intToStr(money) + "\n";
 	return str;
 }

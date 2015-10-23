@@ -28,8 +28,7 @@ public:
 	int nPlyr;		//[n(#) inGame]
 	vector<Card> comm;	//[3 ~ 5]
 	vector<int> seat;	//[SB# ~ DEALER#]
-	vector<RdState> lastrd;
-	vector<PlayerInfo> plyrStates;	// for first rd reference
+	vector<RdState> plyrStates;	//last round info record
 
 	//my state
 	RdState myState;
