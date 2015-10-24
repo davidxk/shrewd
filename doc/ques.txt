@@ -1,0 +1,5 @@
+*In what situation is 'new delete ->' way of using object necessary?*
+* When polymorphic behaviour is needed
+* When an object must persist after the scope where it was created has been destroyed
+
+*Is the 'Obj obj .' way a good way to use object? What are the disadvantages?*
