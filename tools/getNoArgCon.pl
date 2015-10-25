@@ -17,4 +17,4 @@ print join ', ', @member_dclr;
 print "):\n\t";
 map{ $_ .= '(xx)' } @member_name;
 print join ', ', @member_name;
-print " { }\n\n";
+print " { }";

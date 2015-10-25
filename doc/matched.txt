@@ -15,12 +15,12 @@
 [3]
 
 [2]
-([8] bet blind | check | call | raise | all_in | fold eol) 1-8
+([8] [9]) 1-8
 [5] num eol
 [3]
 
 [2]
-([8] bet blind | check | call | raise | all_in | fold eol) 1-8
+([8] [9]) 1-8
 [5] num eol
 [3]
 
@@ -59,3 +59,4 @@
 [6] \w*: *5
 [7] pid jetton money eol *4
 [8] pid jetton money *2
+[9] bet blind | check | call | raise | all_in | fold eol *2

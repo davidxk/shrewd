@@ -2,7 +2,7 @@
 ###Communication System
 ####Message parsing
 * Scanner analyzes pieces of message (mostly on a line-wise bases), converting linear string to data structures
-* Parser parses complete messages, passing data to the Player
+* Parser parses complete messages into standard objects
 * Parser uses a Scanner
 
 ####Data maintenance
