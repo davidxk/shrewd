@@ -3,7 +3,7 @@
 
 #include "scanner.h"
 #include "mailman.h"
-#include "../plyr/player.h"
+#include "../plyr/plyr.h"
 
 //A Parser analyzes message it with parser and passes the data it to player
 //A Parser works closely with the mailman, the scanner and the player
@@ -21,7 +21,7 @@ public:
 	void readSeat(string& message);
 	void readBlind(string& message);
 	void readHold(string& message);
-	void readInquire(string msg);
+	void readInquire(string& msg);	//caution: plyrshell didn't use ref here
 	void writeAction();
 	void readFlop(string& msg);
 	void readTurn(string& msg);

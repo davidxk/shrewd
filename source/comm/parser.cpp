@@ -1,7 +1,6 @@
 #include "parser.h"
 #define PARSER_DEBUG 1
 
-//fill in readInquiry after player settled
 Parser::Parser(Player* pPlayer, Mailman* pMailman):
 	player(pPlayer), mailman(pMailman) { }
 
@@ -18,7 +17,7 @@ void Parser::writeReg()
 void Parser::writeAction()
 {
 	Action action=player->sendBet();
-	player->lastNotify=player->state;
+	//player->lastNotify=player->state;
 	string actName, moneyStr;
 	char smoney[20];
 	switch(action.act)
@@ -69,29 +68,16 @@ void Parser::readBlind(string& message)
 	string msg=sticky(message,"blind/");
 	scan.matchHead(msg);
 
-	int bet, pid, act=ACT_BLIND;
+	int bet, pid;
 
 	pid=scan.nextInt(msg);
 	scan.matchWColon(msg);
 	bet=scan.nextInt(msg); 
 	scan.matchWord(msg); //now at ^
 
-	Action sact(act, bet, DEAL_BET);
-	player->rcvOppoAct(pid, sact);
-	//optimize here later
-	player->SBlindId=pid;
-	player->bigBlind=bet*2;
+	player->rcvBlind(bet);
 
-	if(msg[0]!='/')
-	{
-		sscanf(message.c_str(), "%d", &pid);
-		scan.matchWColon(msg);
-		bet=scan.nextInt(msg); 
-		scan.matchWord(msg); //now at ^
-
-		Action bact(act, bet, DEAL_BET);
-		player->rcvOppoAct(pid, sact);
-	}
+	//no point in parsing the rest
 	//consume tail if needed here
 	if(PARSER_DEBUG) message=msg;
 }
@@ -110,18 +96,26 @@ void Parser::readHold(string& message)
 	if(PARSER_DEBUG) message=msg;
 }
 
-void Parser::readInquire(string msg)
+void Parser::readInquire(string& msg)
 {
 	//A player reads what he expects to see so the handler simply passes on
-	//scan.matchHead(msg);
-	//while(msg[0]!='t')
-	//scan.getPlayerInfo(msg);
-	//scan.getAction(msg);
-	//}
-	//scan.matchWord(msg);
-	//scan.matchWColon(msg);
-	//scan.nextInt(msg);
-	//scan.matchWord(msg);
+	scan.matchHead(msg);
+	vector<RdState> lastrd;
+	while(msg[0]!='t')
+	{
+		PlayerInfo pi = scan.getPlayerInfo(msg);
+		Action act = scan.getAction(msg);
+		RdState rdstate(pi, act, 0);
+
+		lastrd.push_back(rdstate);
+	}
+	player->rcvLstRound(lastrd);
+
+	scan.matchWord(msg);
+	scan.matchWColon(msg);
+	int pot = scan.nextInt(msg);
+	player->rcvPot(pot);
+	scan.matchWord(msg);
 	//consume tail if needed here
 }
 
@@ -136,29 +130,21 @@ void Parser::readFlop(string& msg)
 	vector<Card> comm;
 	for(int i=0;i<N_FLOP;i++)
 		comm.push_back(scan.getCard(msg));
-	//caution here, plyrshel judged if msg empty here 
 
 	player->rcvFlop(comm);
-	player->cntRd=0; //optimize here later
 	//consume tail if needed here
 }
 
 void Parser::readTurn(string& msg)
 {
 	scan.matchHead(msg);
-
 	player->rcvTurn( scan.getCard(msg) );
-	//caution here, plyrshel judged if msg empty here 
-	player->cntRd=0; //optimize here later
 }
 
 void Parser::readRiver(string& msg)
 {
 	scan.matchHead(msg);
-
 	player->rcvRiver( scan.getCard(msg) );
-	//caution here, plyrshel judged if msg empty here 
-	player->cntRd=0; //optimize here later
 }
 
 void Parser::readShowdown(string& msg)

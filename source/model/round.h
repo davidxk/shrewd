@@ -1,7 +1,9 @@
 #ifndef _ROUND_H_
 #define _ROUND_H_
 
-//include here
+#include <iostream>
+#include <vector>
+using namespace std;
 
 //class Round is part of the model
 //it helps to identify the next player to make a move
@@ -10,7 +12,7 @@
 class Round
 {
 public:
-	void init(nPlyr);
+	void init(int nPlyr);
 	void rcvAction(int seatNo, int action);
 	int getNextSeat();
 
@@ -19,12 +21,14 @@ public:
 	int getThis(int seatNo);
 	vector<bool> inGame;
 
+	int getState();
 	int getNInGame();
-	int getInGame();
+	vector<bool> getInGame();
 private:
 	int next;
 	int rdEnd;
 	int nPlyr;
 	int nInGame;
+	int state;
 };
 #endif

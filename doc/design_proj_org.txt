@@ -1,0 +1,7 @@
+The project is previously divided into 4 directories. Source contains all source code. Libs is not used. Makeproject contains the object files and makefile. Target contains the single executable file. 
+
+Now there is little doubt that further dividing the source into different directories is a good idea. With model containing the protocol-dependent classes, comm containing the communication subsystem, data containing the data maintenance subsystem and ai comprising the AI subsystem. 
+
+The question now is where to put the test projects. A key point to this problem is the way of writing makefiles. It is desirable that objects should be gathered in the same directory. 
+
+There is little doubt, that the 4 directories will not be enough. At least a doc and a tools directory are needed. 
