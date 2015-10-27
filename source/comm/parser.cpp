@@ -1,4 +1,4 @@
-#include "parser.h"
+#include "comm/parser.h"
 #define PARSER_DEBUG 1
 
 Parser::Parser(Player* pPlayer, Mailman* pMailman):
@@ -42,7 +42,7 @@ void Parser::writeAction()
 
 
 
-void Parser::readSeat(string& message)
+vector<PlayerInfo> Parser::readSeat(string& message)
 {
 	string msg=sticky(message,"seat/");
 	scan.matchHead(msg);
@@ -58,31 +58,28 @@ void Parser::readSeat(string& message)
 	while(msg[0]!='/')
 		seat.push_back( scan.getPlayerInfo(msg) );
 
-	player->rcvSeat(seat);
 	//consume tail if needed here
 	if(PARSER_DEBUG) message=msg;
+	return seat;
 }
 	
-void Parser::readBlind(string& message)
+int Parser::readBlind(string& message)
 {
 	string msg=sticky(message,"blind/");
 	scan.matchHead(msg);
 
-	int bet, pid;
-
-	pid=scan.nextInt(msg);
+	int pid=scan.nextInt(msg);
 	scan.matchWColon(msg);
-	bet=scan.nextInt(msg); 
+	int bet=scan.nextInt(msg); 
 	scan.matchWord(msg); //now at ^
-
-	player->rcvBlind(bet);
 
 	//no point in parsing the rest
 	//consume tail if needed here
 	if(PARSER_DEBUG) message=msg;
+	return bet;
 }
 
-void Parser::readHold(string& message)
+vector<Card> Parser::readHold(string& message)
 {
 	string msg=sticky(message,"hold/");
 	scan.matchHead(msg);
@@ -91,12 +88,12 @@ void Parser::readHold(string& message)
 	for(int i=0;i<HOLE_SIZE;i++)
 		hole.push_back(scan.getCard(msg));
 
-	player->rcvHole(hole);
 	//consume tail if needed here
 	if(PARSER_DEBUG) message=msg;
+	return hole;
 }
 
-void Parser::readInquire(string& msg)
+TableInfo Parser::readInquire(string& msg)
 {
 	//A player reads what he expects to see so the handler simply passes on
 	scan.matchHead(msg);
@@ -109,21 +106,20 @@ void Parser::readInquire(string& msg)
 
 		lastrd.push_back(rdstate);
 	}
-	player->rcvLstRound(lastrd);
 
 	scan.matchWord(msg);
 	scan.matchWColon(msg);
 	int pot = scan.nextInt(msg);
-	player->rcvPot(pot);
 	scan.matchWord(msg);
 	//consume tail if needed here
+	return TableInfo(lastrd, pot);
 }
 
 
 
 
 
-void Parser::readFlop(string& msg)
+vector<Card> Parser::readFlop(string& msg)
 {
 	scan.matchHead(msg);
 
@@ -131,44 +127,45 @@ void Parser::readFlop(string& msg)
 	for(int i=0;i<N_FLOP;i++)
 		comm.push_back(scan.getCard(msg));
 
-	player->rcvFlop(comm);
 	//consume tail if needed here
+	return comm;
 }
 
-void Parser::readTurn(string& msg)
+Card Parser::readTurn(string& msg)
 {
 	scan.matchHead(msg);
-	player->rcvTurn( scan.getCard(msg) );
+	return scan.getCard(msg);
 }
 
-void Parser::readRiver(string& msg)
+Card Parser::readRiver(string& msg)
 {
-	scan.matchHead(msg);
-	player->rcvRiver( scan.getCard(msg) );
+	return readTurn(msg);
 }
 
-void Parser::readShowdown(string& msg)
+unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
 {
 	scan.matchHead(msg);
 	scan.matchHead(msg);
-
-	int pid, nut_hand;
 
 	for(int i=0;i<COMM_SIZE;i++)
 		scan.getCard(msg);
 	scan.matchTail(msg);
 
+	unordered_map<int, ShowdownInfo> shwdMap;
+
 	while(msg[0]!='/')
 	{
 		scan.matchWColon(msg);
 
-		pid=scan.nextInt(msg);
+		int pid=scan.nextInt(msg);
 		scan.matchWord(msg);
 
+		vector<Card> pHole;
 		for(int i=0; i<2; i++)
-			player->rcvPHole(pid, scan.getCard(msg));
+			pHole.push_back(scan.getCard(msg));
 		
 		//deal with nut hand with switch(msg[1]) cont
+		int nut_hand;
 		switch(msg[1])
 		{
 			case 'I': nut_hand=HIGHCARD; break;
@@ -184,30 +181,34 @@ void Parser::readShowdown(string& msg)
 					  break;
 			default: cout<<"Error: Unknow hand. Protocal Unmatch. "<<endl;
 		}
-		player->rcvPHand(pid, nut_hand);
+		ShowdownInfo shwdInfo(pHole, nut_hand);
+		shwdMap.emplace(pid, shwdInfo);
+
+		pHole.clear();
 		scan.matchWord(msg);
 	}
 	scan.matchTail(msg);
+	return shwdMap;
 }
 
-void Parser::readPotwin(string& message)
+unordered_map<int, int> Parser::readPotwin(string& message)
 {
 	string msg=sticky(message, "pot-win/");
 	scan.matchHead(msg);
 
-	int pid, share;
-
+	unordered_map<int, int> potShare;
 	while(msg[0]!='/')
 	{
-		pid=scan.nextInt(msg);
+		int pid=scan.nextInt(msg);
 		scan.matchWColon(msg);
-		share=scan.nextInt(msg); 
+		int share=scan.nextInt(msg); 
 		scan.matchWord(msg); //now at ^
 
-		player->rcvPotwin(pid, share);
+		potShare.emplace(pid, share);
 	}
 	scan.matchTail(msg);
 	if(PARSER_DEBUG) message=msg;
+	return potShare;
 }
 
 

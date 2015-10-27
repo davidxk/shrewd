@@ -1,7 +1,8 @@
-#ifndef _CARD_H_
-#define _CARD_H_
+#ifndef _MODEL_CARD_H_
+#define _MODEL_CARD_H_
+
 #include <iostream>
-#include "../globals.h"
+#include "globals.h"
 using namespace std;
 
 class Card

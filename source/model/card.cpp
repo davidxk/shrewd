@@ -1,4 +1,4 @@
-#include "card.h"
+#include "model/Card.h"
 
 Card::Card(int aColor, int aFigure):
 	color(aColor), figure(aFigure) { }

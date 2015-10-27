@@ -1,5 +1,5 @@
-#include "round.h"
-#include "../globals.h"
+#include "globals.h"
+#include "model/RoundUtil.h"
 
 void Round::init(int nPlyr)
 {

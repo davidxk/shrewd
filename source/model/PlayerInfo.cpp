@@ -1,6 +1,6 @@
-#include "../globals.h"
-#include "../common.h"
-#include "plyrinfo.h"
+#include "common.h"
+#include "globals.h"
+#include "model/PlayerInfo.h"
 
 PlayerInfo::PlayerInfo(int aPid, int aJetton, int aMoney):
 	pid(aPid), jetton(aJetton), money(aMoney) { }

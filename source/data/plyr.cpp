@@ -5,12 +5,6 @@
 void Player::init()
 {
 	//pout.open("ply.log");
-	for(int i=0; i<MAX_PLAYER; i++)
-	{
-		opHole[i].clear();
-		phand[i]=NOT_THIS_RANK;
-		potsh[i]=-1;
-	}
 	for(int i=0; i<lastrd.size(); i++)
 		rdRecords[i].clear();
 
@@ -19,6 +13,7 @@ void Player::init()
 	seat.clear();
 	hole.clear();
 	plyrStates.clear();
+	potShare.clear();
 
 	state=DEAL;
 }
@@ -41,7 +36,7 @@ vector<string> Player::sendReg()
 
 
 
-void Player::rcvSeat(vector<PlayerInfo> players)
+void Player::rcvSeat(const vector<PlayerInfo>& players)
 {
 	//this msg contains seat[SB# ~], plyr[@? $?], my[@? $?] and [n(#)] info
 	//get seat[SB# ~] info and my [@? $?] and mySeat
@@ -50,14 +45,15 @@ void Player::rcvSeat(vector<PlayerInfo> players)
 		//start from small blind
 		int wrap_i = i+1<players.size() ? i+1 : 0;
 		seat.push_back(players[wrap_i].pi.pid);
+		pidToSeat.emplace(players[wrap_i].pi.pid, i);
+
 		if(players[wrap_i].pid==pid)
 			myState.pi=players[wrap_i], mySeat=i;
 	}
 
 	rd.init(players.size());
-	plyrStates.resize(players.size());
 	for(int i=0; i<players.size(); i++)
-		plyrStates[i].pi=players[i];
+		plyrStates.emplace( players[i].pid, RdState(players[i]) );
 }
 
 void Player::rcvBlind(int bet)
@@ -65,30 +61,25 @@ void Player::rcvBlind(int bet)
 	BB=2*bet;
 }
 
-void Player::rcvHole(vector<Card> hole)
+void Player::rcvHole(const vector<Card>& hole)
 {
 	this->hole=hole;
 	state=DEAL_BET;
 }
 
-void Player::rcvPot(int pot)
-{
-	this->pot=pot;
-}
-
-void Player::rcvFlop(vector<Card> flop)
+void Player::rcvFlop(const vector<Card>& flop)
 {
 	this->comm=flop;
 	state=FLOP_BET;
 }
 
-void Player::rcvTurn(Card card)
+void Player::rcvTurn(const Card& card)
 {
 	comm.push_back(card);
 	state=TURN_BET;
 }
 
-void Player::rcvRiver(Card card)
+void Player::rcvRiver(const Card& card)
 {
 	comm.push_back(card);
 	state=RIVER_BET;
@@ -98,49 +89,39 @@ void Player::rcvRiver(Card card)
 
 
 
-void Player::rcvLstRound(vector<RdState> lastrd)
+void Player::rcvLstRound(const TableInfo& tableInfo)
 {
 	//This msg contains my[@? $?], act[#? $?], 
+	const map<int, RdState> lastrd = tableInfo.lastrd;
 	//reinit my state for round
-	if(lastrd.size()>0 && lastrd[lastrd.size()-1].pi.pid==pid)
-		myState=lastrd[i];
+	myState = lastrd.find(pid).second;
 
 	//append on rdRecords
-	int next=rd.getNextSeat();
+	int next = rdu.getNextSeat();
 	do	//run at least once
 	{
-		for(int i=0; i<lastrd.size(); i++)
-			if(lastrd[i].pi.pid==seat[next])
-			{
-				rd.rcvAction(next, lastrd[i].lstAct.act);
-				rdRecords[rd.getState()].push_back(lastrd[i]);
-
-				lastrd[i].inBet = plyrStates[next].inBet + lastrd[i].lstAct.bet;
-				plyrStates[next] = lastrd[i];
-				break;
-			}
-		next=rd.getNextSeat();
+		//get #next's state
+		RdState rs = lastrd.find(seat[next]).second;
+		//archive action
+		rdu.rcvAction(next, rs.lstAct.act);
+		rdRecords[rdu.getState()].push_back(rs);
+		//maintain inBet attribute & current plyrStates
+		rs.inBet = plyrStates.find(seat[next]).second.inBet + rs.lstAct.bet;
+		plyrStates.find(seat[next]).second = rs;
+		//step to next cycle
+		next=rdu.getNextSeat();
 	}
 	while( next != mySeat )	//all until my turn(right now)
 }
 
-void Player::rcvOppoAct(int pid, Action act)
+void Player::rcvShowdown(const unordered_map<int, ShowdownInfo>& shwdMap)
 {
+	this->shwdMap = shwdMap;
 }
 
-void Player::rcvPHole(int pid, Card card)
+void Player::rcvPotwin(const unordered_map<int, int> potShare)
 {
-	opHole[ findSeat(pid) ].push_back(card);
-}
-
-void Player::rcvPHand(int pid, int hand)
-{
-	phand[ findSeat(pid) ]=hand;
-}
-
-void Player::rcvPotwin(int pid, int share)
-{
-	potsh[ findSeat(pid) ]=share;
+	this->potShare = potShare;
 }
 
 

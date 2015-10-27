@@ -1,5 +1,5 @@
-#ifndef _ACTION_H_
-#define _ACTION_H_
+#ifndef _MODEL_ACTION_H_
+#define _MODEL_ACTION_H_
 #include <iostream>
 using namespace std;
 

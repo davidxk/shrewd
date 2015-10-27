@@ -4,8 +4,8 @@ my $class_name, $arg_list;
 my @member_name, @member_type, @member_dclr;
 while(<>)
 {
-	$class_name=$1 if(/^class (\w*)(:.*)?$/);
-	if(/^\t(\w*) (\w*);/)
+	$class_name=$1 if(/^class (\w*)/);
+	if(/^\t([\w<>]*) (\w*);/)
 	{
 		#push @member_type, $1;
 		push @member_name, $2;

@@ -1,14 +1,19 @@
-#ifndef _PLAYER_H_
-#define _PLAYER_H_
+#ifndef _DATA_PLAYER_H_
+#define _DATA_PLAYER_H_
+
+#include <cstdio>
+#include <fstream>
 
 #include <iostream>
-#include <cstdio>
+#include <unordered_map>
 #include <vector>
-#include <fstream>
-#include "../globals.h"
-#include "../model/Round.h"
-#include "../model/card.h"
-#include "../model/rdstate.h"
+
+#include "globals.h"
+#include "model/Card.h"
+#include "model/RdState.h"
+#include "model/RoundUtil.h"
+#include "model/ShowdownInfo.h"
+#include "model/TableInfo.h"
 using namespace std;
 
 //A player archives the info retrived from handler for future reference
@@ -28,7 +33,8 @@ public:
 	int nPlyr;		//[n(#) inGame]
 	vector<Card> comm;	//[3 ~ 5]
 	vector<int> seat;	//[SB# ~ DEALER#]
-	vector<RdState> plyrStates;	//last round info record
+	unordered_map<int, int> pidToSeat;
+	unordered_map<int, RdState> plyrStates;	//last round info record
 
 	//my state
 	RdState myState;
@@ -36,12 +42,12 @@ public:
 
 	//record
 	vector<vector<RdState> > rdRecords;	//[DEAL_BET ~ RIVER_BET][SB# ~ ]
-	Round rd;
+	RoundUtil rdu;
 
 	//result 
-	vector<Card> opHole[MAX_PLAYER];	//[#][2]
-	int phand[MAX_PLAYER];
-	int potsh[MAX_PLAYER];
+	//vector<Card>, int hand, int potShare
+	unordered_map<int, ShowdownInfo> shwdMap;	
+	unordered_map<int, int> potShare;
 	
 	//lasting record
 
@@ -49,20 +55,16 @@ public:
 	void init(); //clear vectors at the start of a game
 	void setReg(char* pid, char* name);
 	vector<string> sendReg();
-	void rcvSeat(vector<PlayerInfo> players); //blind is a oppo action
+	void rcvSeat(const vector<PlayerInfo>& players); 
 	void rcvBlind(int bet);
-	void rcvHole(vector<Card> hole);
+	void rcvHole(const vector<Card>& hole);
 	virtual Action sendBet()=0; //the way player bets differ 
 
-
-	void rcvPot(int pot);
-	void rcvFlop(vector<Card> flop);
-	void rcvTurn(Card card);
-	void rcvRiver(Card card);
-	void rcvLstRound(vector<RdState> lastrd);
-	void rcvOppoAct(int pid, Action act);
-	void rcvPHole(int pid, Card card);
-	void rcvPHand(int pid, int hand);
-	void rcvPotwin(int pid, int share);
+	void rcvFlop(const vector<Card>& flop);
+	void rcvTurn(const Card& card);
+	void rcvRiver(const Card& card);
+	void rcvLstRound(const TableInfo& tableInfo);
+	void rcvShowdown(const unordered_map<int, ShowdownInfo>& shwdMap);
+	void rcvPotwin(const unordered_map<int, int>& potShare);
 };
 #endif

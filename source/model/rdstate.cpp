@@ -1,5 +1,5 @@
-#include "rdstate.h"
-#include "../common.h"
+#include "common.h"
+#include "model/RdState.h"
 
 RdState::RdState(PlayerInfo aPi, Action aLstAct, int aInBet):
 	pi(aPi), lstAct(aLstAct), inBet(aInBet) { }

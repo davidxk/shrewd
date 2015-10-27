@@ -1,18 +1,19 @@
-#ifndef _MAIL_MAN_H_
-#define _MAIL_MAN_H_
-#define MAXDATASIZE 4096
-#define MAXLEN 20
+#ifndef _COMM_MAIL_MAN_H_
+#define _COMM_MAIL_MAN_H_
+const int MAXDATASIZE 4096
+const int MAXLEN 20
 
-#include <unistd.h>
-#include <iostream>
-#include <fstream>
-#include <sys/socket.h>
 #include <arpa/inet.h>
-#include <errno.h>
-#include <string.h>
-#include <string>
 #include <cstdio>
 #include <cstdlib>
+#include <errno.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
+
+#include <fstream>
+#include <iostream>
+#include <string>
 using namespace std;
 
 //Mailmab is the interface facing the internet

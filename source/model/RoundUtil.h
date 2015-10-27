@@ -1,5 +1,5 @@
-#ifndef _ROUND_H_
-#define _ROUND_H_
+#ifndef _MODEL_ROUND_UTIL_H_
+#define _MODEL_ROUND_UTIL_H_
 
 #include <iostream>
 #include <vector>

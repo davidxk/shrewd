@@ -1,5 +1,5 @@
-#ifndef _PLAYER_INFO_H_
-#define _PLAYER_INFO_H_
+#ifndef _MODEL_PLAYER_INFO_H_
+#define _MODEL_PLAYER_INFO_H_
 
 #include <iostream>
 #include <string>

@@ -1,8 +1,8 @@
-#ifndef _ROUND_STATE_H_
-#define _ROUND_STATE_H_
+#ifndef _MODEL_ROUND_STATE_H_
+#define _MODEL_ROUND_STATE_H_
 #include <iostream>
-#include "plyrinfo.h"
-#include "action.h"
+#include "model/Action.h"
+#include "model/PlayerInfo.h"
 using namespace std;
 
 class RdState

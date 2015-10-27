@@ -1,15 +1,16 @@
-#ifndef _SCANNER_H_
-#define _SCANNER_H_
+#ifndef _COMM_SCANNER_H_
+#define _COMM_SCANNER_H_
 
-#include <iostream>
 #include <cstdio>
-#include <fstream>
 #include <cstdlib>
+#include <fstream>
+#include <iostream>
 #include <regex>
-#include "../model/card.h"
-#include "../model/plyrinfo.h"
-#include "../model/rdstate.h"
-#include "../model/action.h"
+
+#include "model/Action.h"
+#include "model/Card.h"
+#include "model/RdState.h"
+#include "model/PlayerInfo.h"
 using namespace std;
 
 //This class translates linear message into data structure 

@@ -1,4 +1,4 @@
-#include "scanner.h"
+#include "comm/Scanner.h"
 
 void Scanner::matchHead(string& msg)
 {

@@ -1,4 +1,4 @@
-#include "mailman.h"
+#include "comm/Mailman.h"
 
 //ofstream tcp_log;
 void Mailman::init(char* si, char* sp, char* ci, char* cp)
