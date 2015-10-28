@@ -1,39 +1,36 @@
-VPATH=../../model/ ../../
-object1=testPlayerInfo.o plyrinfo.o common.o
-object2=testAction.o action.o common.o
-object3=testRound.o round.o
-object4=testRdState.o rdstate.o plyrinfo.o action.o common.o
-object5=testCard.o card.o
+VPATH=../../source/model/ ../../source
+CXX=g++
+CXXFLAGS=-I ../../source
+object1=testPlayerInfo.o PlayerInfo.o common.o
+object2=testAction.o Action.o common.o
+object3=testRoundUtil.o RoundUtil.o
+object4=testRdState.o RdState.o PlayerInfo.o Action.o common.o
+object5=testCard.o Card.o
 
 testPlayerInfo: $(object1)
 	g++ -o testPlayerInfo $(object1)
-testPlayerInfo.o: plyrinfo.o 
-plyrinfo.o: 
-
+testPlayerInfo.o: PlayerInfo.o 
 
 testAction: $(object2)
 	g++ -o testAction $(object2)
-testAction.o: action.o
-action.o:
+testAction.o: Action.o
 
-testRound: $(object3)
-	g++ -o testRound $(object3)
-testRound.o: round.o
-round.o:
+testRoundUtil: $(object3)
+	g++ -o testRoundUtil $(object3)
+testRoundUtil.o: RoundUtil.o
 
 testRdState: $(object4)
 	g++ -o testRdState $(object4)
-testRdState.o: rdstate.o plyrinfo.o action.o
-rdstate.o:
+testRdState.o: RdState.o PlayerInfo.o Action.o
 
 testCard: $(object5)
 	g++ -o testCard $(object5)
-testCard.o: card.o
-card.o:
+testCard.o: Card.o
 
-all: testPlayerInfo testAction testRound testRdState testCard
+
+each: testPlayerInfo testAction testRoundUtil testRdState testCard
 
 .PHONY: clean
 clean: 
-	rm testPlayerInfo testAction testRound testRdState testCard\
+	rm -f testPlayerInfo testAction testRoundUtil testRdState testCard\
 		$(object1) $(object2) $(object3) $(object4) $(object5)

@@ -1,0 +1,1 @@
+Learn to put the tests into one project. 

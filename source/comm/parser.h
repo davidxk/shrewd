@@ -25,17 +25,17 @@ public:
 public:
 	Parser(Player*, Mailman*);
 	void writeReg();
-	vector<PlayerInfo> readSeat(string& message)
-	int Parser::readBlind(string& message)
-	vector<Card> Parser::readHold(string& message)
-	TableInfo Parser::readInquire(string& msg, int&)
+	vector<PlayerInfo> readSeat(string& message);
+	int readBlind(string& message);
+	vector<Card> readHold(string& message);
+	TableInfo readInquire(string& msg);
 	void writeAction();
 
-	vector<Card> Parser::readFlop(string& msg)
-	Card Parser::readTurn(string& msg)
-	Card Parser::readRiver(string& msg)
-	unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
-	unordered_map<int, int> Parser::readPotwin(string& message)
+	vector<Card> readFlop(string& msg);
+	Card readTurn(string& msg);
+	Card readRiver(string& msg);
+	unordered_map<int, ShowdownInfo> readShowdown(string& msg);
+	unordered_map<int, int> readPotwin(string& message);
 	string sticky(string& message, string header);
 };
 #endif

@@ -1,5 +1,5 @@
-#include "../globals.h"
-#include "folder.h"
+#include "globals.h"
+#include "ai/folder.h"
 
 FoldPlayer::FoldPlayer()
 {

@@ -15,7 +15,7 @@ A player should base his decision upon the following parameters:
 
 * opHole	maintained at Showdown
 * phand		maintained at Showdown
-* potsh		maintained at Pot-win
+* potShare	maintained at Pot-win
 
 The listed parameters are retrieved with a number of methods, the more complex two of which is rcvSeat and rcvInquiry
 
@@ -39,6 +39,7 @@ This method receives the following data:
 Map has its clear advantage over vector in its efficiency in accessing data with id. Plus, it takes only constant time to get one's seat order from its id. It seems most adequate that I should use id as the identifier of a player, instead of seat number. And if I should wish to find the id of the player at a certain seat, I can easily implement a map that maps id back with the seat order in rcvSeat. 
 
 * unordered_map<int, RdState> plyrStates
-* unordered_map<int, ShowdownInfo> pshow
-* ShowdownInfo: vector<Card>, int phand, int potsh
+* unordered_map<int, ShowdownInfo> shwdMap;	
+* unordered_map<int, int> potShare;
+* ShowdownInfo: vector<Card>, int phand
 * TableInfo: map<int, RdState>, int pot

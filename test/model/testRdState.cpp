@@ -1,5 +1,5 @@
-#include "../../globals.h"
-#include "../../model/rdstate.h"
+#include "globals.h"
+#include "model/RdState.h"
 
 int main()
 {

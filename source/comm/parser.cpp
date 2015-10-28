@@ -97,14 +97,14 @@ TableInfo Parser::readInquire(string& msg)
 {
 	//A player reads what he expects to see so the handler simply passes on
 	scan.matchHead(msg);
-	vector<RdState> lastrd;
+	unordered_map<int, RdState> lastrd;
 	while(msg[0]!='t')
 	{
 		PlayerInfo pi = scan.getPlayerInfo(msg);
 		Action act = scan.getAction(msg);
 		RdState rdstate(pi, act, 0);
 
-		lastrd.push_back(rdstate);
+		lastrd.emplace(pi.pid, rdstate);
 	}
 
 	scan.matchWord(msg);

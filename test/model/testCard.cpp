@@ -1,5 +1,5 @@
-#include "../../globals.h"
-#include "../../model/card.h"
+#include "globals.h"
+#include "model/Card.h"
 
 int main()
 {

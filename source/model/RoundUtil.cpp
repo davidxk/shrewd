@@ -1,7 +1,7 @@
 #include "globals.h"
 #include "model/RoundUtil.h"
 
-void Round::init(int nPlyr)
+void RoundUtil::init(int nPlyr)
 {
 	state=DEAL;
 	next=SBLIND_INDEX;
@@ -12,7 +12,7 @@ void Round::init(int nPlyr)
 	this->inGame=inGame;
 }
 
-void Round::rcvAction(int seatNo, int action)
+void RoundUtil::rcvAction(int seatNo, int action)
 {
 	switch(action)
 	{
@@ -33,14 +33,14 @@ void Round::rcvAction(int seatNo, int action)
 	}
 }
 
-int Round::getNextSeat()
+int RoundUtil::getNextSeat()
 {
 	return next;
 }
 
 
 
-int Round::getPrev(int seatNo)
+int RoundUtil::getPrev(int seatNo)
 {
 	int prevNo = seatNo-1>=0 ? seatNo-1 : nPlyr-1;
 	while(!inGame[prevNo])
@@ -48,7 +48,7 @@ int Round::getPrev(int seatNo)
 	return prevNo;
 }
 
-int Round::getNext(int seatNo)
+int RoundUtil::getNext(int seatNo)
 {
 	int nextNo = seatNo+1<nPlyr ? seatNo+1 : 0;
 	while(!inGame[nextNo])
@@ -56,7 +56,7 @@ int Round::getNext(int seatNo)
 	return nextNo;
 }
 
-int Round::getThis(int seatNo)
+int RoundUtil::getThis(int seatNo)
 {
 	while(!inGame[seatNo])
 		seatNo = seatNo+1<nPlyr ? seatNo+1 : 0;
@@ -67,17 +67,17 @@ int Round::getThis(int seatNo)
 
 
 
-int Round::getState()
+int RoundUtil::getState()
 {
 	return state;
 }
 
-int Round::getNInGame()
+int RoundUtil::getNInGame()
 {
 	return nInGame;
 }
 
-vector<bool> Round::getInGame()
+vector<bool> RoundUtil::getInGame()
 {
 	return inGame;
 }

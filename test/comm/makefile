@@ -1,22 +1,25 @@
-VPATH = ../../comm/ ../../model/ ../../plyr/ ../../ 
+VPATH = ../../source/comm/ ../../source/model/ ../../source/plyr/ ../../source/ 
+CXX=g++
+CXXFLAGS=-I ../../source/
 
-object2 = testParser.o parser.o\
-		  scanner.o mailman.o folder.o player.o\
-		  card.o rdstate.o action.o plyrinfo.o common.o
-object1 = testScanner.o scanner.o\
-		  card.o rdstate.o action.o plyrinfo.o common.o
+object2 = testParser.o Parser.o\
+		  Scanner.o Mailman.o folder.o player.o\
+		  Card.o RdState.o Action.o PlayerInfo.o common.o
+object1 = testScanner.o Scanner.o\
+		  Card.o RdState.o Action.o PlayerInfo.o common.o
 
 testParser: $(object2)
-	c++ -o testParser $(object2)
+	g++ -o testParser $(object2)
 testScanner: $(object1)
-	c++ -o testScanner $(object1)
-testScanner.o: scanner.o
-scanner.o: card.o rdstate.o common.o
-rdstate.o: action.o plyrinfo.o common.o
+	g++ -o testScanner $(object1)
 
-parser.o: common.o
+testScanner.o: Scanner.o
+Scanner.o: Card.o RdState.o common.o
+RdState.o: Action.o PlayerInfo.o common.o
+
+Parser.o: common.o
 folder.o: player.o
 
 .PHONY: clean
 clean:
-	rm testParser testScanner $(object1) $(object2)
+	rm -f testParser testScanner $(object1) $(object2)

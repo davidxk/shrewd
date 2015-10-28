@@ -1,5 +1,5 @@
+#include "comm/Scanner.h"
 #include <string>
-#include "../../comm/scanner.h"
 
 int main()
 {

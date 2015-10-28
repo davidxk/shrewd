@@ -1,8 +1,8 @@
 #ifndef _COMM_MAIL_MAN_H_
 #define _COMM_MAIL_MAN_H_
-const int MAXDATASIZE 4096
-const int MAXLEN 20
 
+#define MAXDATASIZE 4096
+#define MAXLEN 20
 #include <arpa/inet.h>
 #include <cstdio>
 #include <cstdlib>

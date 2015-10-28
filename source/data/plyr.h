@@ -30,7 +30,6 @@ public:
 	int BB;			//[@? == 1BB]
 	int pot;		//[@? on table]
 	int mySeat;		//[SB? BB? UTG?]
-	int nPlyr;		//[n(#) inGame]
 	vector<Card> comm;	//[3 ~ 5]
 	vector<int> seat;	//[SB# ~ DEALER#]
 	unordered_map<int, int> pidToSeat;

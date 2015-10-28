@@ -5,11 +5,11 @@
 #include <vector>
 using namespace std;
 
-//class Round is part of the model
+//class RoundUtil is part of the model
 //it helps to identify the next player to make a move
 //it maintains the list of in-game players and provide relative services
 //it is concerned with seats only
-class Round
+class RoundUtil
 {
 public:
 	void init(int nPlyr);

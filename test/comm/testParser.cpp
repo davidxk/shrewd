@@ -1,7 +1,7 @@
-#include "../../comm/parser.h"
-#include "../../comm/mailman.h"
-#include "../../plyr/player.h"
-#include "../../plyr/folder.h"
+#include "ai/folder.h"
+#include "comm/Mailman.h"
+#include "comm/Parser.h"
+#include "data/plyr.h"
 
 int main()
 {

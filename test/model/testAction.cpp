@@ -1,5 +1,5 @@
-#include "../../globals.h"
-#include "../../model/action.h"
+#include "globals.h"
+#include "model/Action.h"
 
 int main()
 {

@@ -1,4 +1,4 @@
-#include "../../model/plyrinfo.h"
+#include "model/PlayerInfo.h"
 
 int main()
 {
