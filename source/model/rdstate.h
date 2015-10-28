@@ -12,6 +12,8 @@ public:
 	Action lstAct;
 	int inBet;
 public:
+	RdState();
+	RdState(PlayerInfo);
 	RdState(PlayerInfo, Action, int = 0);
 	string print();
 };

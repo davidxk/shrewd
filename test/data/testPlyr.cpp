@@ -1,7 +1,7 @@
-#include "../../plyr/plyr.h"
-#include "../../comm/parser.h"
-#include "../../comm/mailman.h"
-#include "../../plyr/folder.h"
+#include "data/plyr.h"
+#include "comm/parser.h"
+#include "comm/mailman.h"
+#include "ai/folder.h"
 
 int main()
 {
@@ -18,8 +18,9 @@ int main()
 		cout<<player.seat[i]<<"\t";
 	cout<<endl;
 	cout<<player.myState.print()<<endl;
-	for(int i=0; i<player.plyrStates.size(); i++)
-		cout<<player.plyrStates[i].print()<<endl;
+	cout.flush();
+	for(auto it=player.plyrStates.begin(); it != player.plyrStates.end(); ++it)
+		cout<<it->second.print()<<endl;
 
 	msg= "blind/ \n5555: 50 \n8888: 100 \n/blind \n";
 	psr.readBlind(msg);
@@ -35,10 +36,11 @@ int main()
 	psr.readInquire(msg);
 	cout<<player.pot<<endl;
 	cout<<player.myState.print()<<endl;
-	for(int i=0; i<player.plyrStates.size(); i++)
-		cout<<player.plyrStates[i].print();
+	for(auto it=player.plyrStates.begin(); it != player.plyrStates.end(); ++it)
+		cout<<it->second.print()<<endl;
 	for(int i=0; i<player.rdRecords.size(); i++)
 		cout<<player.rdRecords[0][i].print()<<endl;
+	cout.flush();
 
 	msg= "flop/ \nHEARTS 6 \nDIAMONDS 3 \nCLUBS 10 \n/flop \n";
 	psr.readFlop(msg);
@@ -55,15 +57,15 @@ int main()
 	
 	for(int i=0; i<MAX_PLAYER; i++)
 	{
-		cout<<player.opHole[i][0].print()<<player.opHole[i][1].print()<<endl;
-		cout<<player.phand[i]<<endl;
+		//cout<<player.opHole[i][0].print()<<player.opHole[i][1].print()<<endl;
+		//cout<<player.phand[i]<<endl;
 	}
 
 
 	msg= "pot-win/ \n7777: 250 \n1111: 250 \n/pot-win \n";
 	psr.readPotwin(msg);
-	for(int i=0; i<MAX_PLAYER; i++)
-		cout<<player.potsh[i]<<endl;
+	for(auto it = player.potShare.begin(); it != player.potShare.end(); ++it)
+		cout<<it->second<<endl;
 
 	return 0;
 }

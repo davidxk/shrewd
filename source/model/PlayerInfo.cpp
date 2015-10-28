@@ -2,6 +2,8 @@
 #include "globals.h"
 #include "model/PlayerInfo.h"
 
+PlayerInfo::PlayerInfo(): pid(0), jetton(0), money(0) { }
+
 PlayerInfo::PlayerInfo(int aPid, int aJetton, int aMoney):
 	pid(aPid), jetton(aJetton), money(aMoney) { }
 

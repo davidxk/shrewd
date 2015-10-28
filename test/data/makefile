@@ -1,10 +1,11 @@
-VPATH = ../../source/comm/ ../../source/model/ ../../source/plyr/ ../../source/ 
+VPATH = ../../source/comm/ ../../source/model/ ../../source/ai/ ../../source/ 
 CXX=g++
 CXXFLAGS=-I ../../source/
 
 object2 = testPlyr.o Parser.o\
 		  Scanner.o mailman.o folder.o player.o\
-		  Card.o RdState.o Action.o PlayerInfo.o common.o
+		  Card.o RdState.o Action.o PlayerInfo.o common.o\
+		  ShowdownInfo.o TableInfo.o
 
 testPlyr: $(object2)
 	c++ -o testPlyr $(object2)

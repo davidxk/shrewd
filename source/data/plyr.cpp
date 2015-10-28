@@ -1,11 +1,11 @@
-#include "player.h"
-#include "../common.h"
+#include "plyr.h"
+#include "common.h"
 
 //static ofstream pout;
 void Player::init()
 {
 	//pout.open("ply.log");
-	for(int i=0; i<lastrd.size(); i++)
+	for(int i=0; i<rdRecords.size(); i++)
 		rdRecords[i].clear();
 
 	rdRecords.resize(RIVER_BET+1);
@@ -44,16 +44,17 @@ void Player::rcvSeat(const vector<PlayerInfo>& players)
 	{
 		//start from small blind
 		int wrap_i = i+1<players.size() ? i+1 : 0;
-		seat.push_back(players[wrap_i].pi.pid);
-		pidToSeat.emplace(players[wrap_i].pi.pid, i);
+		seat.push_back(players[wrap_i].pid);
+		pidToSeat.insert( make_pair<int,int>(players[wrap_i].pid, i) );
 
 		if(players[wrap_i].pid==pid)
 			myState.pi=players[wrap_i], mySeat=i;
 	}
 
-	rd.init(players.size());
+	rdu.init(players.size());
 	for(int i=0; i<players.size(); i++)
-		plyrStates.emplace( players[i].pid, RdState(players[i]) );
+		plyrStates.insert( make_pair<int,RdState>(players[i].pid,
+					RdState(players[i])) );
 }
 
 void Player::rcvBlind(int bet)
@@ -92,26 +93,26 @@ void Player::rcvRiver(const Card& card)
 void Player::rcvLstRound(const TableInfo& tableInfo)
 {
 	//This msg contains my[@? $?], act[#? $?], 
-	const map<int, RdState> lastrd = tableInfo.lastrd;
+	const unordered_map<int, RdState> lastrd = tableInfo.lastrd;
 	//reinit my state for round
-	myState = lastrd.find(pid).second;
+	myState = lastrd.find(pid)->second;
 
 	//append on rdRecords
 	int next = rdu.getNextSeat();
 	do	//run at least once
 	{
 		//get #next's state
-		RdState rs = lastrd.find(seat[next]).second;
+		RdState rs = lastrd.find(seat[next])->second;
 		//archive action
 		rdu.rcvAction(next, rs.lstAct.act);
 		rdRecords[rdu.getState()].push_back(rs);
 		//maintain inBet attribute & current plyrStates
-		rs.inBet = plyrStates.find(seat[next]).second.inBet + rs.lstAct.bet;
-		plyrStates.find(seat[next]).second = rs;
+		rs.inBet = plyrStates.find(seat[next])->second.inBet + rs.lstAct.bet;
+		plyrStates.find(seat[next])->second = rs;
 		//step to next cycle
 		next=rdu.getNextSeat();
 	}
-	while( next != mySeat )	//all until my turn(right now)
+	while( next != mySeat );	//all until my turn(right now)
 }
 
 void Player::rcvShowdown(const unordered_map<int, ShowdownInfo>& shwdMap)
@@ -119,20 +120,8 @@ void Player::rcvShowdown(const unordered_map<int, ShowdownInfo>& shwdMap)
 	this->shwdMap = shwdMap;
 }
 
-void Player::rcvPotwin(const unordered_map<int, int> potShare)
+void Player::rcvPotwin(const unordered_map<int, int>& potShare)
 {
 	this->potShare = potShare;
 }
 
-
-
-
-
-int Player::findSeat(int pid)
-{
-	for(int i=0; i<seat.size(); i++)
-		if(pid==seat[i])
-			return i;
-	cout<<"pid not found in seat info"<<endl;
-	return -1;
-}

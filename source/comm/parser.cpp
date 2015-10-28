@@ -104,7 +104,7 @@ TableInfo Parser::readInquire(string& msg)
 		Action act = scan.getAction(msg);
 		RdState rdstate(pi, act, 0);
 
-		lastrd.emplace(pi.pid, rdstate);
+		lastrd.insert( make_pair<int,RdState>(pi.pid, rdstate) );
 	}
 
 	scan.matchWord(msg);
@@ -182,7 +182,7 @@ unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
 			default: cout<<"Error: Unknow hand. Protocal Unmatch. "<<endl;
 		}
 		ShowdownInfo shwdInfo(pHole, nut_hand);
-		shwdMap.emplace(pid, shwdInfo);
+		shwdMap.insert( make_pair<int,ShowdownInfo>(pid, shwdInfo) );
 
 		pHole.clear();
 		scan.matchWord(msg);
@@ -204,7 +204,7 @@ unordered_map<int, int> Parser::readPotwin(string& message)
 		int share=scan.nextInt(msg); 
 		scan.matchWord(msg); //now at ^
 
-		potShare.emplace(pid, share);
+		potShare.insert( make_pair<int,int>(pid, share) );
 	}
 	scan.matchTail(msg);
 	if(PARSER_DEBUG) message=msg;

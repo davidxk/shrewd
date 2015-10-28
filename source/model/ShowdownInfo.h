@@ -2,6 +2,7 @@
 #define _MODEL_SHOWDOWN_INFO_H_
 
 #include "model/Card.h"
+#include <vector>
 
 class ShowdownInfo
 {

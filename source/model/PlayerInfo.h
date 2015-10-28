@@ -12,6 +12,7 @@ public:
 	int jetton;
 	int money;
 public:
+	PlayerInfo();
 	PlayerInfo(int pid, int jetton, int money);
 	bool match(PlayerInfo* plyr);
 	string print();
