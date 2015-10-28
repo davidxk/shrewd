@@ -1,26 +1,30 @@
 #ifndef _CONTROLLER_H_
 #define _CONTROLLER_H_
 
-#include <iostream>
 #include <cstdio>
-#include <fstream>
 #include <cstdlib>
-#include "mailman.h"
-#include "player.h"
-#include "card.h"
+#include <iostream>
+#include <fstream>
+
+#include "comm/Mailman.h"
+#include "comm/Parser.h"
+#include "data/plyr.h"
 using namespace std;
 
 //Controller initiates manages the whole communication process
 //Controller performs the tasks by calling on the parser
 //Controller only manages the order of the steps
-class PlayerShell
+class Controller
 {
-//friend class Parser;
 public:
 	Player* player;
 	Mailman mailman;
 public:
 	void init(int ch, char* id, char* si, char* sp, char* ci, char* cp); //init
 	void start();
+private:
+	void gameStart(string& msg);
+	void mainLoop(string& msg);
+	string sticky(string& message, string header);
 };
 #endif

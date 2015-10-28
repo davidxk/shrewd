@@ -2,6 +2,7 @@
 #include "common.h"
 
 //static ofstream pout;
+//add notify support
 void Player::init()
 {
 	//pout.open("ply.log");
@@ -124,4 +125,3 @@ void Player::rcvPotwin(const unordered_map<int, int>& potShare)
 {
 	this->potShare = potShare;
 }
-

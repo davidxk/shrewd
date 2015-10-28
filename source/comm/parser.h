@@ -19,23 +19,19 @@
 class Parser
 {
 public:
-	Player* player;
-	Mailman* mailman;
 	Scanner scan;
 public:
-	Parser(Player*, Mailman*);
-	void writeReg();
+	string writeReg(const vector<string>& regInfo);
 	vector<PlayerInfo> readSeat(string& message);
 	int readBlind(string& message);
 	vector<Card> readHold(string& message);
 	TableInfo readInquire(string& msg);
-	void writeAction();
+	string writeAction(const Action& action);
 
 	vector<Card> readFlop(string& msg);
 	Card readTurn(string& msg);
 	Card readRiver(string& msg);
 	unordered_map<int, ShowdownInfo> readShowdown(string& msg);
 	unordered_map<int, int> readPotwin(string& message);
-	string sticky(string& message, string header);
 };
 #endif

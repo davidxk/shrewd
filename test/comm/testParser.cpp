@@ -1,13 +1,9 @@
 #include "ai/folder.h"
-#include "comm/Mailman.h"
 #include "comm/Parser.h"
-#include "data/plyr.h"
 
 int main()
 {
-	Mailman mailman;
-	FoldPlayer player;
-	Parser psr(&player, &mailman);
+	Parser psr;
 	string msg;
 
 	msg= "seat/ \nbutton: 4444 2000 8000 \nsmall blind: 5555 2000 8000 \nbig blind: 8888 2000 8000 \n2222 2000 8000 \n3333 2000 8000 \n7777 2000 8000 \n1111 2000 8000 \n6666 2000 8000 \n/seat \n";

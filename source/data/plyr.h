@@ -58,6 +58,7 @@ public:
 	void rcvBlind(int bet);
 	void rcvHole(const vector<Card>& hole);
 	virtual Action sendBet()=0; //the way player bets differ 
+	//virtual void reflect()=0;
 
 	void rcvFlop(const vector<Card>& flop);
 	void rcvTurn(const Card& card);

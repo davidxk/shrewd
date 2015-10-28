@@ -1,22 +1,17 @@
 #include "comm/parser.h"
 #define PARSER_DEBUG 1
 
-Parser::Parser(Player* pPlayer, Mailman* pMailman):
-	player(pPlayer), mailman(pMailman) { }
-
-void Parser::writeReg()
+string Parser::writeReg(const vector<string>& regInfo)
 {
-	vector<string> regInfo=player->sendReg();
 	string msg = "reg: ";
 	msg += regInfo[0] + ' ';
 	msg += regInfo[1] + ' ';
-	msg += "need_notify \n"; //could choose no need_notify
-	if(!PARSER_DEBUG) mailman->write(msg);
+	msg += "no need_notify \n"; //could choose no need_notify
+	return msg;
 }
 
-void Parser::writeAction()
+string Parser::writeAction(const Action& action)
 {
-	Action action=player->sendBet();
 	//player->lastNotify=player->state;
 	string actName, moneyStr;
 	char smoney[20];
@@ -35,16 +30,15 @@ void Parser::writeAction()
 		default:break;
 	}
 	string msg = actName + moneyStr + " \n";
-	if(!PARSER_DEBUG) mailman->write(msg);
+	return msg;
 }
 
 
 
 
 
-vector<PlayerInfo> Parser::readSeat(string& message)
+vector<PlayerInfo> Parser::readSeat(string& msg)
 {
-	string msg=sticky(message,"seat/");
 	scan.matchHead(msg);
 	vector<PlayerInfo> seat;
 
@@ -59,13 +53,11 @@ vector<PlayerInfo> Parser::readSeat(string& message)
 		seat.push_back( scan.getPlayerInfo(msg) );
 
 	//consume tail if needed here
-	if(PARSER_DEBUG) message=msg;
 	return seat;
 }
 	
-int Parser::readBlind(string& message)
+int Parser::readBlind(string& msg)
 {
-	string msg=sticky(message,"blind/");
 	scan.matchHead(msg);
 
 	int pid=scan.nextInt(msg);
@@ -75,13 +67,11 @@ int Parser::readBlind(string& message)
 
 	//no point in parsing the rest
 	//consume tail if needed here
-	if(PARSER_DEBUG) message=msg;
 	return bet;
 }
 
-vector<Card> Parser::readHold(string& message)
+vector<Card> Parser::readHold(string& msg)
 {
-	string msg=sticky(message,"hold/");
 	scan.matchHead(msg);
 
 	vector<Card> hole;
@@ -89,7 +79,6 @@ vector<Card> Parser::readHold(string& message)
 		hole.push_back(scan.getCard(msg));
 
 	//consume tail if needed here
-	if(PARSER_DEBUG) message=msg;
 	return hole;
 }
 
@@ -191,9 +180,8 @@ unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
 	return shwdMap;
 }
 
-unordered_map<int, int> Parser::readPotwin(string& message)
+unordered_map<int, int> Parser::readPotwin(string& msg)
 {
-	string msg=sticky(message, "pot-win/");
 	scan.matchHead(msg);
 
 	unordered_map<int, int> potShare;
@@ -207,20 +195,5 @@ unordered_map<int, int> Parser::readPotwin(string& message)
 		potShare.insert( make_pair<int,int>(pid, share) );
 	}
 	scan.matchTail(msg);
-	if(PARSER_DEBUG) message=msg;
 	return potShare;
-}
-
-
-
-
-
-string Parser::sticky(string& message, string header)
-{
-	//msg is a copy of the message
-	int start=message.find(header);
-	if(start==-1 && !PARSER_DEBUG) 
-		message=mailman->read();
-	else message=message.substr(start, message.size()-start);
-	return message;
 }
