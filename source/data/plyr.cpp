@@ -96,7 +96,9 @@ void Player::rcvLstRound(const TableInfo& tableInfo)
 	//This msg contains my[@? $?], act[#? $?], 
 	const unordered_map<int, RdState> lastrd = tableInfo.lastrd;
 	//reinit my state for round
-	myState = lastrd.find(pid)->second;
+	auto it=lastrd.find(pid);
+	if(it!=lastrd.end())
+		myState = it->second;
 
 	//append on rdRecords
 	int next = rdu.getNextSeat();

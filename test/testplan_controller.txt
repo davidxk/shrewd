@@ -1,0 +1,6 @@
+There are quite a few ways to test the controller. 
+
+* write a tool that extracts all info intended for one client
+* write a server
+
+The first method appears to be simpler. 

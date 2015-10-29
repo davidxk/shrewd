@@ -9,7 +9,8 @@ class ShowdownInfo
 public:
 	vector<Card> pHole;
 	int hand;
-
+public:
 	ShowdownInfo(vector<Card> aPHole, int aHand);
+	string print();
 };
 #endif

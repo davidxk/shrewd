@@ -1,3 +1,6 @@
-:cd %:p:h	cd to file dir
 perl -n		enclose diamond
 ls -1		one file each line
+
+##Vim
+:cd %:p:h	cd to file dir
+s/pat/\r/	\r as eof

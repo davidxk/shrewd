@@ -1,17 +1,15 @@
 #include "comm/Controller.h"
 
-#include "comm/Mailman.h"
 #include "comm/Parser.h"
-//#include "data/plyrInclude.h"
+#include "ai/plyrInclude.h"
 
 void Controller::init(int ch, char* pid, char* name, 
 		char* si, char* sp, char* ci, char* cp)
 {
-	/*switch(ch)
+	switch(ch)
 	{
-		case PID_SNORE_PLAYER: player=new SnorePlayer(pid); break;
-		default: player=new ShrewdPlayer(pid); 
-	}*/
+		case 0: player=new FoldPlayer(); break;
+	}
 	mailman.init(si, sp, ci, cp);
 	player->setReg(pid, name);
 }
@@ -29,13 +27,17 @@ void Controller::start()
 		cout<<"Playing Game "<<gameCnt++<<endl;
 		player->init();
 		gameStart(msg);
+		if(IS_DEBUGGING) cout<<"gameStarted: "<<msg<<endl;
 
-		msg=sticky(msg,"inquire/");
+		//msg=sticky(msg,"inquire/");
 		while(msg[0]!='p')
 			mainLoop(msg);
+		if(IS_DEBUGGING) cout<<"mainLooped: "<<msg<<endl;
 
-		msg=sticky(message, "pot-win/");
-		player->rcvPotwin( prs.readPotwin(msg) );
+		msg=sticky(msg, "pot-win/");
+		player->rcvPotwin( psr.readPotwin(msg) );
+		if(IS_DEBUGGING) cout<<"pot-wined: "<<msg<<endl;
+
 
 		//player->reflect();
 		if(msg.empty()) msg=mailman.read();
@@ -46,11 +48,11 @@ void Controller::start()
 
 void Controller::gameStart(string& msg)
 {
-	msg=sticky(message, "seat/");
-	player->rcvSeat( prs.readSeat(msg) );
-	msg=sticky(message, "blind/");
+	msg=sticky(msg, "seat/");
+	player->rcvSeat( psr.readSeat(msg) );
+	msg=sticky(msg, "blind/");
 	player->rcvBlind( psr.readBlind(msg) );
-	msg=sticky(message, "hold/");
+	msg=sticky(msg, "hold/");
 	player->rcvHole( psr.readHold(msg) );
 }
 
@@ -61,7 +63,7 @@ void Controller::mainLoop(string& msg)
 		if(msg[0]=='i')
 		{
 			player->rcvLstRound( psr.readInquire(msg) );
-			mailman.wirte( psr.writeAction( player->sendBet() ) );
+			mailman.write( psr.writeAction( player->sendBet() ) );
 			msg=mailman.read();
 		}
 		else
@@ -74,13 +76,13 @@ void Controller::mainLoop(string& msg)
 	{
 		switch(msg[0])
 		{
-			case 'f': player->rcvFlop( prs.readFlop(msg) ); break;
-			case 't': player->rcvTurn( prs.readTurn(msg) ); break;
-			case 'r': player->rcvRiver( prs.readRiver(msg) ); break;
+			case 'f': player->rcvFlop( psr.readFlop(msg) ); break;
+			case 't': player->rcvTurn( psr.readTurn(msg) ); break;
+			case 'r': player->rcvRiver( psr.readRiver(msg) ); break;
 			case 's': player->rcvShowdown( psr.readShowdown(msg) ); break;
 			case 'p': break;
-			default: cout<<"Error: Unknown msg, starting with "
-					 <<msg[0]<<"Protocal Unmatch. "<<endl;
+			default: cout<<"Error: Unknown msg, starting with '"
+					 <<msg[0]<<"'. Protocal Unmatch. "<<endl;
 		}
 		if(msg.empty()) msg=mailman.read();
 		if(msg[0]=='p') break;

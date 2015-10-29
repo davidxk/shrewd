@@ -1,0 +1,6 @@
+* use -g option in compiling
+
+## GDB Operations
+* (gdb) run < input	input
+* (gdb) bt		backtrack
+* 

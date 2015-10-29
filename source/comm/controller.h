@@ -6,9 +6,16 @@
 #include <iostream>
 #include <fstream>
 
-#include "comm/Mailman.h"
 #include "comm/Parser.h"
 #include "data/plyr.h"
+
+#define IS_DEBUGGING 1
+#define DEBUG_CONTROL
+#ifndef DEBUG_CONTROL
+	#include "comm/Mailman.h"
+#else
+	#include "comm/PsudoMailman.h"
+#endif
 using namespace std;
 
 //Controller initiates manages the whole communication process
@@ -19,8 +26,10 @@ class Controller
 public:
 	Player* player;
 	Mailman mailman;
+	Parser psr;
 public:
-	void init(int ch, char* id, char* si, char* sp, char* ci, char* cp); //init
+	void init(int ch, char* id, char* name, 
+			char* si, char* sp, char* ci, char* cp); //init
 	void start();
 private:
 	void gameStart(string& msg);

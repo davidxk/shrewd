@@ -8,6 +8,7 @@ void Mailman::init(char* si, char* sp, char* ci, char* cp)
 	strcpy(client_ip, ci);
 	strcpy(client_port, cp);
 	//tcp_log.open("./tcp.log");
+	cout<<"gone wrong\n";
 }
 
 void Mailman::bindCon()
@@ -81,9 +82,7 @@ string Mailman::read()
 {
 	int len;
 	if((len=(recv(socket_fd,message,MAXDATASIZE,0)))==-1)
-	{
-		//tcp_log<<"recv error\n";
-    }
+	{ /*tcp_log<<"recv error\n";*/ }
 	else message[len]='\0';
 	return getMsg();
 }
@@ -91,16 +90,11 @@ string Mailman::read()
 void Mailman::write()
 {
 	while(send(socket_fd,message,strlen(message),0)<0)
-	{
-		//tcp_log<<"send error.\n";
-	}
+	{ /*tcp_log<<"send error.\n";*/ }
 }
 
 void Mailman::write(string msg)
 {
 	setMsg(msg);
-	while(send(socket_fd,message,strlen(message),0)<0)
-	{
-		//tcp_log<<"send error.\n";
-	}
+	write();
 }

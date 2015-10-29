@@ -4,9 +4,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "comm/Mailman.h"
 #include "comm/Scanner.h"
-#include "data/plyr.h"
 #include "model/Card.h"
 #include "model/PlayerInfo.h"
 #include "model/ShowdownInfo.h"

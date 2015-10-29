@@ -9,7 +9,8 @@ class TableInfo
 public:
 	unordered_map<int, RdState> lastrd; 
 	int pot;
-
+public:
 	TableInfo(std::unordered_map<int, RdState> aLastrd, int aPot);
+	string print();
 };
 #endif

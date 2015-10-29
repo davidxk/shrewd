@@ -19,6 +19,19 @@ using namespace std;
 //Mailmab is the interface facing the internet
 class Mailman
 {
+public:
+	void init(char* si, char* sp, char* ci, char* cp);
+	void bindCon();
+	void connectCon();
+	void closeCon();
+
+	string read();
+	void write(string msg);
+
+private:
+	void setMsg(string msg);
+	string getMsg();
+	void write();
 private:
 	int socket_fd;
 	struct sockaddr_in server_addr;
@@ -26,16 +39,5 @@ private:
 	char message[MAXDATASIZE];
 	char server_ip[MAXLEN], server_port[MAXLEN];
 	char client_ip[MAXLEN], client_port[MAXLEN];
-public:
-	void init(char* si, char* sp, char* ci, char* cp);
-	void bindCon();
-	void connectCon();
-	void closeCon();
-
-	void setMsg(string msg);
-	string getMsg();
-	string read();
-	void write();
-	void write(string msg);
 };
 #endif

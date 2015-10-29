@@ -1,4 +1,4 @@
-#include "comm/parser.h"
+#include "comm/Parser.h"
 #define PARSER_DEBUG 1
 
 string Parser::writeReg(const vector<string>& regInfo)
@@ -12,7 +12,6 @@ string Parser::writeReg(const vector<string>& regInfo)
 
 string Parser::writeAction(const Action& action)
 {
-	//player->lastNotify=player->state;
 	string actName, moneyStr;
 	char smoney[20];
 	switch(action.act)
@@ -78,7 +77,7 @@ vector<Card> Parser::readHold(string& msg)
 	for(int i=0;i<HOLE_SIZE;i++)
 		hole.push_back(scan.getCard(msg));
 
-	//consume tail if needed here
+	scan.matchTail(msg);
 	return hole;
 }
 
@@ -116,14 +115,16 @@ vector<Card> Parser::readFlop(string& msg)
 	for(int i=0;i<N_FLOP;i++)
 		comm.push_back(scan.getCard(msg));
 
-	//consume tail if needed here
+	scan.matchTail(msg);
 	return comm;
 }
 
 Card Parser::readTurn(string& msg)
 {
 	scan.matchHead(msg);
-	return scan.getCard(msg);
+	Card card=scan.getCard(msg);
+	scan.matchTail(msg);
+	return card;
 }
 
 Card Parser::readRiver(string& msg)
