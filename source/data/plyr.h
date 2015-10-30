@@ -26,18 +26,18 @@ public:
 	string name;
 
 	//game state
-	int state;		//[DEAL ~ RIVER_BET]
 	int BB;			//[@? == 1BB]
-	int pot;		//[@? on table]
 	int mySeat;		//[SB? BB? UTG?]
-	vector<Card> comm;	//[3 ~ 5]
+	vector<Card> hole;
 	vector<int> seat;	//[SB# ~ DEALER#]
 	unordered_map<int, int> pidToSeat;
-	unordered_map<int, RdState> plyrStates;	//last round info record
 
-	//my state
+	//changing state
+	int state;		//[DEAL ~ RIVER_BET]
+	int pot;		//[@? on table]
+	vector<Card> comm;	//[3 ~ 5]
+	unordered_map<int, RdState> plyrStates;	//last round info record
 	RdState myState;
-	vector<Card> hole;
 
 	//record
 	vector<vector<RdState> > rdRecords;	//[DEAL_BET ~ RIVER_BET][SB# ~ ]

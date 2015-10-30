@@ -44,5 +44,5 @@ while(<>)
 			}
 		}
 	}
-	last if($line=~ m/3 Hand/);
+	last if($line=~ m/10 Hand/);
 }

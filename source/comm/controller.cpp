@@ -1,7 +1,7 @@
 #include "comm/Controller.h"
 
-#include "comm/Parser.h"
 #include "ai/plyrInclude.h"
+#include "comm/Parser.h"
 
 void Controller::init(int ch, char* pid, char* name, 
 		char* si, char* sp, char* ci, char* cp)
@@ -27,17 +27,12 @@ void Controller::start()
 		cout<<"Playing Game "<<gameCnt++<<endl;
 		player->init();
 		gameStart(msg);
-		if(IS_DEBUGGING) cout<<"gameStarted: "<<msg<<endl;
 
-		//msg=sticky(msg,"inquire/");
 		while(msg[0]!='p')
 			mainLoop(msg);
-		if(IS_DEBUGGING) cout<<"mainLooped: "<<msg<<endl;
 
 		msg=sticky(msg, "pot-win/");
 		player->rcvPotwin( psr.readPotwin(msg) );
-		if(IS_DEBUGGING) cout<<"pot-wined: "<<msg<<endl;
-
 
 		//player->reflect();
 		if(msg.empty()) msg=mailman.read();
@@ -94,7 +89,6 @@ void Controller::mainLoop(string& msg)
 
 string Controller::sticky(string& message, string header)
 {
-	//msg is a copy of the message
 	int start=message.find(header);
 	if(start==-1) 
 		message=mailman.read();
