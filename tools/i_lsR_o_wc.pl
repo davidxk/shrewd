@@ -9,6 +9,7 @@ while(<>)
 	push @files, $path.$_ if /\w\.(cpp|h|hpp)/;
 }
 my $file_line=join ' ', @files;
-$file_line='wc '.$file_line;
+#my $file_line=join "\n", @files;
 #print $file_line;
+$file_line='wc '.$file_line;
 system("$file_line");

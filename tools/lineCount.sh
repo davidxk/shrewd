@@ -1,4 +1,4 @@
 cd ../source/
 ls -R | perl ../tools/i_lsR_o_wc.pl 
-#wc < file_line
-#rm -f file_line
+#ls -R | perl ../tools/i_lsR_o_wc.pl | wc
+#for each in $(ls -R | perl ../tools/i_lsR_o_wc.pl); do wc $each; done

@@ -1,4 +1,4 @@
-perl -n		enclose diamond
+perl -ne	enclose diamond one line command
 ls -1		one file each line
 
 ##Vim
