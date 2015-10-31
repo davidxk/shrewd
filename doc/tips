@@ -1,6 +1,11 @@
+##Perl
 perl -ne	enclose diamond one line command
+
+##Bash
 ls -1		one file each line
+find / -type d -name 'oracle'
 
 ##Vim
 :cd %:p:h	cd to file dir
-s/pat/\r/	\r as eof
+:s/pat/\r/	\r as eof
+:%g/^$/d	g execute ex command on lines which match the regex 
