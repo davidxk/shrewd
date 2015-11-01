@@ -7,7 +7,7 @@ The question now is where to put the test projects. A key point to this problem 
 
 There is little doubt, that the 4 directories will not be enough. At least a doc and a tools directory are needed. 
 
-##
+##Before rejecting autotools
 Now that the re-ogr has been done, it seems to be the time to sort out the messy makefiles. It seems 'autotools' can be used to address to this problem. A few tools that keeps popping up are: GNU automake & autoconf, cmake and scons. Cmake seems the best solution, while scons is also commercially used and GNU series is something that's always worth mentioning. 
 
 Makefile is most troublesome to maintain. Autotools may well be the ending solution to this problem, which has been there for ever too long. 

@@ -1,11 +1,13 @@
 * In what situation is 'new delete ->' way of using object necessary?* 
-####Guesses
-*  When polymorphic behaviour is needed
-*  When an object must persist after the scope where it was created has been destroyed
+Guess: When polymorphic behaviour is needed
+Guess: When an object must persist after the scope where it was created has been destroyed
 
 * Is the 'Obj obj .' way a good way to use object? What are the disadvantages?* 
 
 * Is overloaded constructor used in real life?* 
+
+* How do I use sed to do substitution?
+Answer: You redirect the output to the target file.
 
 * Is there a way to do global substitution in a project?
 

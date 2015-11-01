@@ -4,6 +4,9 @@ perl -ne	enclose diamond one line command
 ##Bash
 ls -1		one file each line
 find / -type d -name 'oracle'
+Ctrl+A		like A in Vim
+Ctrl+E		like $ in Vim
+Ctrl+K		like D in Vim
 
 ##Vim
 :cd %:p:h	cd to file dir
