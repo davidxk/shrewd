@@ -1,3 +1,32 @@
+##Coding Style
+* keyword override
+* inline short functions
+* declare getter const
+* std::function
+* <thread> 
+* recursive call
+
 Basically, on entering a test, it goes through the use scenario while in the process loggs, asserts and check for unused. 
 
-A test knows its supposed output, its test set, its leading test and follow test. 
+##Architecture
+Each test case should inherit from TestCase, and add to a TestSuite object. TestController controls on top of testSuite. 
+
+##TestCase
+TestCase contains test case info and onEnter() function. A process who knows what it's doing. 
+* testSuite
+* runTime
+* testCaseName
+
+##TestSuite
+TestSuite maintain a list of onEnter() callbacks
+* TestSuite correspond to a group of test cases.
+* TestSuite is a testBase
+* TestSuite can control which test to run
+
+##TestController
+The tree structure of testBase is not fully understood. Have difficulty in understanding traverseTestSuite. Need practice on data structure. 
+
+##TestBase
+TestBase maintains a tree structure of the testSuites
+##TestList
+TestList is a UI class 
