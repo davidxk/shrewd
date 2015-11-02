@@ -1,0 +1,3 @@
+Basically, on entering a test, it goes through the use scenario while in the process loggs, asserts and check for unused. 
+
+A test knows its supposed output, its test set, its leading test and follow test. 

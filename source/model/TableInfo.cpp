@@ -7,7 +7,8 @@ TableInfo::TableInfo(std::unordered_map<int, RdState> aLastrd, int aPot):
 string TableInfo::print()
 {
 	string str;
-	for ( auto it = lastrd.begin(); it != lastrd.end(); ++it )
-		str+=it->second.print(), str+=intToStr(pot)+"\n";
+	for ( const auto& it: lastrd )
+		str+=it->second.print();
+	str+="Pot: @"+intToStr(pot)+"\n";
 	return str;
 }

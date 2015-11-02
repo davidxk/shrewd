@@ -12,3 +12,5 @@ Ctrl+K		like D in Vim
 :cd %:p:h	cd to file dir
 :s/pat/\r/	\r as eof
 :%g/^$/d	g execute ex command on lines which match the regex 
+qq__q		record a sequence of actions in register q
+@@		play back the last recorded actions 

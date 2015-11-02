@@ -39,10 +39,12 @@ string TestalbePlayer::reportUpdate()
 string TestalbePlayer::reportResult()
 {
 	string str="----- Report Result -----\n";
+	// For the first use, let's write in exemplary form
 	for(auto it = shwdMap.begin(); it != shwdMap.end(); it++)
 		str+=it->second.print();
 	str+="Pot Share:\n";
-	for(auto it = potShare.begin(); it != potShare.end(); it++)
+	// Now it's time to use it in the right way
+	for(const auto& it: potShare )
 		str += "( #" + it->first + ", @" + it->second + " )\t";
 	str+="\n";
 	return str;

@@ -21,4 +21,4 @@ Makefile: write it with better structure and with better practice
 Design: better coding style and follow OOP design guideline
 Tests: learn how to write test cases
 Codegen: look for project that I can use as-is
-Style: write auto tools to gen and check codes. Try the one I stared on github. 
+Style: write auto tools to gen and check codes. Try Oclint. 
