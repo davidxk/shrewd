@@ -1,0 +1,28 @@
+##Return
+* 'return 0 as normal' is a requirement of bash
+* return value is stored in $?
+
+##Command
+* help
+
+##Useful in Script 
+* read
+* select
+* [[]]
+* if list; then list; elif list; then list; else list; fi
+* *any   ?single   []choices
+* case word in; pattern) list;; pattern|pattern) list;; esac
+* (subshell) { group; command; }
+* (echo b; echo a) | sort 
+
+###Test
+bash4: [[]]
+bash3:  []
+-n: not empty
+-z: is empty
+-e: file exist
+-f: is file
+-d: is directory
+-t: running on interactive terminal
+==: match pattern
+=="": match literal
