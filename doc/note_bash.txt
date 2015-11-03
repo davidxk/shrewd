@@ -14,6 +14,14 @@
 * case word in; pattern) list;; pattern|pattern) list;; esac
 * (subshell) { group; command; }
 * (echo b; echo a) | sort 
+* $1 $5 ${10}
+* ${param:=default}
+* ${PATH#*:}
+* array=(zero one two "three and more")
+* array+=("four and beyond")
+* echo ${array[1]}
+* ((math and stuff))
+* {10..55..5}%
 
 ###Test
 bash4: [[]]
@@ -26,3 +34,12 @@ bash3:  []
 -t: running on interactive terminal
 ==: match pattern
 =="": match literal
+
+##Command Substitution and Pipelines
+* Pipelines redirect input as file inputs
+* Command substitution view outputs as command literals
+
+##Parameter Expansion
+##Brace Expansion
+* {1..100..4} like a for loop that produce a list
+* {1..5}{0,5}% like a double for loop where the second is a foreach 
