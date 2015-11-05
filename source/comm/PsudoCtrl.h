@@ -10,7 +10,7 @@
 #include "data/plyr.h"
 
 #define IS_DEBUGGING 1
-//#define DEBUG_CONTROL
+#define DEBUG_CONTROL
 #ifndef DEBUG_CONTROL
 	#include "comm/Mailman.h"
 #else

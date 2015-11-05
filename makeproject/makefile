@@ -1,23 +1,48 @@
-VPATH=../source
-objects=main.o plyrshel.o simuplayer.o player.o rdstate.o plyrinfo.o card.o mailman.o simu.o hand.o checkplus.o shrewdpl.o snorepl.o
+## Const Path Variable
+src_path=../source 
+model_path=$(addsuffix /model,$(src_path))
+comm_path=$(addsuffix /comm,$(src_path))
+data_path=$(addsuffix /data,$(src_path))
+ai_path=$(addsuffix /ai,$(src_path))
 
+## Implicit Variable
+VPATH+=$(src_path) $(model_path) $(comm_path) $(data_path) $(ai_path)
+CXX=g++
+CXXFLAGS=-I ../source
+
+## Source List
+sources=common.cpp \
+main.cpp \
+folder.cpp \
+Controller.cpp \
+Mailman.cpp \
+Parser.cpp \
+Scanner.cpp \
+plyr.cpp \
+Action.cpp \
+Card.cpp \
+Hand.cpp \
+PlayerInfo.cpp \
+RdState.cpp \
+RoundUtil.cpp \
+ShowdownInfo.cpp \
+TableInfo.cpp \
+#TestablePlayer.cpp \
+#PsudoMailman.cpp \
+
+## .o & .d List
+objects=$(subst .cpp,.o,$(sources))
+mkfiles=$(subst .cpp,.d,$(sources))
+
+## Target
 game: $(objects)
-	g++ -ggdb3 -o ../target/game $(objects)
+	$(CXX) -o game $(objects)
 
-main.o:main.cpp plyrshel.o
-plyrshel.o:plyrshel.cpp plyrshel.h player.o mailman.o shrewdpl.o snorepl.o
-shrewdpl.o:shrewdpl.cpp shrewdpl.h player.o simuplayer.o card.o
-snorepl.o:snorepl.cpp snorepl.h player.o simuplayer.o card.o
-simuplayer.o:simuplayer.cpp simuplayer.h card.o hand.o simu.o
-simu.o: simu.cpp simu.h card.o
-player.o:player.cpp player.h card.o plyrinfo.o rdstate.o
-mailman.o:mailman.cpp mailman.h 
-plyrinfo.o:plyrinfo.cpp plyrinfo.h 
-rdstate.o:rdstate.cpp rdstate.h
-checkplus.o:checkplus.cpp checkplus.h card.o hand.o
-card.o:card.cpp card.h
-hand.o:hand.cpp hand.h
+## Includes
+include makefile.include 
+include $(sources:.cpp=.d)	# include the dot d files
 
+##Clean
 .PHONY: clean
-clean:
-	rm ../target/game $(objects)
+clean: 
+	rm -f $(objects) $(mkfiles)

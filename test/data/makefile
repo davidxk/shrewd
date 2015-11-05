@@ -1,23 +1,49 @@
-VPATH = ../../source/comm/ ../../source/model/ ../../source/ai/ ../../source/ 
+## Const Path Variable
+src_path=../../source 
+model_path=$(addsuffix /model,$(src_path))
+comm_path=$(addsuffix /comm,$(src_path))
+data_path=$(addsuffix /data,$(src_path))
+ai_path=$(addsuffix /ai,$(src_path))
+
+## Implicit Variable
+VPATH+=$(src_path) $(model_path) $(comm_path) $(data_path) $(ai_path)
 CXX=g++
-CXXFLAGS=-I ../../source/
+CXXFLAGS=-I ../../source -g
 
-object2 = testPlyr.o Parser.o\
-		  Scanner.o mailman.o folder.o player.o\
-		  Card.o RdState.o Action.o PlayerInfo.o common.o\
-		  ShowdownInfo.o TableInfo.o
+## Source List
+sources=common.cpp \
+testPlayer.cpp \
+TestablePlayer.cpp \
+folder.cpp \
+PsudoCtrl.cpp \
+PsudoMailman.cpp \
+Parser.cpp \
+Scanner.cpp \
+plyr.cpp \
+Action.cpp \
+Card.cpp \
+Hand.cpp \
+PlayerInfo.cpp \
+RdState.cpp \
+RoundUtil.cpp \
+ShowdownInfo.cpp \
+TableInfo.cpp \
+#TestablePlayer.cpp \
+#PsudoMailman.cpp \
 
-testPlyr: $(object2)
-	c++ -o testPlyr $(object2)
+## .o & .d List
+objects=$(subst .cpp,.o,$(sources))
+mkfiles=$(subst .cpp,.d,$(sources))
 
+## Target
+game: $(objects)
+	$(CXX) -o game $(objects)
 
-Scanner.o: Card.o RdState.o common.o
-RdState.o: Action.o PlayerInfo.o common.o
+## Includes
+include makefile.include 
+include $(sources:.cpp=.d)	# include the dot d files
 
-Parser.o: common.o
-folder.o: player.o
-
-
+##Clean
 .PHONY: clean
-clean:
-	rm -f testPlyr $(object2)
+clean: 
+	rm -f $(objects) $(mkfiles)

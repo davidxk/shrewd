@@ -1,14 +1,15 @@
 #ifndef _DATA_TESTALBE_PLAYER_H_
 #define _DATA_TESTALBE_PLAYER_H_
 
-//include here
+#include "data/plyr.h"
 
 //description of the class here
-class TestalbePlayer: public Player
+class TestablePlayer: public Player
 {
 public:
 	string reportGameInfo();
 	string reportUpdate();
 	string reportResult();
+	Action sendBet();
 };
 #endif

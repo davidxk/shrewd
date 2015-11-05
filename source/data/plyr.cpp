@@ -14,6 +14,7 @@ void Player::init()
 	seat.clear();
 	hole.clear();
 	plyrStates.clear();
+	initialStates.clear();
 	potShare.clear();
 
 	state=DEAL;
@@ -56,6 +57,7 @@ void Player::rcvSeat(const vector<PlayerInfo>& players)
 	for(int i=0; i<players.size(); i++)
 		plyrStates.insert( make_pair<int,RdState>(players[i].pid,
 					RdState(players[i])) );
+	initialStates=plyrStates;
 }
 
 void Player::rcvBlind(int bet)
@@ -95,10 +97,11 @@ void Player::rcvLstRound(const TableInfo& tableInfo)
 {
 	//This msg contains my[@? $?], act[#? $?], 
 	const unordered_map<int, RdState> lastrd = tableInfo.lastrd;
+	this->pot=tableInfo.pot;
 	//reinit my state for round
 	auto it=lastrd.find(pid);
-	if(it!=lastrd.end())
-		myState = it->second;
+	if(it!=lastrd.end()) myState = it->second, myState.inBet = 
+		initialStates[pid].pi.jetton - lastrd.find(pid)->second.pi.jetton; 
 
 	//append on rdRecords
 	int next = rdu.getNextSeat();
@@ -106,12 +109,13 @@ void Player::rcvLstRound(const TableInfo& tableInfo)
 	{
 		//get #next's state
 		RdState rs = lastrd.find(seat[next])->second;
+		//maintain inBet attribute & current plyrStates
+		rs.inBet = initialStates[seat[next]].pi.jetton-
+			lastrd.find(seat[next])->second.pi.jetton;
+		plyrStates.find(seat[next])->second = rs;
 		//archive action
 		rdu.rcvAction(next, rs.lstAct.act);
 		rdRecords[rdu.getState()].push_back(rs);
-		//maintain inBet attribute & current plyrStates
-		rs.inBet = plyrStates.find(seat[next])->second.inBet + rs.lstAct.bet;
-		plyrStates.find(seat[next])->second = rs;
 		//step to next cycle
 		next=rdu.getNextSeat();
 	}

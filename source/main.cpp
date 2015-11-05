@@ -1,13 +1,12 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include "plyrshel.h"
+#include "comm/Controller.h"
 using namespace std;
 
 int main(int argc,char* argv[])
 {
-	PlayerShell ps;
-	ps.init(PID_SNORE_PLAYER,argv[5],argv[1],argv[2],argv[3],argv[4]);
-	ps.start();
+	Controller ctrl;
+	ctrl.init(PID_SNORE_PLAYER, argv[5], "shrewd_plry", 
+			argv[1], argv[2], argv[3], argv[4]);
+	ctrl.start();
 	return 0;
 }

@@ -66,5 +66,7 @@ public:
 	void rcvLstRound(const TableInfo& tableInfo);
 	void rcvShowdown(const unordered_map<int, ShowdownInfo>& shwdMap);
 	void rcvPotwin(const unordered_map<int, int>& potShare);
+private:
+	unordered_map<int, RdState> initialStates;
 };
 #endif

@@ -5,8 +5,8 @@ void Mailman::init(char* si, char* sp, char* ci, char* cp)
 	int i=0;
 	cout<<"-----Testing Controller-----\n";
 	cout.flush();
-	while( getline(cin, msg[i++], '#') )
-		cout<<"Got line"<<i-1<<": "<<msg[i-1]<<endl;
+	while( getline(cin, msg[i++], '#') );
+		//cout<<"Got line"<<i-1<<": "<<msg[i-1]<<endl;
 }
 
 void Mailman::bindCon() { }
