@@ -40,3 +40,18 @@ structure: [ rd ] [ act order ]
 possible need: [rd][act] of a pid
 
 ##rdu
+rdu.getNInGame()
+pwtools::bool isInGame(int pid)
+//return rdu.getInGame().at( pidToSeat[pid] );
+bool inGame=rdu.getInGame();
+if(inGame[ pidToSeat[pid] ])
+{
+	//do something here
+}
+pwtools::int getNextInGame(int pid)
+//return seat[getNext( pidToSeat[pid] )];
+int nextPid=seat[getNext( pidToSeat[pid] )];
+
+##getHowMuchToCall
+pwtools::int getHowMuchToCall()
+//return lastRd[0].inBet-myState.inBet;

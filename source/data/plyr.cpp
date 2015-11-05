@@ -103,6 +103,7 @@ void Player::rcvLstRound(const TableInfo& tableInfo)
 	if(it!=lastrd.end()) myState = it->second, myState.inBet = 
 		initialStates[pid].pi.jetton - lastrd.find(pid)->second.pi.jetton; 
 
+	lastRdV.clear();
 	//append on rdRecords
 	int next = rdu.getNextSeat();
 	do	//run at least once
@@ -112,10 +113,11 @@ void Player::rcvLstRound(const TableInfo& tableInfo)
 		//maintain inBet attribute & current plyrStates
 		rs.inBet = initialStates[seat[next]].pi.jetton-
 			lastrd.find(seat[next])->second.pi.jetton;
-		plyrStates.find(seat[next])->second = rs;
 		//archive action
 		rdu.rcvAction(next, rs.lstAct.act);
+		plyrStates.find(seat[next])->second = rs;
 		rdRecords[rdu.getState()].push_back(rs);
+		lastRdV.push_back(rs);
 		//step to next cycle
 		next=rdu.getNextSeat();
 	}

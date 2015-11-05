@@ -37,6 +37,7 @@ public:
 	int pot;		//[@? on table]
 	vector<Card> comm;	//[3 ~ 5]
 	unordered_map<int, RdState> plyrStates;	//last round info record
+	vector<RdState> lastRdV;
 	RdState myState;
 
 	//record

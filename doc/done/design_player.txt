@@ -2,37 +2,46 @@ Player contains the game state data.
 A player should base his decision upon the following parameters:
 * state		maintained as cards are distributed
 * BB		maintained at Blind
-* pot		maintained at pot
 * mySeat	maintained at Seat
-* nPlyr		maintained by class Round
-* comm		maintained as cards are distributed
-* seat		maintained at Seat
-* plyrStates	maintained at Seat, Inquiry
-
-* myState	maintained at Seat, Inquiry
 * hole		maintained at Hold
-* rdRecords	maintained at Inquiry
+* seat		maintained at Seat
+* pidToSeat	maintained at Seat
 
-* opHole	maintained at Showdown
-* phand		maintained at Showdown
+* state		maintained as cards are distributed
+* pot		maintained at pot
+* comm		maintained as cards are distributed
+* plyrStates	maintained at Seat, Inquiry
+* lastRdV	maintained at Inquiry
+* myState	maintained at Seat, Inquiry
+
+* rdRecords	maintained at Inquiry
+* rdu		maintained at Inquiry
+
+* shwdMap	maintained at Showdown
 * potShare	maintained at Pot-win
 
 The listed parameters are retrieved with a number of methods, the more complex two of which is rcvSeat and rcvInquiry
 
 #####rcvSeat
 This method receives the following data:
-* seat
 * mySeat
+* seat
+* pidToSeat
 * myState
 * plyrStates
 seat is received in [1 ~ n-1, 0] order so as to ensure [SB# ~ DEALER#] order.
-mySeat and myState is received within the iterations
-nPlyr and startStates are initialized for the first round decision of pre-flop bet (DEAL_BET)
+pidToSeat, mySeat and myState is received within the iterations
+plyrStates is initialized so that it knows which keys it should hold. initialStates is maintained for deciding inBet. 
 
 #####rcvInquiry
 This method receives the following data:
 * myState
 * rdRecords
+* lastRdV
+* plyrStates
+* rdu
+
+***
 
 ###Decide: Map result info
 **Justification**

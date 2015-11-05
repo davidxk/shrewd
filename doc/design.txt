@@ -13,9 +13,5 @@
 ####Controlling
 * Controller sits on top of Player and Parser and manages the whole process
 
-######*Coupling*
-* A parser should not use a player. Yet for the time being, let it be 
-* Use STL Map to return pid nut_hand the like 
-
 ***
 ###AI System
