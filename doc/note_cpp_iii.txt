@@ -49,6 +49,8 @@ This piece of note will be focused on C++11 where a great deal of new features a
 * Smaller in size and otherwise useless
 
 ##Unordered Containers
+* unordered_map: operator[]
+* map: operator[]
 * unordered_map: a hash map
 * unordered_set: has or not
 
@@ -65,6 +67,14 @@ This piece of note will be focused on C++11 where a great deal of new features a
 ##<mutex>
 * Only one thread at a time can be in the region of code between the lock() and the unlock() (often called a critical region)
 * try_lock() operation which can be used to try to get into the critical region without the risk of getting blocked
+
+##<condition_variable>
+* A condition variable is an object able to block the calling thread until notified to resume
+* while (!ready) cv.wait(lck);
+* cv.notify_all();
+
 ##<future>
 * future and promise for returning a value from a task spawned on a separate thread
 * std::async() is a way for the programmer to rise above the messy threads-plus-lock level of concurrent programming
+
+
