@@ -28,8 +28,8 @@ public:
 	Mailman mailman;
 	Parser psr;
 public:
-	void init(int ch, char* id, char* name, 
-			char* si, char* sp, char* ci, char* cp); //init
+	void init(int ch, const char* id, const char* name, 
+			const char* si, const char* sp, const char* ci, const char* cp); //init
 	void start();
 private:
 	void gameStart(string& msg);

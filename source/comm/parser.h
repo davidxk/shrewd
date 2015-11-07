@@ -31,5 +31,7 @@ public:
 	Card readRiver(string& msg);
 	unordered_map<int, ShowdownInfo> readShowdown(string& msg);
 	unordered_map<int, int> readPotwin(string& message);
+public:
+	static const string STR_CHECK, STR_CALL, STR_RAISE, STR_ALLIN, STR_FOLD;
 };
 #endif

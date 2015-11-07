@@ -8,7 +8,6 @@
 #include <unordered_map>
 #include <vector>
 
-#include "globals.h"
 #include "model/Card.h"
 #include "model/RdState.h"
 #include "model/RoundUtil.h"
@@ -53,7 +52,7 @@ public:
 
 public:
 	void init(); //clear vectors at the start of a game
-	void setReg(char* pid, char* name);
+	void setReg(const char* pid, const char* name);
 	vector<string> sendReg();
 	void rcvSeat(const vector<PlayerInfo>& players); 
 	void rcvBlind(int bet);

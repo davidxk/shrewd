@@ -3,8 +3,8 @@
 #include "ai/plyrInclude.h"
 #include "comm/Parser.h"
 
-void Controller::init(int ch, char* pid, char* name, 
-		char* si, char* sp, char* ci, char* cp)
+void Controller::init(int ch, const char* pid, const char* name, 
+		const char* si, const char* sp, const char* ci, const char* cp)
 {
 	switch(ch)
 	{

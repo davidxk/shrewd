@@ -6,9 +6,14 @@ using namespace std;
 class Action
 {
 public:
-	int act;
+	enum ACT { ACT_RAISE, ACT_CALL, ACT_CHECK, ACT_FOLD,
+	   	ACT_ALLIN, ACT_BIG_BLIND, ACT_SMALL_BLIND, ACT_BLIND };
+
+public:
+	ACT act;
 	int bet;
-	Action(int act=-1, int bet=0);
+public:
+	Action(ACT act=ACT_CALL, int bet=0);
 	string print();
 };
 #endif

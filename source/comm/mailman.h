@@ -20,7 +20,7 @@ using namespace std;
 class Mailman
 {
 public:
-	void init(char* si, char* sp, char* ci, char* cp);
+	void init(const char* si, const char* sp, const char* ci, const char* cp);
 	void bindCon();
 	void connectCon();
 	void closeCon();

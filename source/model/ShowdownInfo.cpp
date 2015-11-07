@@ -1,7 +1,10 @@
 #include "model/ShowdownInfo.h"
 #include "model/Hand.h"
 
-ShowdownInfo::ShowdownInfo(vector<Card> aPHole, int aHand):
+ShowdownInfo::ShowdownInfo(vector<Card> aPHole, Hand::Rank rank):
+	pHole(aPHole), hand(Hand(rank)) { }
+
+ShowdownInfo::ShowdownInfo(vector<Card> aPHole, Hand aHand):
 	pHole(aPHole), hand(aHand) { }
 
 string ShowdownInfo::print()

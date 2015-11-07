@@ -3,7 +3,7 @@
 
 int main()
 {
-	Action act(ACT_RAISE, 100);
+	Action act(Action::ACT_RAISE, 100);
 	cout<<act.print();
 	return 0;
 }

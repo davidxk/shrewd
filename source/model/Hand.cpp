@@ -1,7 +1,7 @@
 #include "model/hand.h"
 #include "common.h"
 
-Hand::Hand(int aRank): rank(aRank) { }
+Hand::Hand(Rank aRank): rank(aRank) { }
 
 int Hand::compare(Hand* hand)
 {
@@ -41,7 +41,7 @@ string Hand::print()
 void Hand::printDetails()
 {
 	cout<<"Hand";
-	cout<<"  Rank: "<<rank<<endl;
+	cout<<"  Rank: "<<print()<<endl;
 	cout<<"  First: ";
 	for(int i=0;i<first.size();i++)
 		cout<<first[i]<<" ";

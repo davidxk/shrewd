@@ -1,14 +1,13 @@
-#include "globals.h"
 #include "ai/folder.h"
 
 FoldPlayer::FoldPlayer()
 {
-	pid=PID_FOLD_PLAYER;
-	name=NAME_FOLD_PLAYER;
+	pid=7000;
+	name="Fold Player";
 }
 
 Action FoldPlayer::sendBet()
 {
-	Action act(ACT_FOLD, 0);
+	Action act(Action::ACT_FOLD, 0);
 	return act;
 }

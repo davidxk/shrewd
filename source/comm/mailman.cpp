@@ -1,7 +1,7 @@
 #include "comm/Mailman.h"
 
 //ofstream tcp_log;
-void Mailman::init(char* si, char* sp, char* ci, char* cp)
+void Mailman::init(const char* si, const char* sp, const char* ci, const char* cp)
 {
 	strcpy(server_ip, si);
 	strcpy(server_port, sp);
@@ -23,7 +23,7 @@ void Mailman::bindCon()
 	memset(&client_addr,0,sizeof(client_addr));
 	client_addr.sin_family = AF_INET;
 	client_addr.sin_port = htons(atoi(client_port));
-	//parse char* type client_ip to client_addr.sin_addr
+	//parse const char* type client_ip to client_addr.sin_addr
 	if(inet_pton(AF_INET,client_ip,&client_addr.sin_addr)<=0)
 	{
 		//tcp_log<<"inet_pton error for s\n";
@@ -42,7 +42,7 @@ void Mailman::connectCon()
 	memset(&server_addr,0,sizeof(server_addr));
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(atoi(server_port));
-	//parse char* type server_ip to server_addr.sin_addr
+	//parse const char* type server_ip to server_addr.sin_addr
 	if(inet_pton(AF_INET,server_ip,&server_addr.sin_addr)<=0)
 	{
 		//tcp_log<<"inet_pton error for s\n";

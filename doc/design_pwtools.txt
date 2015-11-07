@@ -55,3 +55,7 @@ int nextPid=seat[getNext( pidToSeat[pid] )];
 ##getHowMuchToCall
 pwtools::int getHowMuchToCall()
 //return lastRd[0].inBet-myState.inBet;
+
+
+#More Than One Class
+> As it appears, there are basic ai services that is beyond the capacity of this one class. It appears that there is need for a layer of class over pwtools which falls in ai sub-system and serve as a bridge between player data class and ai class. 

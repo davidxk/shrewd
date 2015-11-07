@@ -1,4 +1,5 @@
 #include "ai/TestablePlayer.h"
+#include "model/Action.h"
 #include "common.h"
 
 string TestablePlayer::reportGameInfo()
@@ -54,6 +55,6 @@ string TestablePlayer::reportResult()
 
 Action TestablePlayer::sendBet()
 {
-	Action act(ACT_FOLD, 0);
+	Action act(Action::ACT_FOLD, 0);
 	return act;
 }

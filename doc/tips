@@ -13,4 +13,5 @@ Ctrl+K		like D in Vim
 :s/pat/\r/	\r as eof
 :%g/^$/d	g execute ex command on lines which match the regex 
 qq__q		record a sequence of actions in register q
-@@		play back the last recorded actions 
+@@			play back the last recorded actions 
+\tr			open NERDTree panel

@@ -1,5 +1,4 @@
 #include "common.h"
-#include "globals.h"
 #include "model/PlayerInfo.h"
 
 PlayerInfo::PlayerInfo(): pid(0), jetton(0), money(0) { }

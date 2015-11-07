@@ -1,6 +1,6 @@
 #include "comm/PsudoMailman.h"
 
-void Mailman::init(char* si, char* sp, char* ci, char* cp) 
+void Mailman::init(const char* si, const char* sp, const char* ci, const char* cp) 
 { 
 	int i=0;
 	cout<<"-----Testing Controller-----\n";

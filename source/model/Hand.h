@@ -3,16 +3,18 @@
 
 #include <iostream>
 #include <vector>
-#include "globals.h"
 using namespace std;
 
 class Hand
 {
 public:
-	vector<int> first;
-	int rank;
+	enum Rank { NOT_THIS_RANK, HIGHCARD, PAIR, TWOPAIRS, TRIP, STRAIGHT, FLUSH, FULLHOUSE, FOUR, STRAIGHTFLUSH };
+
 public:
-	Hand(int rank=HIGHCARD);
+	vector<int> first;
+	Rank rank;
+public:
+	Hand(Rank rank=HIGHCARD);
 	string print();
 	void printDetails();
 	int compare(Hand* hand);

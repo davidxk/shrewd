@@ -1,4 +1,4 @@
-#include "plyr.h"
+#include "data/plyr.h"
 #include "common.h"
 
 //static ofstream pout;
@@ -20,7 +20,7 @@ void Player::init()
 	state=DEAL;
 }
 
-void Player::setReg(char* pid, char* name)
+void Player::setReg(const char* pid, const char* name)
 {
 	sscanf(pid, "%d", &(this->pid));
 	this->name.assign(name);
@@ -114,7 +114,7 @@ void Player::rcvLstRound(const TableInfo& tableInfo)
 		rs.inBet = initialStates[seat[next]].pi.jetton-
 			lastrd.find(seat[next])->second.pi.jetton;
 		//archive action
-		rdu.rcvAction(next, rs.lstAct.act);
+		rdu.rcvAction(next, rs.lstAct);
 		plyrStates.find(seat[next])->second = rs;
 		rdRecords[rdu.getState()].push_back(rs);
 		lastRdV.push_back(rs);

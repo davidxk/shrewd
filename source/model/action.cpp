@@ -1,8 +1,7 @@
 #include "common.h"
-#include "globals.h"
 #include "model/Action.h"
 
-Action::Action(int aAct, int aBet):
+Action::Action(ACT aAct, int aBet):
 	act(aAct), bet(aBet) { }
 
 string Action::print()

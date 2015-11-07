@@ -1,6 +1,6 @@
 VPATH = ../../source/comm/ ../../source/model/ ../../source/data/ ../../source/ ../../source/ai/
 CXX=g++
-CXXFLAGS=-I ../../source/ -g
+CXXFLAGS=-I ../../source/ -g -Wno-c++11-extensions
 
 object3 = testController.o Controller.o\
 		  Parser.o Scanner.o folder.o plyr.o\

@@ -8,7 +8,7 @@ ai_path=$(addsuffix /ai,$(src_path))
 ## Implicit Variable
 VPATH+=$(src_path) $(model_path) $(comm_path) $(data_path) $(ai_path)
 CXX=g++
-CXXFLAGS=-I ../../source -g
+CXXFLAGS=-I ../../source -g -Wno-c++11-extensions
 
 ## Source List
 sources=common.cpp \
@@ -46,4 +46,4 @@ include $(sources:.cpp=.d)	# include the dot d files
 ##Clean
 .PHONY: clean
 clean: 
-	rm -f $(objects) $(mkfiles)
+	rm -f game $(objects) $(mkfiles)

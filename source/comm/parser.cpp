@@ -1,5 +1,12 @@
 #include "comm/Parser.h"
+#include "model/ModelMacros.h"
 #define PARSER_DEBUG 1
+
+const string Parser::STR_CHECK="check";
+const string Parser::STR_CALL="call";
+const string Parser::STR_RAISE="raise";
+const string Parser::STR_ALLIN="all_in";
+const string Parser::STR_FOLD="fold";
 
 string Parser::writeReg(const vector<string>& regInfo)
 {
@@ -16,16 +23,16 @@ string Parser::writeAction(const Action& action)
 	char smoney[20];
 	switch(action.act)
 	{
-		case ACT_CHECK: actName=STR_CHECK; break;
-		case ACT_CALL: actName=STR_CALL; break;
-		case ACT_RAISE:
+		case Action::ACT_CHECK: actName=STR_CHECK; break;
+		case Action::ACT_CALL: actName=STR_CALL; break;
+		case Action::ACT_RAISE:
 			actName=STR_RAISE;
 			actName+=' ';
 			sprintf(smoney,"%d",action.bet);
 			moneyStr.assign(smoney); //convert int to str cont
 			break;
-		case ACT_ALLIN: actName=STR_ALLIN; break;
-		case ACT_FOLD: actName=STR_FOLD; break;
+		case Action::ACT_ALLIN: actName=STR_ALLIN; break;
+		case Action::ACT_FOLD: actName=STR_FOLD; break;
 		default:break;
 	}
 	string msg = actName + moneyStr + " \n";
@@ -155,19 +162,19 @@ unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
 			pHole.push_back(scan.getCard(msg));
 		
 		//deal with nut hand with switch(msg[1]) cont
-		int nut_hand;
+		Hand::Rank nut_hand;
 		switch(msg[1])
 		{
-			case 'I': nut_hand=HIGHCARD; break;
-			case 'N': nut_hand=PAIR; break;
-			case 'W': nut_hand=TWOPAIRS; break;
-			case 'H': nut_hand=TRIP; break;
-			case 'L': nut_hand=FLUSH; break;
-			case 'U': nut_hand=FULLHOUSE; break;
-			case 'O': nut_hand=FOUR; break;
+			case 'I': nut_hand = Hand::HIGHCARD; break;
+			case 'N': nut_hand = Hand::PAIR; break;
+			case 'W': nut_hand = Hand::TWOPAIRS; break;
+			case 'H': nut_hand = Hand::TRIP; break;
+			case 'L': nut_hand = Hand::FLUSH; break;
+			case 'U': nut_hand = Hand::FULLHOUSE; break;
+			case 'O': nut_hand = Hand::FOUR; break;
 			case 'T':
-					  if(msg[8]=='_') nut_hand=STRAIGHTFLUSH;
-					  else nut_hand=STRAIGHT;
+					  if(msg[8]=='_') nut_hand = Hand::STRAIGHTFLUSH;
+					  else nut_hand = Hand::STRAIGHT;
 					  break;
 			default: cout<<"Error: Unknow hand. Protocal Unmatch. "<<endl;
 		}

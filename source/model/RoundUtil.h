@@ -1,6 +1,8 @@
 #ifndef _MODEL_ROUND_UTIL_H_
 #define _MODEL_ROUND_UTIL_H_
 
+#include "model/Action.h"
+#include "model/ModelMacros.h"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -13,7 +15,7 @@ class RoundUtil
 {
 public:
 	void init(int nPlyr);
-	void rcvAction(int seatNo, int action);
+	void rcvAction(int seatNo, Action action);
 	int getNextSeat();
 
 	int getPrev(int seatNo);

@@ -1,11 +1,11 @@
 #include "model/Card.h"
 
-Card::Card(int aColor, int aFigure):
+Card::Card(Color aColor, int aFigure):
 	color(aColor), figure(aFigure) { }
 
 bool Card::is(Card card)
 {
-	return card.figure==this->figure&&card.color==this->color;
+	return card.figure==this->figure && card.color==this->color;
 }
 
 Card Card::inputCard()
@@ -23,13 +23,13 @@ Card Card::getCard(char color, int figure)
 	switch(color)
 	{
 		case 's': case 'S': 
-			card.color=(int)SPADE; break;
+			card.color=SPADE; break;
 		case 'h': case 'H':
-			card.color=(int)HEART; break;
+			card.color=HEART; break;
 		case 'd': case 'D':
-			card.color=(int)DIAMOND; break;
+			card.color=DIAMOND; break;
 		case 'c': case 'C':
-			card.color=(int)CLUB; break;
+			card.color=CLUB; break;
 		default:
 			cout<<"Error: Invalid color: "<<color<<endl;
 	}

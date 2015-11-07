@@ -1,4 +1,3 @@
-#include "globals.h"
 #include "model/RoundUtil.h"
 
 void RoundUtil::init(int nPlyr)
@@ -12,16 +11,17 @@ void RoundUtil::init(int nPlyr)
 	this->inGame=inGame;
 }
 
-void RoundUtil::rcvAction(int seatNo, int action)
+void RoundUtil::rcvAction(int seatNo, Action action)
 {
-	switch(action)
+	switch(action.act)
 	{
-		case ACT_RAISE: case ACT_ALLIN:
+		case Action::ACT_RAISE: case Action::ACT_ALLIN:
 			rdEnd=getPrev(seatNo); break;
-		case ACT_FOLD: 
+		case Action::ACT_FOLD: 
 			inGame[seatNo]=false; nInGame--; break;
-		case ACT_BLIND: 
+		case Action::ACT_BLIND: 
 			next++; return;
+		default: break;
 	}
 
 	if(next!=rdEnd) next=getNext(next);

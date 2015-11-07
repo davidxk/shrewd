@@ -62,17 +62,17 @@ Action Scanner::getAction(string& msg)
 	int bet=nextInt(msg); 
 	matchWord(msg); //now at act
 
-	int act;
+	Action::ACT act;
 	switch(msg[3])
 	{
-		case 'n': act=ACT_BLIND; break;
-		case 'c': act=ACT_CHECK; break;
-		case 'l': act=ACT_CALL; break;
-		case 's': act=ACT_RAISE; break;
-		case '_': act=ACT_ALLIN; break;
-		case 'd': act=ACT_FOLD; break;
+		case 'n': act = Action::ACT_BLIND; break;
+		case 'c': act = Action::ACT_CHECK; break;
+		case 'l': act = Action::ACT_CALL; break;
+		case 's': act = Action::ACT_RAISE; break;
+		case '_': act = Action::ACT_ALLIN; break;
+		case 'd': act = Action::ACT_FOLD; break;
 		default: cout<<"Error: Unknown act. Protocal unmatch. "<<endl;
-				 act=ACT_SMALL_BLIND;
+				 act = Action::ACT_SMALL_BLIND;
 	}
 	matchWord(msg); //now at next line ^
 
