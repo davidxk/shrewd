@@ -2,22 +2,7 @@
 #define _GLOBALS_H_
 
 //basic
-#define HAND_SIZE 5
-#define HOLE_SIZE 2
-#define COMM_SIZE 5
 #define N_HAND 9
-#define N_FLOP 3
-
-
-
-
-
-//states for simuplayer
-#define DEAL  -1
-#define DEAL_BET 0
-#define FLOP_BET 1
-#define TURN_BET 2
-#define RIVER_BET 3
 
 
 
@@ -44,10 +29,6 @@
 
 
 
-
-//checkplus
-#define FLUSH_THRESH 3
-#define FLUSH_IMPOSS -1
 
 //plyrinfo
 #define EMPTY_PLAYER "-1"
