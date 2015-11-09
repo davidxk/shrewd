@@ -40,7 +40,7 @@ public:
 	RdState myState;
 
 	//record
-	vector<vector<RdState> > rdRecords;	//[DEAL_BET ~ RIVER_BET][SB# ~ ]
+	vector<vector<RdState> > rdRecords;	//[PRE_FLOP_BET ~ RIVER_BET][SB# ~ ]
 	RoundUtil rdu;
 
 	//result 

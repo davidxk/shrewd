@@ -68,7 +68,7 @@ void Player::rcvBlind(int bet)
 void Player::rcvHole(const vector<Card>& hole)
 {
 	this->hole=hole;
-	state=DEAL_BET;
+	state=PRE_FLOP_BET;
 }
 
 void Player::rcvFlop(const vector<Card>& flop)

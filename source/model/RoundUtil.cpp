@@ -2,7 +2,7 @@
 
 void RoundUtil::init(int nPlyr)
 {
-	state=DEAL_BET;
+	state=PRE_FLOP_BET;
 	next=SBLIND_INDEX;
 	rdEnd=BBLIND_INDEX;
 
