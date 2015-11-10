@@ -2,7 +2,34 @@ This is the strategies of the book Small Stakes Texax Hold'em.
 
 ##Pre-Flop
 ###General View
-Limited hole cards make wins most money for you, others wins with a very low payback and most hole cards, should you choose to enter, get you loose. 
+The best starting hands make a lot of money. A few more hands are modestly profitable. Most hands lose in the long run. 
 
 ###Three Kinds of Hole Card
-Top pair
+* Top pair hands
+* Speculative hands
+* Powerhouse hands
+
+####Top Pairs
+AKo: Big Big off-suited
+
+Win small- medium-size pots by making top pair and having it hold up. After making a pair on flop, you have to play defense against drawing opponents. 
+
+nPlyrs: 
+On the one hand, top hands play better against fewer opponents. Top pairs are more likely to be best against two or three hands than it against six to seven hands. On the other hand, while multi-way action devalue your hand relative to some of the other hands, your overall expectation may still be increased due to the extra money. 
+The best top pair hands -- ace-ten, king-jack and better -- tend to benefit more from extra money than they lose from multi-way action
+
+Action: 
+With good top pair cards you should usually raise. If many of your opponents are playing poorly, get that extra money in the pot pre-flop, before they know the flop will miss them. 
+
+####Speculative Hands
+44: Small pocket pair
+
+78s: Suited connected hands
+
+Speculative hands do not prevail frequently, but they make big hands and win big pots when they do. Small pairs make big hands when they flop sets. Suited connectors make big hands when they flop flushes, straights and strong draws that come in. After the flop, speculative hands often play offense when they flop a very strong hand or draw. By the turn, many opponents may be drawing dead against a speculative hand(opponents will rarely be drawing dead against top pair). Speculative hands can make a lot of money on the big turn and river bets. 
+
+nPlyrs:
+Speculative hands play better against many opponents. Many opponents create bigger pots. Against few opponents weak speculative hands like 65s and J8o may not make enough when they get luck to make up for all the pre-flop and flop bets lost when they miss. 
+
+Action:
+These hands, especially the weak ones, need to see the flop cheaply. 

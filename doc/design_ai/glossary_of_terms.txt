@@ -1,22 +1,43 @@
 ##Strategies
-Loose Player
+####Loose Player
 Loose players play relatively more hands and tend to continue with weaker hands; hence they do not often fold.
 
-Tight Player
+####Tight Player
 Tight players play relatively fewer hands and tend not to continue with weaker hands; hence they often fold.
 
-Loose Game
+####Loose Game
 Players in the game tend to play loosely: play relatively more hands and tend to continue with weaker hands. 
 > * Bluffs and semi-bluffs are less effective because loose opponents are less likely to fold.
 > * Requirements for continuing with made hands may be lower because loose players may also be playing lower value hands.
 > * Drawing to incomplete hands, like flushes, tends to be more valuable as draws will often get favorable pot odds
 
+####Limp, Limp in
+To enter a pot by simply calling a bet instead of raising.
+
+####Multi-Way Pot
+A pot where several players compete for it. Also known as a family pot.
+
+####Draw, Drawing hand, Come hand
+A drawing hand is when a player has a chance to improve their hand to something considerably stronger, typically a straight or a flush, through drawing the required cards on the flop, on the turn or on the river.
+
+####Drawing Dead
+Playing a drawing hand that will lose even if successful, for it can never improve beyond the opponent's hand
+
+####Set
+Three of a kind, especially a situation where two of the cards are concealed in the player's hole cards.
+
 ##General Terms
-Deal
+####Deal
 To distribute cards to players in accordance with the rules of the game being played.
 
-Pre-Flop
+####Pre-Flop
 The time when players already have their pocket cards but no flop has been dealt yet.
 
-Hole Cards, Hole
+####Hole Cards, Hole
 Face-down cards. Also pocket cards
+
+####Starting Hand
+Starting hand is the initial set of cards dealt to each player before any voluntary betting takes place
+
+####Button
+In poker, the dealer button is a marker used to indicate the player who is dealing or, in casino games with a house dealer, the player who acts last on that deal (who would be the dealer in a home game).
