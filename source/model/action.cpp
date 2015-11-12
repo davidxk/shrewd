@@ -4,6 +4,12 @@
 Action::Action(ACT aAct, int aBet):
 	act(aAct), bet(aBet) { }
 
+void Action::setBet(int bet)
+{
+	this->act=ACT_RAISE;
+	this->bet=bet;
+}
+
 string Action::print()
 {
 	string str = intToStr(bet);

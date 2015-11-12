@@ -7,13 +7,14 @@ class Action
 {
 public:
 	enum ACT { ACT_RAISE, ACT_CALL, ACT_CHECK, ACT_FOLD,
-	   	ACT_ALLIN, ACT_BIG_BLIND, ACT_SMALL_BLIND, ACT_BLIND };
+	   	ACT_ALLIN, ACT_BLIND };
 
 public:
 	ACT act;
 	int bet;
 public:
 	Action(ACT act=ACT_CALL, int bet=0);
+	void setBet(int bet);
 	string print();
 };
 #endif

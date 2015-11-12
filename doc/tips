@@ -16,3 +16,7 @@ qq__q		record a sequence of actions in register q
 @@		play back the last recorded actions 
 \tr		open NERDTree panel
 vi -r filename	recover a file from .swp file
+
+##Clang
+-Wall		gives static check advice
+-Wno-c++11-extensions	no C++11 warnings

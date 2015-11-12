@@ -8,7 +8,7 @@ ai_path=$(addsuffix /ai,$(src_path))
 ## Implicit Variable
 VPATH+=$(src_path) $(model_path) $(comm_path) $(data_path) $(ai_path)
 CXX=g++
-CXXFLAGS=-I ../../source -g -Wno-c++11-extensions
+CXXFLAGS=-I ../../source -g -Wall -Wno-c++11-extensions
 
 ## Source List
 sources=common.cpp \

@@ -2,3 +2,9 @@
 2. clang
 3. GNU make
 4. cloc
+5. gdb
+
+##Explore Later
+Valgrind
+Doxygen
+Jenkins

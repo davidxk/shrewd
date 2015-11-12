@@ -66,7 +66,7 @@ int Parser::readBlind(string& msg)
 {
 	scan.matchHead(msg);
 
-	int pid=scan.nextInt(msg);
+	//int pid=scan.nextInt(msg);
 	scan.matchWColon(msg);
 	int bet=scan.nextInt(msg); 
 	scan.matchWord(msg); //now at ^
@@ -176,7 +176,8 @@ unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
 					  if(msg[8]=='_') nut_hand = Hand::STRAIGHTFLUSH;
 					  else nut_hand = Hand::STRAIGHT;
 					  break;
-			default: cout<<"Error: Unknow hand. Protocal Unmatch. "<<endl;
+			default: nut_hand=Hand::NOT_THIS_RANK;
+					 cout<<"Error: Unknow hand. Protocal Unmatch. "<<endl;
 		}
 		ShowdownInfo shwdInfo(pHole, nut_hand);
 		shwdMap.insert( make_pair<int,ShowdownInfo>(pid, shwdInfo) );
