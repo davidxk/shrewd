@@ -1,0 +1,8 @@
+<Ctrl-Y>,	expand abbreviation
+<Ctrl-Y>n	next edit place
+<Ctrl-Y>N	prev edit place
+#			add id attribute
+.			add class attribute
+>			add child
++			add sibling
+*			replicate
