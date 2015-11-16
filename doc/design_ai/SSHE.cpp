@@ -1,5 +1,5 @@
 
-enum HandType { MONSTERS, BIG_PAIRS, MID_PAIRS, SMA_PAIRS, BIG_SU_BRDWY, LTL_SU_BRDWY, SUITED_ACES, SUITED_CONN, BIG_OFF_BRDWY, LTL_OFF_BRDWY, JUNK_HAND, NOT_THIS_HOLE };
+enum HandType { MONSTERS, BIG_PAIRS, MID_PAIRS, SMA_PAIRS, BIG_SU_BRDWY, LTL_SU_BRDWY, SUITED_ACES, SUITED_KINGS, SUITED_CONN, BIG_OFF_BRDWY, LTL_OFF_BRDWY, JUNK_HAND, NOT_THIS_HOLE };
 
 enum Position { EARLY_POS, MIDDLE_POS, LATE_POS, BUTTON_POS, SBLIND_POS, BBLIND_POS };
 
@@ -15,6 +15,16 @@ int cntAction(vector<RdState>& rdRecords, Action::ACT theAct)
 	for(const auto& rcd: rdRecords)
 		if(rcd.act==theAct) cnt++;
 	return cnt;
+}
+//cnt in pot
+int cntCallLstRaise(vector<RdState>& rdRecords)
+{
+	int cnt=0;
+	for(int i=rdRecords.size()-1; i>=0 && rdRecords[i].act!=Action::ACT_RAISE; i--)
+		if(rdRecords[i].act==Action::ACT_CALL)
+			cnt++;
+	return cnt;
+
 }
 //Name of Early Middle and Late of Position
 Seat whichPos(int seatNo)
@@ -34,7 +44,7 @@ Seat whichPos(int seatNo)
 	}
 }
 //Type of Hole
-HandType whichType(vector<Card> hole)
+HandType whichHand(vector<Card> hole)
 {
 	if(hole.size()!=HOLE_SIZE) 
 		cout<<"Hole size less than two."<<endl, return NOT_THIS_HOLE;
@@ -143,6 +153,12 @@ Action::ACT SSHE()
 		case MID_PAIRS: playMidPair(cntRaise, action); break;
 		case SMA_PAIRS: playSmaPair(cntRaise, action); break;
 		case BIG_SU_BRDWY: playBigSuBrdwy(cntRaise, action); break;
+		case LTL_SU_BRDWY: playLtlSuBrdwy(cntRaise, action); break;
+		case SUITED_ACES: playSuitedAces(cntRaise, action); break;
+		case SUITED_KINGS: playSuitedKing(cntRaise, action); break;
+		case SUITED_CONN: playSuitedConn(cntRaise, action); break;
+		case BIG_OFF_BRDWY: playBigOfBrdwy(cntRaise, action); break;
+		case LTL_OFF_BRDWY: playLtlOfBrdwy(cntRaise, action); 
 	}
 }
 
@@ -157,16 +173,26 @@ void playMidPair(int cntRaise, Action& action)
 					action.act=Action::ACT_CALL;
 					break;
 				case MIDDLE_POS:
-					action.act=Action::ACT_RAISE;
+					if(cntAction(lastrd, Action::ACT_CALL) < 2)
+					   	action.act=ACT_RAISE;
+					else action.act=Action::ACT_CALL;
 					//action.bet=??;
 					break;
-				case LATE_POS:
+				case LATE_POS: case BUTTON_POS:
+					if(cntAction(lastrd, Action::ACT_CALL) < 2)
+					   	action.act=ACT_RAISE;
+					else action.act=Action::ACT_CALL;
+					//action.bet=??+;
+					break;
+				//case SBLIND_POS: case BBLIND_POS: 
 			}
 			break;
 		case 1:
-			//if(>=2 CALL_OPEN) action.act=ACT_CALL;
-			//or expect to be >=5 handed
-			//else action.act=ACT_FOLD;
+			if(cntCallOpen(lastrd)>=2) 
+				action.act=ACT_CALL;
+			else if( expectHand() >=5 )
+				action.act=ACT_CALL;
+			else action.act=ACT_FOLD;
 			break;
 		default: action.act=ACT_FOLD;
 	}
@@ -180,8 +206,9 @@ void playSmaPair(int cntRaise, Action& action)
 			action.act=ACT_CALL;
 			break;
 		case 1:
-			//expect to be >=5 handed
-			//action.act=ACT_CALL;
+			if ( expectHand() >=5 )
+				action.act=ACT_CALL;
+			else action.act=ACT_FOLD;
 			break;
 		default: action.act=ACT_FOLD;
 	}
@@ -195,14 +222,15 @@ void playBigSuBrdwy(int cntRaise, Action& action)
 	switch(cntRaise)
 	{
 		case 0:
-			//if(tight) action.act=ACT_CALL; else
-			action.act=ACT_RAISE;
+			if(!isTight()) 
+				action.act=ACT_CALL; 
+			else action.act=ACT_RAISE;
 			//action.bet=??;
 			break;
 		case 1:
 			if(fig0==Card::ACE)
 			{
-				//if(raise is from late pos) action.setBet(??);
+				if(lstRaiseSeat()==LATE_POS) action.setBet(??), break;
 				switch(fig1)
 				{
 					case Card::KING: 
@@ -213,18 +241,175 @@ void playBigSuBrdwy(int cntRaise, Action& action)
 						action.act=ACT_CALL;
 						break;
 					case Card::JACK:
-						//expect to be multi-handed
-						//action.act=ACT_CALL; else 	
-						action.act=ACT_FOLD;
+						if(expectHand()==MULTI_HANDED)
+							action.act=ACT_CALL; 
+						else action.act=ACT_FOLD;
 						break;
 					default: action.act=ACT_FOLD;
 				}
 			}
 			else action.act=ACT_FOLD;
+			break;
 		default: action.act=ACT_FOLD;
 	}
 }
 
+void playLtlSuBrdwy(int cntRaise, Action& action)
+{
+	switch(cntRaise)
+	{
+		case 0:
+			switch(whichPos())
+			{
+				case EARLY_POS: case MIDDLE_POS:
+					action.act=Action::ACT_CALL;
+					break;
+				case LATE_POS: case BUTTON_POS:
+					action.act=Action::ACT_RAISE;
+					//action.bet=??;
+					break;
+				//case SBLIND_POS: case BBLIND_POS:
+			}
+			break;
+		case 1:
+			if(expectHand()==MULTI-HANDED)
+				action.act=ACT_CALL; 
+			else action.act=ACT_FOLD;
+			break;
+		default: action.act=ACT_FOLD;
+	}
+}
+
+void playSuitedAces(int cntRaise, Action& action)
+{
+	int& fig0=hole[0].figure, &fig1=hole[1].figure;
+	if( fig0 < fig1 ) swap( fig0, fig1 );
+
+	switch(cntRaise)
+	{
+		case 0:
+			if(isPassive()==IS_PASSIVE) action.act=ACT_CALL;
+			//else 
+				//switch(whichPos)
+			//{
+			//case EARLY_POS: 
+			//if(not going to three bet or more &&
+			//  (fig1==8 || fig1==9)) action.act=ACT_CALL; else
+			//  action.act=ACT_FOLD;
+			//case MIDDLE_POS: case LATE_POS:
+			//  if(loose && (fig1==8 || fig1==9))
+			//    action.act=ACT_RAISE;
+			//  else action.act=ACT_CALL;
+			//case SBLIND_POS: case BBLIND_POS:
+			//}
+			action.act=ACT_FOLD;
+			break;
+		default:
+			action.act=ACT_FOLD;
+			break;
+	}
+}
+
+void playSuitedKing(int cntRaise, Action& action)
+{
+	int& fig0=hole[0].figure, &fig1=hole[1].figure;
+	if( fig0 < fig1 ) swap( fig0, fig1 );
+
+	switch(cntRaise)
+	{
+		case 0:
+			switch(whichPos())
+			{
+				case EARLY_POS:
+					if(fig1==9) action.act=ACT_CALL;
+					else action.act=ACT_FOLD;
+					break;
+				case BUTTON_POS:
+					action.act=ACT_CALL;
+				default: action.act=Action::ACT_FOLD;
+			}
+			break;
+		default: action.act=Action::ACT_FOLD;
+	}
+}
+
+void playSuitedConn(int cntRaise, Action& action)
+{
+	int& fig0=hole[0].figure, &fig1=hole[1].figure;
+	if( fig0 < fig1 ) swap( fig0, fig1 );
+
+	switch(cntRaise)
+	{
+		case 0:
+			switch(whichPos)
+			{
+				case EARLY_POS:
+					action.act=ACT_FOLD;
+					if(isPassive()==VERY_PASSIVE) //(< 10% raise)
+						if(fig1==9 && (fig0==Card::TEN || fig0==Card::JACK))
+							action.act=ACT_CALL;
+					break;
+				case BUTTON_POS:
+					action.act=ACT_CALL;
+					break;
+				default: action.act=ACT_FOLD;
+			}
+			break;
+		default: action.act=ACT_FOLD;
+	}	
+}
+	
+void playBigOfBrdwy(int cntRaise, Action& action)
+{
+	int& fig0=hole[0].figure, &fig1=hole[1].figure;
+	if( fig0 < fig1 ) swap( fig0, fig1 );
+
+	switch(cntRaise)
+	{
+		case 0: 
+			action.act=ACT_RAISE;
+			break;
+		case 1:
+			action.act=ACT_FOLD;
+			if(fig1==Card::KING) action.act=ACT_RAISE;
+			else if(fig1==Card::QUEEN)
+				//if(wild raiser) action.act=ACT_RAISE; else
+				action.act=ACT_FOLD;
+			break;
+		default: action.act=ACT_FOLD;
+	}
+}
+
+void playLtlOfBrdwy(int cntRaise, Action& action)
+{
+	int& fig0=hole[0].figure, &fig1=hole[1].figure;
+	if( fig0 < fig1 ) swap( fig0, fig1 );
+
+	switch(cntRaise)
+	{
+		case 0:
+			switch(whichPos)
+			{
+				case EARLY_POS:
+					action.act=ACT_FOLD;
+					if(fig0==Card::ACE && fig1==Card::TEN ||
+							fig0==Card::KING && fig1==Card::JACK)
+						action.act=ACT_CALL;
+					break;
+				case BUTTON_POS:
+					action.act=ACT_CALL;
+					break;
+				default: action.act=ACT_FOLD;
+			}
+			break;
+		default: action.act=ACT_FOLD;
+	}
+}
+			
+
+
+
+void play
 /*It appears that using a decision table/tree
  * is a better solusion. 
  * Only one iteration needs to be programed

@@ -19,6 +19,7 @@ Factors:
 * Big Suited Broadway: AKs-ATs, KQs, KJs
 * Little Suited Broadway: QJs, KTs, QTs, JTs
 * Suited Aces: A9s-A2s
+* Suited Kings: K9s-K2s
 * Suited Connectors: T9s-54s, J9s-64s, Q9s-96s, Q8, J7
 * Big Off-suit Broadway: AKo AQo AJo KQo
 * Little Off-suit Broadway: AT KJ QJ KT QT JT
