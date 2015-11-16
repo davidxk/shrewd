@@ -1,54 +1,20 @@
+Caps Lock+H
+Read document
 
-func:
-AVR_BET
-CNT_COPEN
-CNT_LIMP
-CNT_RAISE
-EXP_NHAND
-FIG_0
-FIG_1
-IS_AGGR
-IS_LOOSE
-IS_RS_WLD
-WHICH_POS
+Caps Lock+U
+Read next page
 
-leaf:
-CALL
-FOLD
-RAISE
+Caps Lock+Ctrl+U
+Read current page
 
-valu:
-0
-1
-2
-3
-5
-8
-9
-A
-BIG_OFF_BRDWY
-BIG_PAIRS
-BIG_SU_BRDWY
-BUTTON_POS
-EARLY_POS
-J
-JUNK_HAND
-K
-LATE_POS
-LTL_OFF_BRDWY
-LTL_SU_BRDWY
-MIDDLE_POS
-MID_PAIRS
-MONSTERS
-N
-NOT_THIS_HOLE
-Q
-SMA_PAIRS
-SUITED_ACES
-SUITED_CONN
-SUITED_KINGS
-T
-d
-f
-m
-t
+Caps Lock+Shift+U
+Read previous page
+
+Caps Lock+I
+Read next paragraph
+
+Caps Lock+Ctrl+I
+Read current paragraph
+
+Caps Lock+Shift+I
+Read previous paragraph
