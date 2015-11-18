@@ -1,9 +1,8 @@
 #include "model/Hand.h"
-#include <cassert>
 
 int main()
 {
 	Hand hand(Hand::STRAIGHTFLUSH);
-	assert(hand.print()=="StFlush");
+	cout<<hand.print();
 	return 0;
 }

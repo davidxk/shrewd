@@ -1,63 +1,64 @@
 #include "comm/Scanner.h"
-#include <string>
+#include <cassert>
 
 int main()
 {
 	Scanner scan;
 	const int nTestCase=9;
-	string msg[nTestCase];
+	string msg[nTestCase]={
+		"asd-fgh/ \njkl\nzxc-vbn/ \nqwe",
+		"/asd-fgh \njkl\n/zxc-vbn \nqwe",
+		"asd: fgh",
+		"HEARTS 3 \nCLUBS K \n",
+		"HEARTS 3 CLUBS K \n",
+		"7777 30 250 \nsmall blind: ",
+		"7777 1900 8000 100 call",
+		"100 call \n4444 ",
+		"5555 1900 8000 100 call \n4444 2000 8000 0 fold "
+	};
 	int i=0;
 
-	msg[i]="asd-fgh/ \njkl\n/asd-fgh \nqwe/ \nrty";
 	scan.matchHead(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
+	assert(msg[i]=="jkl\nzxc-vbn/ \nqwe");
 	i++;
 
-	msg[i]= "/asd-fgh \njkl";
 	scan.matchTail(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
+	assert(msg[i]=="jkl\n/zxc-vbn \nqwe");
 	i++;
 
-	msg[i]= "asd: fgh";
 	scan.matchWColon(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
+	assert(msg[i]=="fgh");
 	i++;
 
-	msg[i]= "HEARTS 3 \nCLUBS K \n";
 	Card card1=scan.getCard(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
-	cout<<card1.print();
+	assert(msg[i]=="CLUBS K \n");
+	assert(card1.print()=="h3 ");
 	i++;
 
-	msg[i]= "HEARTS 3 CLUBS K \n";
 	scan.matchTail(msg[i]);
 	Card card2=scan.getCard(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
-	cout<<card2.print();
+	assert(msg[i]=="CLUBS K \n");
+	assert(card2.print()=="h3 ");
 	i++;
 
-	msg[i]= "7777 30 250 \nsmall blind: ";
 	PlayerInfo pi1=scan.getPlayerInfo(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
-	cout<<pi1.print();
+	assert(msg[i]=="small blind: ");
+	assert(pi1.print()=="Player #7777	@30	$250\n");
 	i++;
 
-	msg[i]="7777 1900 8000 100 call";
 	PlayerInfo pi2=scan.getPlayerInfo(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
-	cout<<pi2.print();
+	assert(msg[i]=="100 call");
+	assert(pi2.print()=="Player #7777	@1900	$8000\n");
 	i++;
 
-	msg[i]= "100 call \n4444 ";
 	Action action=scan.getAction(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
-	cout<<action.print();
+	assert(msg[i]=="4444 ");
+	assert(action.print()=="100 call\n");
 	i++;
 
-	msg[i]= "5555 1900 8000 100 call \n4444 2000 8000 0 fold ";
 	RdState rdstate=scan.getRdState(msg[i]);
-	cout<<"case "<<i<<": "<<msg[i]<<endl;
-	cout<<rdstate.print();
+	assert(msg[i]=="4444 2000 8000 0 fold ");
+	assert(rdstate.print()=="Player #5555\t@1900\t$8000\n100 call\n0inBet\n");
 	i++;
 
 	return 0;

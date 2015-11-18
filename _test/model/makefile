@@ -8,7 +8,7 @@ ai_path=$(addsuffix /ai,$(src_path))
 ## Implicit Variable
 VPATH+=$(src_path) $(model_path) $(comm_path) $(data_path) $(ai_path)
 CXX=g++
-CXXFLAGS=-I $(src_path) -g
+CXXFLAGS=-I ../../source -g
 
 ## Source List
 sources=common.cpp \
@@ -58,4 +58,4 @@ each: testPlayerInfo testAction testRdState testCard testHand
 .PHONY: clean
 clean: 
 	rm -f testPlayerInfo testAction testRoundUtil testRdState testCard\
-		testHand *.o *.d
+		$(objects) $(mkfiles)

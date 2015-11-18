@@ -58,7 +58,7 @@ vector<PlayerInfo> Parser::readSeat(string& msg)
 	while(msg[0]!='/')
 		seat.push_back( scan.getPlayerInfo(msg) );
 
-	//consume tail if needed here
+	scan.matchTail(msg);
 	return seat;
 }
 	
@@ -106,7 +106,7 @@ TableInfo Parser::readInquire(string& msg)
 	scan.matchWColon(msg);
 	int pot = scan.nextInt(msg);
 	scan.matchWord(msg);
-	//consume tail if needed here
+	scan.matchTail(msg);
 	return TableInfo(lastrd, pot);
 }
 

@@ -72,7 +72,7 @@ Action Scanner::getAction(string& msg)
 		case '_': act = Action::ACT_ALLIN; break;
 		case 'd': act = Action::ACT_FOLD; break;
 		default: cout<<"Error: Unknown act. Protocal unmatch. "<<endl;
-				 act = Action::ACT_SMALL_BLIND;
+				 act = Action::ACT_BLIND;
 	}
 	matchWord(msg); //now at next line ^
 

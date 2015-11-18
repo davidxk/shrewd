@@ -1,11 +1,9 @@
-#include "model/Action.h"
-
-#include <cassert>
 #include "globals.h"
+#include "model/Action.h"
 
 int main()
 {
 	Action act(Action::ACT_RAISE, 100);
-	assert(act.print()=="100 raise\n");
+	cout<<act.print();
 	return 0;
 }

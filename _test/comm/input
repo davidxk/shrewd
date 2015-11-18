@@ -1,0 +1,147 @@
+seat/ 
+button: 4444 2000 8000 
+small blind: 5555 2000 8000 
+big blind: 8888 2000 8000 
+2222 2000 8000 
+3333 2000 8000 
+7777 2000 8000 
+1111 2000 8000 
+6666 2000 8000 
+/seat 
+blind/ 
+5555: 50 
+8888: 100 
+/blind 
+hold/ 
+DIAMONDS 4 
+SPADES K 
+/hold 
+inquire/ 
+4444 2000 8000 0 fold 
+6666 1900 8000 100 call 
+1111 2000 8000 0 fold 
+7777 1900 8000 100 call 
+3333 1900 8000 100 call 
+2222 2000 8000 0 fold 
+8888 1900 8000 100 blind 
+5555 1950 8000 50 blind 
+total pot: 450 
+/inquire 
+#flop/ 
+HEARTS 6 
+DIAMONDS 3 
+CLUBS 10 
+/flop 
+inquire/ 
+4444 2000 8000 0 fold 
+6666 1900 8000 100 call 
+1111 2000 8000 0 fold 
+7777 1900 8000 100 call 
+3333 1900 8000 100 call 
+2222 2000 8000 0 fold 
+8888 1900 8000 100 check 
+5555 1900 8000 100 call 
+total pot: 500 
+/inquire 
+#turn/ 
+DIAMONDS 7 
+/turn 
+inquire/ 
+4444 2000 8000 0 fold 
+6666 1900 8000 100 check 
+1111 2000 8000 0 fold 
+7777 1900 8000 100 check 
+3333 1900 8000 100 check 
+2222 2000 8000 0 fold 
+8888 1900 8000 100 check 
+5555 1900 8000 100 check 
+total pot: 500 
+/inquire 
+#river/ 
+SPADES 9 
+/river 
+inquire/ 
+4444 2000 8000 0 fold 
+6666 1900 8000 100 check 
+1111 2000 8000 0 fold 
+7777 1900 8000 100 check 
+3333 1900 8000 100 check 
+2222 2000 8000 0 fold 
+8888 1900 8000 100 check 
+5555 1900 8000 100 check 
+total pot: 500 
+/inquire 
+#showdown/ 
+common/ 
+HEARTS 6 
+DIAMONDS 3 
+CLUBS 10 
+DIAMONDS 7 
+SPADES 9 
+/common 
+4: 5555 DIAMONDS 4 SPADES K HIGH_CARD 
+3: 8888 HEARTS 3 CLUBS K ONE_PAIR 
+4: 3333 HEARTS 5 HEARTS K HIGH_CARD 
+2: 7777 CLUBS 6 SPADES 6 THREE_OF_A_KIND 
+1: 6666 SPADES 7 CLUBS 7 THREE_OF_A_KIND 
+/showdown 
+pot-win/ 
+6666: 500 
+/pot-win 
+seat/ 
+button: 5555 1900 8000 
+small blind: 8888 1900 8000 
+big blind: 2222 2000 8000 
+3333 1900 8000 
+7777 1900 8000 
+1111 2000 8000 
+6666 2400 8000 
+4444 2000 8000 
+/seat 
+blind/ 
+8888: 50 
+2222: 100 
+/blind 
+hold/ 
+HEARTS 6 
+SPADES 2 
+/hold 
+inquire/ 
+4444 1900 8000 100 call 
+6666 2300 8000 100 call 
+1111 2000 8000 0 fold 
+7777 1800 8000 100 call 
+3333 1800 8000 100 call 
+2222 1900 8000 100 blind 
+8888 1850 8000 50 blind 
+total pot: 550 
+/inquire 
+#flop/ 
+HEARTS 10 
+SPADES A 
+HEARTS 4 
+/flop 
+turn/ 
+CLUBS 7 
+/turn 
+river/ 
+CLUBS 6 
+/river 
+showdown/ 
+common/ 
+HEARTS 10 
+SPADES A 
+HEARTS 4 
+CLUBS 7 
+CLUBS 6 
+/common 
+3: 8888 DIAMONDS 8 HEARTS 8 ONE_PAIR 
+6: 2222 SPADES Q DIAMONDS 2 HIGH_CARD 
+2: 3333 SPADES J HEARTS A ONE_PAIR 
+1: 7777 CLUBS A SPADES 6 TWO_PAIR 
+4: 6666 DIAMONDS 6 CLUBS 3 ONE_PAIR 
+5: 4444 DIAMONDS K CLUBS 4 ONE_PAIR 
+/showdown 
+pot-win/ 
+7777: 600 
+/pot-win 
