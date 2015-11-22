@@ -9,13 +9,7 @@
 #include "comm/Parser.h"
 #include "data/plyr.h"
 
-#define IS_DEBUGGING 1
-#define DEBUG_CONTROL
-#ifndef DEBUG_CONTROL
-	#include "comm/Mailman.h"
-#else
-	#include "comm/PsudoMailman.h"
-#endif
+#include "comm/PsudoMailman.h"
 using namespace std;
 
 //Controller initiates manages the whole communication process

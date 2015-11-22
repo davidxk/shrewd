@@ -1,10 +1,11 @@
 #include "model/Hand.h"
+#include "TestCase.h"
 #include <cassert>
 
-class HandTest
+class HandTest: public TestCase
 {
 public:
-	int onEnter()
+	int runTest()
 	{
 		Hand hand(Hand::STRAIGHTFLUSH);
 		assert(hand.print()=="StFlush");

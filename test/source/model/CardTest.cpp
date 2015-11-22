@@ -1,10 +1,11 @@
 #include "model/Card.h"
+#include "TestCase.h"
 #include <cassert>
 
-class CardTest
+class CardTest: public TestCase
 {
 public:
-	int onEnter()
+	int runTest()
 	{
 		Card cd=Card::getCard('S', Card::ACE);
 		assert(cd.print()=="sA ");

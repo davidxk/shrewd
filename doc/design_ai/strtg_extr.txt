@@ -277,6 +277,16 @@ Action: Fold
 * A9s A8s (if in Late Position)
 
 
+##Call Open
+> Calling upon Open indicates encouragement of multi-way action
+> Open Calls indicate strong speculative hands
+> These hands Folds on Re-Raise
+* Medium Pairs
+* Small Pairs (>=5 handed)
+* AQs AJs (multi-way pot)
+* Little Suited Broadway (multi-way pot)
+
+
 ###Re-Raise
 > If your hand is not as good as a Big Off-suit Broadway, the re-raiser has a better hand than yours
 > If you are Re-Raised, Re-Re-Raise with Monsters, Call with Big Suited Broadway, tentative Call on Big Off-suit Broadway, Fold everything else
@@ -284,6 +294,12 @@ Action: Fold
 * Big Pairs
 * AKs AKo
 * AQs AJs (against Late Raise)
+
+
+##Call on Re-Raise
+> A Hand that Re-Raises itself, can stand a call on Re-Raise
+* Big Suited Broadway
+* Big Off-suit Broadway
 
 
 ##Re-Re-Raise
@@ -306,17 +322,3 @@ Action: Fold
 * K9s ATo KJo (Early)
 
 
-##Call Open
-> Calling upon Open indicates encouragement of multi-way action
-> Open Calls indicate strong speculative hands
-> These hands Folds on Re-Raise
-* Medium Pairs
-* Small Pairs (>=5 handed)
-* AQs AJs (multi-way pot)
-* Little Suited Broadway (multi-way pot)
-
-
-##Call on Re-Raise
-> A Hand that Re-Raises itself, can stand a call on Re-Raise
-* Big Suited Broadway
-* Big Off-suit Broadway

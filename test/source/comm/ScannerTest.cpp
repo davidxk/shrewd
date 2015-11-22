@@ -1,10 +1,11 @@
 #include "comm/Scanner.h"
+#include "TestCase.h"
 #include <cassert>
 
-class ScannerTest
+class ScannerTest: public TestCase
 {
 public:
-	int onEnter()
+	int runTest()
 	{
 		Scanner scan;
 		const int nTestCase=9;

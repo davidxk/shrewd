@@ -1,5 +1,7 @@
 
-enum HandType { MONSTERS, BIG_PAIRS, MID_PAIRS, SMA_PAIRS, BIG_SU_BRDWY, LTL_SU_BRDWY, SUITED_ACES, SUITED_KINGS, SUITED_CONN, BIG_OFF_BRDWY, LTL_OFF_BRDWY, JUNK_HAND, NOT_THIS_HOLE };
+enum HandCtg { MONSTERS, BIG_PAIRS, MID_PAIRS, SMA_PAIRS, BIG_SU_BRDWY, LTL_SU_BRDWY, SUITED_ACES, SUITED_KINGS, SUITED_CONN, BIG_OFF_BRDWY, LTL_OFF_BRDWY, JUNK_HAND, NOT_THIS_HOLE };
+
+enum PreStrtg{ RE_RE_RAISE, CALL_RE_RAISE, RE_RAISE, CALL_OPEN, OPEN, LIMP_IN, FOLD };
 
 enum Position { EARLY_POS, MIDDLE_POS, LATE_POS, BUTTON_POS, SBLIND_POS, BBLIND_POS };
 
@@ -44,7 +46,7 @@ Seat whichPos(int seatNo)
 	}
 }
 //Type of Hole
-HandType whichHand(vector<Card> hole)
+HandCtg whichHand(vector<Card> hole)
 {
 	if(hole.size()!=HOLE_SIZE) 
 		cout<<"Hole size less than two."<<endl, return NOT_THIS_HOLE;
@@ -131,7 +133,7 @@ int rcdPlyrInFlop()
 //main decision making with nested branching
 Action::ACT SSHE()
 {
-	HandType type=whichType(hole);
+	HandCtg type=whichType(hole);
 	Action action;
 	int cntRaise=cntAction(lastrd, Action::ACT_RAISE);
 	switch(type)

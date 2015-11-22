@@ -12,7 +12,7 @@ while(<>)
 			print "#define _", uc $2, "_H_\n\n";
 			print "//include here\n\n";
 			print "//description of the class here\n";
-			print "class $2\n{\n";
+			print "class $2\n{\npublic:\n";
 		}
 		print "\t$1 $3($4);\n";
 	}

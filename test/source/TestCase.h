@@ -1,10 +1,10 @@
 #ifndef _TESTS_BASE_TEST_
 #define _TESTS_BASE_TEST_
 
-class BaseTest
+class TestCase
 {
 public:
-	int onEnter() { };
+	int runTest() { return 0; };
 };
 
 #endif

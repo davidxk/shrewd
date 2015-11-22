@@ -5,10 +5,18 @@ comm_path=$(addsuffix /comm,$(src_path))
 data_path=$(addsuffix /data,$(src_path))
 ai_path=$(addsuffix /ai,$(src_path))
 
+test_src_path=../source
+test_model_path=$(addsuffix /model,$(test_src_path))
+test_comm_path=$(addsuffix /comm,$(test_src_path))
+test_data_path=$(addsuffix /data,$(test_src_path))
+test_ai_path=$(addsuffix /ai,$(test_src_path))
+
 ## Implicit Variable
 VPATH+=$(src_path) $(model_path) $(comm_path) $(data_path) $(ai_path)
+VPATH+=$(test_src_path) $(test_model_path) $(test_comm_path) \
+       $(test_data_path) $(test_ai_path)
 CXX=g++
-CXXFLAGS=-I ../../source -g -Wall -Wno-c++11-extensions
+CXXFLAGS=-I $(src_path) -I $(test_src_path) -g -Wall -Wno-c++11-extensions
 
 ## Source List
 sources=common.cpp \

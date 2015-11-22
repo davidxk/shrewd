@@ -4,7 +4,7 @@ This is the strategies of the book Small Stakes Texax Hold'em.
 ###General View
 The best starting hands make a lot of money. A few more hands are modestly profitable. Most hands lose in the long run. 
 
-###Three Kinds of Profitable Starting Hand
+###Three Types of Profitable Starting Hand
 * Top pair hands
 * Speculative hands
 * Powerhouse hands

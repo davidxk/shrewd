@@ -1,10 +1,11 @@
 #include "comm/Parser.h"
+#include "TestCase.h"
 #include <cassert>
 
-class ParserTest
+class ParserTest: public TestCase
 {
 public:
-	int onEnter()
+	int runTest()
 	{
 		Parser psr;
 		string msg, out;
