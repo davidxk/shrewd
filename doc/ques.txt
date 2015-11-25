@@ -1,8 +1,6 @@
-* In what situation is 'new delete ->' way of using object necessary?* 
-Guess: When polymorphic behaviour is needed
+* In what situation is 'new delete ->' way of using object necessary? 
+Answer: When polymorphic behaviour is needed
 Guess: When an object must persist after the scope where it was created has been destroyed
-
-* Is the 'Obj obj .' way a good way to use object? What are the disadvantages?* 
 
 * Is overloaded constructor used in real life?* 
 
@@ -12,3 +10,4 @@ Answer: You redirect the output to the target file.
 * Is there a way to do global substitution in a project?
 
 * How do I substitute a '#define' with a 'const int'?
+Answer: Put it in a class Class{public: static const int CC=0;}, or put it in a namespace. 

@@ -12,8 +12,8 @@
 //12 HandCtg: { MONSTERS, BIG_PAIRS, .. }
 void HoleAnalyzer::loadData()
 {
-	//TODO: address TDB
-	fstream data("win_and_tie.txt"); 
+	//until I find a better way to address the path
+	fstream data("../libs/win_and_tie.txt"); 
 	const int maxPlayer=10;
 	const int nCombination=169;
 

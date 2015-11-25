@@ -52,6 +52,9 @@ An inside straight draw, or gutshot draw, is a hand with four of the five cards 
 ####Overcard
 A community card with a higher rank than a player's pocket pair
 
+####Overpair
+A pocket pair with a higher rank than the highest community card.
+
 ####Chop
 To split a pot because of a tie, split-pot game, or player agreement
 

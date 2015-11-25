@@ -1,5 +1,5 @@
 ##Basic Structure
-There are two major targets. One is a the client, the other is the test or tests. 
+There are two major targets. One is the client, the other is the test or tests. 
 
 ##Elaboration
 Prerequisite can be obtained with -MD option of the compiler. Actions to be taken can be generated with the implicit rules. Generic rules can be defined for the targets. 

@@ -1,4 +1,4 @@
-1. Vim
+1. Vim with vimrc and plugins
 2. clang
 3. GNU make
 4. cloc
