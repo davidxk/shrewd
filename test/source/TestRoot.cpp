@@ -1,12 +1,14 @@
 #include "TestRoot.h"
 
-#include "model/ModelSuite.h"
+#include "ai/AISuite.h"
 #include "comm/CommSuite.h"
+#include "model/ModelSuite.h"
 
 TestRoot::TestRoot()
 {
 	testSuites.push_back(new ModelSuite);
 	testSuites.push_back(new CommSuite);
+	testSuites.push_back(new AISuite);
 }
 
 void TestRoot::runAll()

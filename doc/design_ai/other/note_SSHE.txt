@@ -32,7 +32,7 @@ nPlyrs:
 Speculative hands play better against many opponents. Many opponents create bigger pots. Against few opponents weak speculative hands like 65s and J8o may not make enough when they get luck to make up for all the pre-flop and flop bets lost when they miss. 
 
 Action:
-These hands, especially the weak ones, need to see the flop cheaply. Stronger speculative hands, small pocket pairs and big suited connectors like T9s and up, can afford to pay two bets to see the flop(though they are often more profitable for one bet). Weaker hands like 75s usually annot make up two bets. In almost all situations, none of these hands can afford to pay three or more bets to see the flop. 
+These hands, especially the weak ones, need to see the flop cheaply. Stronger speculative hands, small pocket pairs and big suited connectors like T9s and up, can afford to pay two bets to see the flop(though they are often more profitable for one bet). Weaker hands like 75s usually cannot make up two bets. In almost all situations, none of these hands can afford to pay three or more bets to see the flop. 
 
 ####Powerhouse
 KK: Big pocket pairs

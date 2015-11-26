@@ -81,7 +81,7 @@ vector<Card> Parser::readHold(string& msg)
 	scan.matchHead(msg);
 
 	vector<Card> hole;
-	for(int i=0;i<HOLE_SIZE;i++)
+	for(int i=0; i<texas_holdem::HOLE_SIZE; i++)
 		hole.push_back(scan.getCard(msg));
 
 	scan.matchTail(msg);
@@ -119,7 +119,7 @@ vector<Card> Parser::readFlop(string& msg)
 	scan.matchHead(msg);
 
 	vector<Card> comm;
-	for(int i=0;i<N_FLOP;i++)
+	for(int i=0; i<texas_holdem::N_FLOP; i++)
 		comm.push_back(scan.getCard(msg));
 
 	scan.matchTail(msg);
@@ -144,7 +144,7 @@ unordered_map<int, ShowdownInfo> Parser::readShowdown(string& msg)
 	scan.matchHead(msg);
 	scan.matchHead(msg);
 
-	for(int i=0;i<COMM_SIZE;i++)
+	for(int i=0; i<texas_holdem::COMM_SIZE; i++)
 		scan.getCard(msg);
 	scan.matchTail(msg);
 

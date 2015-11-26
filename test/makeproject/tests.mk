@@ -15,7 +15,8 @@ CXXFLAGS+=-I $(test_src_path)
 #$(subst Controller.cpp,,$(sources))
 
 test_suites=ModelSuite.cpp \
-	    CommSuite.cpp
+	    CommSuite.cpp \
+	    AISuite.cpp
 test_base=TestCase.cpp \
 	  TestSuite.cpp \
 	  TestRoot.cpp
@@ -25,7 +26,8 @@ test_cases=ActionTest.cpp \
 	   PlayerInfoTest.cpp \
 	   RdStateTest.cpp \
 	   ScannerTest.cpp \
-	   ParserTest.cpp 
+	   ParserTest.cpp \
+	   HoleAnalyzerTest.cpp \
 	   #PsudoMailman.cpp \
 	   #PsudoCtrl.cpp \
 	   #TestablePlayer.cpp 

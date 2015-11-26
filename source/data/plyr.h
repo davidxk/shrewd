@@ -14,6 +14,7 @@
 #include "model/ShowdownInfo.h"
 #include "model/TableInfo.h"
 using namespace std;
+using namespace texas_holdem;
 
 //A player archives the info retrived from handler for future reference
 //A specific player base his dicision on cards, bets, nPlayers, pos and jettons

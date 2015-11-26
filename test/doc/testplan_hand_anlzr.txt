@@ -1,0 +1,28 @@
+##Unit Test
+* * *
+###AI
+####HoleAnalyzer
+
+void HoleAnalyzer::loadData()
+
+**Tested internally in previous cases**
+
+
+string HoleAnalyzer::printSHand(vector<Card> hole)
+
+* input: hK sK
+* output: KK
+* input: cT cA
+* output: ATs
+* input: d4 s8
+* output: 84o
+
+float HoleAnalyzer::getWinRate(vector<Card> hole, int nPlyrs)
+
+* input: hK sK, 10
+* output: 26.49
+* input: cT cA, 2
+* output: 65.84
+* input: d4 s8, 6
+* output: 12.65
+

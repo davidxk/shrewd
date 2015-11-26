@@ -1,61 +1,9 @@
+#Initial Design
+The initial design was: 
 > PlayerWithTools is the class to be inherited by the actual ai players. The additional functionalities provided are for easy access to the game info. 
 
-##Game Info
-* state		the current betting stage	direct access
-* BB		the big blind value		direct access
-* pot		the pot value			direct access
-* mySeat	my seat position		direct access
-* comm		the common cards		direct access
-* seat 		find pid with seat pos		access with pid
-* pidToSeat	find seat pos of a pid		access with pos
-* plyrStates	player states of the rd		access with pid
-
-* myState	my state of the rd		direct access
-* hole		my hole card			direct access
-
-* rdRecords	ordered list of actions		< & >
-* rdu		round info maintainer		< & >
-
-* shwdMap	showdown card and hand		access with pid
-* potShare	pot share of each plyr		access with pid
-
-##Influencial Factors
-####Example 1: AA DEAL_BET_1
-* hole
-* mySeat [need a seat classification method]
-* actions taken so far (lastRd)
-
-####Example 2: JT DEAL_BET_2
-* last round action of the still inGame plyr (lastRd)
-* pHole guess based on his last action [need a hole classification method]
-
-####Example 3: KK FLOP_BET_1 86Q
-* pHole guess based on his last stage action
-* comm card in combination with hole card [need a method to analyze]
-* hole strategy 
-* pot
-
-##rdRecords
-structure: [ rd ] [ act order ]
-possible need: [rd][act] of a pid
-
-##rdu
-rdu.getNInGame()
-pwtools::bool isInGame(int pid)
-//return rdu.getInGame().at( pidToSeat[pid] );
-bool inGame=rdu.getInGame();
-if(inGame[ pidToSeat[pid] ])
-{
-	//do something here
-}
-pwtools::int getNextInGame(int pid)
-//return seat[getNext( pidToSeat[pid] )];
-int nextPid=seat[getNext( pidToSeat[pid] )];
-
-##getHowMuchToCall
-pwtools::int getHowMuchToCall()
-//return lastRd[0].inBet-myState.inBet;
-
-
 #More Than One Class
+As I look further into the problem, I understood: 
 > As it appears, there are basic ai services that is beyond the capacity of this one class. It appears that there is need for a layer of class over pwtools which falls in ai sub-system and serve as a bridge between player data class and ai class. 
+
+So instead of a single class providing easy access to player data, I decide to implement a layer of analyser classes to aid decision making. Each analyser will be providing standard analytical services to its best effort and with the joined force, the final decision making should be easier. 

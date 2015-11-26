@@ -1,3 +1,4 @@
+## Provide project path
 proj_path=$(shell pwd)/..
 include source.mk
 
@@ -6,4 +7,5 @@ main=main.cpp
 sources+=$(main)
 exec=game
 
+## Always include last.mk
 include last.mk

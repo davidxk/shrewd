@@ -1,51 +1,42 @@
-Learn to put the tests into one project. 
+Learn to put the tests into one project ... Done
 
-##Tests Now
-* testClassName.cpp
-* A cpp file with a main() 
-* Main() initiate the actions in the same thread 
-* Multiple projects
-* print out the output
-
-##Cocos Tests
-* ClassNameTest.h 
-* A class with a onEnter() 
-* Controller initiate the actions on a separate thread and checks 
-* Single project with TestCase bundled as TestSuite
-* Assert the output
+##Tests 
+√ ClassNameTest.h 
+√ Each TestCase with a runTest() interface
+√ Single project with TestCase bundled as TestSuite
+√ Assert the output
+  Controller initiate the actions on a separate thread and checks 
 
 ##Model
-* A TestCase knows the information about itself
-* A TestCase knows how to run itself
-* A TestCase tests all functions of a Class
-* A TestSuite holds an array of TestCases
-* A TestSuite holds an array of TestSuite sons
-* A TestSuite can automatically run the array of TestCases it holds 
-* A TestSuite contains an array of TestCases or TestSuite for a sub-system
-* A TestController can run a tree of TestSuite automatically 
-* A TestController is called for whenever a sub-system is modified
+√ A TestCase knows how to run itself
+√ A TestCase tests all functions of a Class
+√ A TestSuite holds an array of TestCases
+√ A TestSuite can automatically run the array of TestCases it holds 
+√ A TestSuite contains an array of TestCases or TestSuite for a sub-system
+√ Each directory has a TestSuite
+  Each Class has a TestCase
+  A TestCase knows the information about itself
+  A TestController is called for whenever a sub-system is modified
 
-* Each Class has a TestCase
-* Each directory has a TestSuite
 
 TestCase::
-onEnter();
-string testName;
-
-TreeNode::
-addChild();
-children;
-parent;
+runTest();
+//string testName;
 
 TestSuite::
 addTestCase();	//add a TestCase to testCaseList
-runTestSuite();	//run the TestCase in testCaseList
-testCaseList;	//data
+runThisSuite();	//run the TestCase in testCaseList
+testCases;	//data
 
-RootTest:TestSuite
+RootTest:
 RootTest()	//addTestSuite here
 
-TestControl::
-runAutoTest();	//run TestTree
-stopAutoTest();	//
+/*TreeNode::
+addChild();
+children;
+parent;*/
+
+/*TestControl::
+runAutoTest();	
+stopAutoTest();	*/
 //pauseAutoTest();

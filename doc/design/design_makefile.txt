@@ -14,3 +14,9 @@ Before we begin, however, it is good practice to first experiment it on learn_ma
 	√ * include from both source/ and tests/
 3. Automate the process
 	  * generate template for two Makefile.am file
+
+##Structure of four
+* makefile: the project path, the executable file with main method and includes
+* source.mk: maintains the list of sources, VPATH and -I option
+* last.mk: stores the general options for the build 
+* makefile.include: stores the commands to build makefile for each source

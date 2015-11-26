@@ -45,57 +45,6 @@ Seat whichPos(int seatNo)
 				 return EARLY_POS;
 	}
 }
-//Type of Hole
-HandCtg whichHand(vector<Card> hole)
-{
-	if(hole.size()!=HOLE_SIZE) 
-		cout<<"Hole size less than two."<<endl, return NOT_THIS_HOLE;
-
-	int& fig0=hole[0].figure, &fig1=hole[1].figure;
-	if( fig0 < fig1 ) swap( fig0, fig1 );
-	bool suited=hole[0].color==hole[1].color;
-	bool isPair=hole[0].figure==hole[1].figure;
-	if(isPair)
-	{
-		switch(fig0)
-		{
-			case Card::ACE: case Card::KING:
-				return MONSTERS;
-			case Card::QUEEN: case Card::JACK: case Card::TEN:
-				return BIG_PAIRS;
-			case 9: case 8: case 7:
-				return MID_PAIRS;
-			case 6: case 5: case 4: case 3: case 2:
-				return SMA_PAIRS;
-			default: return NOT_THIS_HOLE;
-		}
-	}
-	else if(suited)
-	{
-		if( fig0+fig1 >= Card::KING + Card::JACK )
-			return BIG_SU_BRDWY;
-		else if(fig0+fig1 >= Card::JACK+Card::TEN && fig1 >= Card::TEN)
-			return LTL_SU_BRDWY;
-		else if(fig0==Card::ACE) return SUITED_ACES;
-		else 
-		{
-			switch(fig0-fig1)
-			{
-				case 1: if(fig0>=5) return SUITED_CONN;
-				case 2: if(fig0>=6) return SUITED_CONN;
-				case 3: if(fig0>=9) return SUITED_CONN;
-				case 4: if(fig0>=Card::QUEEN) return SUITED_CONN;
-				case 5: if(fig0>=Card::JACK) return SUITED_CONN;
-			}
-		}
-	}
-	else
-	{
-		if(fig0+fig1 >= Card::KING+Card::QUEEN) return BIG_OFF_BRDWY;
-		else if(fig1 >= Card::TEN) return LTL_OFF_BRDWY;
-	}
-	return JUNK_HAND;
-}
 
 //Reverse
 //Cnt name of each action

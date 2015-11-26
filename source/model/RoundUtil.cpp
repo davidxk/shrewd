@@ -2,9 +2,9 @@
 
 void RoundUtil::init(int nPlyr)
 {
-	state=PRE_FLOP_BET;
-	next=SBLIND_INDEX;
-	rdEnd=BBLIND_INDEX;
+	state = texas_holdem::PRE_FLOP_BET;
+	next = texas_holdem::SBLIND_INDEX;
+	rdEnd = texas_holdem::BBLIND_INDEX;
 
 	this->nPlyr=nInGame=nPlyr;
 	vector<bool> inGame(nPlyr, true);
@@ -28,7 +28,7 @@ void RoundUtil::rcvAction(int seatNo, Action action)
 	else 
 	{
 		state++;
-		next=getThis(SBLIND_INDEX); 
+		next=getThis( texas_holdem::SBLIND_INDEX ); 
 		rdEnd=getPrev(next);
 	}
 }
