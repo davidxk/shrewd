@@ -8,6 +8,8 @@ Ctrl+A		like A in Vim
 Ctrl+E		like $ in Vim
 Ctrl+K		like D in Vim
 for each in $(ls | grep note_); do mv $each notes/; done
+sed -n 		don't print the resulting file
+sed s/re//p	print the substituted place 
 
 ##Vim
 :cd %:p:h	cd to file dir

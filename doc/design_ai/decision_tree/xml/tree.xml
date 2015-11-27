@@ -1,0 +1,108 @@
+<node class="Node" type="class">
+	<choice class="string" type="simple">root</choice>
+	<test class="DecitionTest" type="class">
+		<testName class="string" type="simple">HAND_TYPE</testName>
+		<operator class="string" type="simple">INT_EQ</operator>
+	</test>
+	<children class="Node" type="array">
+
+		<!--MONSTERS-->
+		<node class="Node" type="class">
+			<choice class="string" type="simple">MONSTERS</choice>
+			<test class="DecitionTest" type="class">
+				<!--<testName class="string" type="simple">NONE</testName>-->
+				<result class="string" type="simple">RAISE</result>
+			</test>
+		</node>
+		<!--BIG_PAIRS-->
+		<node class="Node" type="class">
+			<choice class="string" type="simple">BIG_PAIRS</choice>
+			<test class="DecitionTest" type="class">
+				<testName class="string" type="simple">CNT_RAISE</testName>
+				<type class="string" type="simple">INT_EQ</type>
+			</test>
+			<children class="Node" type="array">
+
+				<node class="Node" type="class">
+					<choice class="string" type="simple">0</choice>
+					<test class="DecitionTest" type="class">
+						<result class="string" type="simple">RAISE</result>
+					</test>
+				</node>
+				<node class="Node" type="class">
+					<choice class="string" type="simple">1</choice>
+					<test class="DecitionTest" type="class">
+						<result class="string" type="simple">RAISE</result>
+					</test>
+				</node>
+				<node class="Node" type="class">
+					<choice class="string" type="simple">-1</choice>
+					<test class="DecitionTest" type="class">
+						<result class="string" type="simple">FOLD</result>
+					</test>
+				</node>
+
+			</children>
+		</node>
+		<!--MID_PAIRS-->
+		<node class="Node" type="class">
+			<choice class="string" type="simple">MID_PAIRS</choice>
+			<test class="DecitionTest" type="class">
+				<testName class="string" type="simple">CNT_RAISE</testName>
+				<operator class="string" type="simple">INT_EQ</operator>
+			</test>
+			<children class="Node" type="array">
+
+				<node class="Node" type="class">
+					<choice class="string" type="simple">0</choice>
+					<test class="DecitionTest" type="class">
+						<testName class="string" type="simple">WHICH_POS</testName>
+						<operator class="string" type="simple">STR_EQ</operator>
+					</test>
+					<children class="Node" type="array">
+
+						<node class="Node" type="class">
+							<choice class="string" type="simple">EARLY_POS</choice>
+							<test class="DecitionTest" type="class">
+								<result class="string" type="simple">CALL</result>
+							</test>
+						</node>
+						<node class="Node" type="class">
+							<choice class="string" type="simple">MIDDLE_POS</choice>
+							<test class="DecitionTest" type="class">
+								<testName class="string" type="simple">CNT_LIMP</testName>
+								<operator class="string" type="simple">INT_LT 2</operator>
+							</test>
+							<children class="Node" type="array">
+
+								<node class="Node" type="class">
+									<choice class="string" type="simple">true</choice>
+									<test class="DecitionTest" type="class">
+										<result class="string" type="simple">RAISE</result>
+									</test>
+								</node>
+								<node class="Node" type="class">
+									<choice class="string" type="simple">default</choice>
+									<test class="DecitionTest" type="class">
+										<result class="string" type="simple">CALL</result>
+									</test>
+								</node>
+
+							</children>
+						</node>
+
+					</children>
+					<mapChNode>
+						<first class="string" type="simple">LATE_POS</first>
+						<second class="int" type="simple">1</second>
+					</mapChNode>
+				</node>
+
+			</children>
+		</node>
+		<!--SMA_PAIRS-->
+
+	</children>
+</node>
+
+<!--'Serialized object in xml' appears to be a considerably lengthy and human-unreable representation-->
