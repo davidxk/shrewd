@@ -6,7 +6,8 @@
 class TestCase
 {
 public:
-	int runTest() { return 0; };
+	virtual int runTest()=0;
+	virtual ~TestCase() { };
 };
 
 #endif

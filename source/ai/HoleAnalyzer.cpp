@@ -1,25 +1,35 @@
 #include "ai/HoleAnalyzer.h"
 
+#include <fstream>
+#include "model/ModelMacros.h"
+
+HoleAnalyzer::HoleAnalyzer()
+{
+	loadData();
+}
+
 void HoleAnalyzer::loadData()
 {
 	//until I find a better way to address the path
-	fstream data("../libs/win_and_tie.txt"); 
+	std::ifstream data("../libs/win_and_tie.txt"); 
+	if(data.bad()) cout<<"Error: data-loading failed! \n";
+
 	const int maxPlayer=10;
 	const int minPlayer=2;
 	const int nCombination=169;
 
-	winMap.resize(maxPlayer);
-	unordered_map<string,float> wins;
+	winMap.resize(maxPlayer+1);
+	unordered_map<string, float> wins;
 	string key; float value;
 
 	for(int i=maxPlayer; i>=minPlayer; i--)
 	{
-		fin>>key;
+		data>>key;
 		for(int j=0; j<nCombination; j++)
 		{
-			fin>>key>>value;
+			data>>key>>value;
 			if(key.size()==2) key+=' ';
-			wins.insert( make_pair<string,float>(key, value) );
+			wins.insert( make_pair<string, float>(key, value) );
 		}
 		winMap[i]=wins;
 		wins.clear();
@@ -34,43 +44,45 @@ string HoleAnalyzer::printSHand(vector<Card> hole)
 	bool isSuited=hole[0].color==hole[1].color;
 	if(hole[0].figure<hole[1].figure) swap(hole[0], hole[1]);
 
-	string str=hole[0].print().at(1);
+	string str;
+	str+=hole[0].print().at(1);
 	str+=hole[1].print().at(1);
-	if(!isPair && isSuited) str+='s';
-	else if(!isSuited && !isSuited) str+='o';
-	else str+=' ';
+	if(isPair) str+=' ';
+	else if(isSuited) str+='s';
+	else str+='o';
+
 	return str;
 }
 
 float HoleAnalyzer::getWinRate(vector<Card> hole, int nPlyrs)
 {
-	return winMap[nPlyrs][printHole(hole)];
+	return winMap[nPlyrs][printSHand(hole)];
 }
 
-//undecided on how to implement
-HandType HoleAnalyzer::getHandType(vector<Card> hole)
+HoleAnalyzer::HandType HoleAnalyzer::getHandType(vector<Card> hole)
 {
-	switch(getHandCtg(hole))
+	//SSHE standard of typical hands with clear strategies
+	switch(getHandCtgr(hole))
 	{
 		case BIG_OFF_BRDWY:
 			return TOP_PAIR;
-		case MID_PAIRS:		case SMA_PAIRS:		
-		case LTL_SU_BRDWY:	case LTL_OFF_BRDWY:
-		case SUITED_ACES:	case SUITED_KINGS:	case SUITED_CONN:	
+		case SMA_PAIRS:		case SUITED_CONN:	
 			return SPECULATIVE;
-		case MONSTERS:		case BIG_PAIRS:
-		case BIG_SU_BRDWY:	
+		case MONSTERS:		case BIG_SU_BRDWY:	
 			return POWERHOUSE;
 		default:
-			return NON_PROFITABLE;
+			return NOT_TYPICAL;
 	}
-	return NON_PROFITABLE;
 }
-//SSHE standard, with no regard to number of players
-HandCtg HoleAnalyzer::getHandCtg(vector<Card> hole)
+
+HoleAnalyzer::HandCtgr HoleAnalyzer::getHandCtgr(vector<Card> hole)
 {
+	//SSHE standard, with no regard to number of players
 	if(hole.size() != texas_holdem::HOLE_SIZE) 
-		cout<<"Hole size less than two."<<endl, return NOT_THIS_HOLE;
+	{
+		cout<<"Hole size less than two."<<endl;
+		return NOT_THIS_HOLE;
+	}
 
 	int& fig0=hole[0].figure, &fig1=hole[1].figure;
 	if( fig0 < fig1 ) swap( fig0, fig1 );
@@ -98,6 +110,7 @@ HandCtg HoleAnalyzer::getHandCtg(vector<Card> hole)
 		else if(fig0+fig1 >= Card::JACK+Card::TEN && fig1 >= Card::TEN)
 			return LTL_SU_BRDWY;
 		else if(fig0==Card::ACE) return SUITED_ACES;
+		else if(fig0==Card::KING) return SUITED_KINGS;
 		else 
 		{
 			switch(fig0-fig1)

@@ -26,3 +26,50 @@ float HoleAnalyzer::getWinRate(vector<Card> hole, int nPlyrs)
 * input: d4 s8, 6
 * output: 12.65
 
+HandCtg HoleAnalyzer::getHandCtg(vector<Card> hole);
+HandType HoleAnalyzer::getHandType(vector<Card> hole);
+
+##POWERHOUSE
+* input: hK sK
+* output: MONSTERS, POWERHOUSE
+* input: dA dQ
+* output: BIG_SU_BRDWY, POWERHOUSE
+##SPECULATIVE
+* input: h4 d4
+* output: SMA_PAIRS, SPECULATIVE
+* input: h7 h8
+* output: SUITED_CONN, SPECULATIVE
+##TOP_PAIR
+* input: dA cJ
+* output: BIG_OFF_BRDWY, TOP_PAIR
+* input: hA dK
+* output: BIG_OFF_BRDWY, TOP_PAIR
+
+###XXX_PAIRS
+* input: dQ hQ
+* output: BIG_PAIRS, NOT_TYPICAL
+* input: d9 c9
+* output: MID_PAIRS, NOT_TYPICAL
+* input: c4 s4
+* output: SMA_PAIRS, SPECULATIVE
+
+###SUITED_XXX
+* input: hK hT
+* output: LTL_SU_BRDWY, NOT_TYPICAL
+* input: sA s9
+* output: SUITED_ACES, NOT_TYPICAL
+* input: dK d8
+* output: SUITED_KINGS, NOT_TYPICAL
+* input: c5 c8
+* output: JUNK_HAND, NOT_TYPICAL
+* input: dQ d9
+* output: SUITED_CONN, SPECULATIVE
+
+###OF_XXX
+* input: sQ dJ
+* output: LTL_OFF_BRDWY, NOT_TYPICAL
+* input: dA cT
+* output: LTL_OFF_BRDWY, NOT_TYPICAL
+* input: sJ c9
+* output: JUNK_HAND, NOT_TYPICAL
+

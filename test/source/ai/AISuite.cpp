@@ -1,6 +1,6 @@
 #include "ai/AISuite.h"
 
-#include "ai/HoleAnalyzerTest.cpp"
+#include "ai/HoleAnalyzerTest.h"
 
 AISuite::AISuite()
 {

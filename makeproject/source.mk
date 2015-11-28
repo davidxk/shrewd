@@ -12,6 +12,7 @@ CXXFLAGS+=-I $(src_path)
 ## Source List
 sources+=common.cpp \
 folder.cpp \
+HoleAnalyzer.cpp \
 Controller.cpp \
 Mailman.cpp \
 Parser.cpp \

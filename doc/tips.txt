@@ -26,6 +26,9 @@ g/re/p		re is a patter, grep
 <C+=>		enlarge window in gvim
 <C+->		shrink window in gvim
 
+##C++
+==65.49f	use type descriptor for float ==
+
 ##Clang
 -Wall		gives static check advice
 -Wno-c++11-extensions	no C++11 warnings
