@@ -3,7 +3,7 @@
 # has support for: template, constructor, destructor
 my $first=1;
 while(<>) {
-	if(/^([\w<>]*) ([A-Z_]\w*)::(\w*)\((.*)\)/) 
+	if(/^([\w<>*]*) ([A-Z_]\w*)::(\w*)\((.*)\)/) 
 	{
 		print get_start($2) if($first && !($first=0));
 		print "\t$1 $3($4);\n";
