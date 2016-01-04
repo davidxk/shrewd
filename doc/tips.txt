@@ -1,5 +1,7 @@
 ##Perl
 perl -ne	enclose diamond one line command
+push @a, shift @a left rotation
+unshift @a, pop @a right rotation
 
 ##Bash
 ls -1		one file each line
@@ -10,6 +12,7 @@ Ctrl+K		like D in Vim
 for each in $(ls | grep note_); do mv $each notes/; done
 sed -n 		don't print the resulting file
 sed s/re//p	print the substituted place 
+time code.xx	fine execution time
 
 ##Vim
 :cd %:p:h	cd to file dir
@@ -25,10 +28,21 @@ g/re/p		re is a patter, grep
 :%s/re/gn	count occurrence of a pattern
 <C+=>		enlarge window in gvim
 <C+->		shrink window in gvim
+gi		input at the end of the file
 
 ##C++
 ==65.49f	use type descriptor for float ==
+string		include<iostream> when using string or mysterious error
+clone()const	clone with base class pointer while maintaining polymorphism
 
 ##Clang
 -Wall		gives static check advice
 -Wno-c++11-extensions	no C++11 warnings
+
+##GDB
+make		you can make in gdb
+.h		use .h .cpp structure for gdb to run right
+
+##Git
+git reset HEAD file	unstage a change
+git rm --cashed .DS_Store

@@ -1,5 +1,7 @@
 * In what situation is 'new delete ->' way of using object necessary? 
 Answer: When polymorphic behaviour is needed
+Answer: When an object must be destroyed before the end of its scope
+Answer: When singleton is needed.
 Guess: When an object must persist after the scope where it was created has been destroyed
 
 * Is overloaded constructor used in real life?* 
