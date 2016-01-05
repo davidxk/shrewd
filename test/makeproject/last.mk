@@ -1,6 +1,6 @@
 ## Implicit Variable
 CXX=g++
-CXXFLAGS+=-Wall -Wno-c++11-extensions
+CXXFLAGS+=-Wall -Wno-c++11-extensions -g3 -fno-inline
 
 ## .o & .d List
 objects=$(subst .cpp,.o,$(sources))
