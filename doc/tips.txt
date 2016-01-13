@@ -29,6 +29,8 @@ g/re/p		re is a patter, grep
 <C+=>		enlarge window in gvim
 <C+->		shrink window in gvim
 gi		input at the end of the file
+vS)		use right side to avoid extra space
+<C-W>r		rotate for vsp
 
 ##C++
 ==65.49f	use type descriptor for float ==
