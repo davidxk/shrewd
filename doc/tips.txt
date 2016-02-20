@@ -31,6 +31,7 @@ g/re/p		re is a patter, grep
 gi		input at the end of the file
 vS)		use right side to avoid extra space
 <C-W>r		rotate for vsp
+:%s/_\(\w\)/\U\1/g	change variable naming style
 
 ##C++
 ==65.49f	use type descriptor for float ==
