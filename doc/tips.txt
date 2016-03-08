@@ -3,6 +3,10 @@ perl -ne	enclose diamond one line command
 push @a, shift @a left rotation
 unshift @a, pop @a right rotation
 
+##Python
+'a' if 1<2 else 'b' one line if statement
+('a', 'b')[1<2]	one line if statement
+
 ##Bash
 ls -1		one file each line
 find / -type d -name 'oracle'
