@@ -1,8 +1,22 @@
+# Compiled Object files
 *.o
+
+# Precompiled Headers
+*.gch
+
+# Executables
+*.out
+
+# Temporary Makefile 
+*.d
+
+# Mac File System
+*.DS_Store
+
+# Vim Temporary
 *.swp
 .*.swp
-.*
-*.d
-*.d.*
-.DS_Store
-test.dSYM
+
+# Debug Info
+*.dSYM*
+*.plist
