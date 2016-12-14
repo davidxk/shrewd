@@ -1,5 +1,7 @@
 #!/usr/bin/perl 
 
+# This one is not very useful
+
 my $class_name, $arg_list;
 my @member_name, @member_type, @member_dclr;
 while(<>)

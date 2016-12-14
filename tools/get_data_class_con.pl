@@ -1,5 +1,7 @@
 #!/usr/bin/perl 
 
+# Usage: perl get_data_class_con.pl DataClass.h
+
 my $class_name, $arg_list;
 my @member_name, @member_type, @member_dclr;
 while(<>)
