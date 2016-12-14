@@ -95,3 +95,8 @@ string Controller::sticky(string& message, string header)
 	else message=message.substr(start, message.size()-start);
 	return message;
 }
+
+Controller::~Controller()
+{
+	delete player;
+}

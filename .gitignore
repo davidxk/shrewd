@@ -13,6 +13,9 @@
 # Mac File System
 *.DS_Store
 
+# Ctags
+*tags
+
 # Vim Temporary
 *.swp
 .*.swp

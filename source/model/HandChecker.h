@@ -2,8 +2,8 @@
 #define _CHECK_PLUS_H_
 #include <iostream>
 #include <vector>
-#include "card.h"
-#include "hand.h"
+#include "model/Card.h"
+#include "model/Hand.h"
 using namespace std;
 
 class FigCnt

@@ -25,6 +25,7 @@ public:
 	void init(int ch, const char* id, const char* name, const char* si,
 			const char* sp, const char* ci, const char* cp); //init
 	void start();
+	~Controller();
 private:
 	void gameStart(string& msg);
 	void mainLoop(string& msg);
