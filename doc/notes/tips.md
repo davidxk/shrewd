@@ -20,7 +20,8 @@ Ctrl+E				# Like $ in Vim
 Ctrl+K				# Like D in Vim
 for each in $(ls | grep note_); do mv $each notes/; done
 sed -n 				# Don't print the resulting file
-sed s/re//p	print the substituted place 
+sed s/re//p			# Print the substituted place 
+grep "\.cpp$"		# \. is treated as literal '.'
 grep re --exclude tags
 time code.xx		# Fine execution time
 ```
