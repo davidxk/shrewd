@@ -15,7 +15,7 @@ public:
 	Rank rank;
 public:
 	Hand(Rank rank=HIGHCARD);
-	string print();
+	string print() const;
 	void printDetails();
 	int compare(Hand* hand);
 };

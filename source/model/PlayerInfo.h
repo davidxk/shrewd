@@ -15,7 +15,7 @@ public:
 	PlayerInfo();
 	PlayerInfo(int pid, int jetton, int money);
 	bool match(PlayerInfo* plyr);
-	string print();
+	string print() const;
 };
 
 #endif

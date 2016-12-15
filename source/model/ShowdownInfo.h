@@ -13,6 +13,6 @@ public:
 public:
 	ShowdownInfo(vector<Card> aPHole, Hand::Rank rank);
 	ShowdownInfo(vector<Card> aPHole, Hand aHand);
-	string print();
+	string print() const;
 };
 #endif

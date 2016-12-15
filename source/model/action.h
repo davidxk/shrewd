@@ -15,6 +15,6 @@ public:
 public:
 	Action(ACT act=ACT_CALL, int bet=0);
 	void setBet(int bet);
-	string print();
+	string print() const;
 };
 #endif

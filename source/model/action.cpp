@@ -10,7 +10,7 @@ void Action::setBet(int bet)
 	this->bet=bet;
 }
 
-string Action::print()
+string Action::print() const
 {
 	string str = intToStr(bet);
 	switch(act)

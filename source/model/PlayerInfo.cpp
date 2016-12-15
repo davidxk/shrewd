@@ -13,7 +13,7 @@ bool PlayerInfo::match(PlayerInfo* plyr)
 		plyr->money==this->money;
 }
 
-string PlayerInfo::print()
+string PlayerInfo::print() const
 {
 	string str="Player #"; 
 	str += intToStr(pid) + "\t@";

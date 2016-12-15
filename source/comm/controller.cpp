@@ -3,22 +3,20 @@
 #include "ai/plyrInclude.h"
 #include "comm/Parser.h"
 
-void Controller::init(int ch, const char* pid, const char* name, 
+void Controller::init(Player* ply, const char* pid, const char* name, 
 		const char* si, const char* sp, const char* ci, const char* cp)
 {
-	switch(ch)
-	{
-		case 0: player=new FoldPlayer(); break;
-	}
-	mailman.init(si, sp, ci, cp);
+	mailman = new Mailman;
+	mailman->init(si, sp, ci, cp);
+	player = ply;
 	player->setReg(pid, name);
 }
 
 void Controller::start()
 {
-	mailman.bindCon();
-	mailman.connectCon();
-	mailman.write( psr.writeReg( player->sendReg() ) );
+	//mailman->bindCon();
+	//mailman->connectCon();
+	mailman->write( psr.writeReg( player->sendReg() ) );
 	
 	string msg;
 	int gameCnt=1;
@@ -35,10 +33,10 @@ void Controller::start()
 		player->rcvPotwin( psr.readPotwin(msg) );
 
 		//player->reflect();
-		if(msg.empty()) msg=mailman.read();
+		if(msg.empty()) msg=mailman->read();
 	}
 	cout<<"Player: GAMEOVER! "<<endl;
-	mailman.closeCon();
+	//mailman->closeCon();
 }
 
 void Controller::gameStart(string& msg)
@@ -58,15 +56,16 @@ void Controller::mainLoop(string& msg)
 		if(msg[0]=='i')
 		{
 			player->rcvLstRound( psr.readInquire(msg) );
-			mailman.write( psr.writeAction( player->sendBet() ) );
-			msg=mailman.read();
+			mailman->write( psr.writeAction( player->sendBet() ) );
+			msg=mailman->read();
 		}
 		else
 		{
 			//player->rcvNotify( psr.readNotify(msg) );
-			if(msg.empty()) msg=mailman.read();
+			if(msg.empty()) msg=mailman->read();
 		}
 	}
+
 	while(msg[0]!='i'&&msg[0]!='n')
 	{
 		switch(msg[0])
@@ -78,10 +77,12 @@ void Controller::mainLoop(string& msg)
 			case 'p': break;
 			default: cout<<"Error: Unknown msg, starting with '"
 					 <<msg[0]<<"'. Protocal Unmatch. "<<endl;
+					 exit(0);
 		}
-		if(msg.empty()) msg=mailman.read();
+		if(msg.empty()) msg=mailman->read();
 		if(msg[0]=='p') break;
 	}
+
 }
 
 
@@ -91,12 +92,16 @@ string Controller::sticky(string& message, string header)
 {
 	int start=message.find(header);
 	if(start==-1) 
-		message=mailman.read();
-	else message=message.substr(start, message.size()-start);
+	{
+		message=mailman->read();
+		start=message.find(header);
+	}
+	message=message.substr(start, message.size()-start);
 	return message;
 }
 
 Controller::~Controller()
 {
+	delete mailman;
 	delete player;
 }

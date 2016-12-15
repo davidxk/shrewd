@@ -36,7 +36,7 @@ Card Card::getCard(char color, int figure)
 	return card;
 }
 
-string Card::print()
+string Card::print() const
 {
 	string str;
 	switch(color)

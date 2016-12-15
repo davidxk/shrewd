@@ -13,6 +13,8 @@ RdStateTest.cpp \
 ScannerTest.cpp \
 ParserTest.cpp \
 HoleAnalyzerTest.cpp \
+ControllerTest.cpp \
+PsudoMailman.cpp \
 
 ## The part below does not change across test projects!
 ## ------------------~~ Dividing Line ~~--------------------

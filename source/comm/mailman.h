@@ -20,13 +20,14 @@ using namespace std;
 class Mailman
 {
 public:
-	void init(const char* si, const char* sp, const char* ci, const char* cp);
+	virtual void init(const char* si, const char* sp, const char* ci, const char* cp);
 	void bindCon();
 	void connectCon();
 	void closeCon();
 
-	string read();
-	void write(string msg);
+	virtual string read();
+	virtual void write(string msg);
+	virtual ~Mailman() { }
 
 private:
 	void setMsg(string msg);

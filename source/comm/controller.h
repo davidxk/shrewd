@@ -17,16 +17,16 @@ using namespace std;
 //Controller only manages the order of the steps
 class Controller
 {
-public:
+protected:
 	Player* player;
-	Mailman mailman;
+	Mailman* mailman;
 	Parser psr;
 public:
-	void init(int ch, const char* id, const char* name, const char* si,
+	void init(Player* ply, const char* id, const char* name, const char* si,
 			const char* sp, const char* ci, const char* cp); //init
 	void start();
 	~Controller();
-private:
+protected:
 	void gameStart(string& msg);
 	void mainLoop(string& msg);
 	string sticky(string& message, string header);

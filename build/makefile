@@ -18,6 +18,7 @@ include $(buil_path)/source.mk
 
 ## List of obj Filese
 sources+=$(main)
+VPATH+=$(OBJECT_DIR)
 objects=$(subst .cpp,.o,$(sources))
 dir_obj=$(addprefix $(OBJECT_DIR)/,$(objects))
 
@@ -29,7 +30,7 @@ DEPEND_DIR=$(this_path)/build/.d
 
 ## Recipe
 $(exec): $(objects)
-	$(CXX) -o $(TARGET_DIR)/$(exec) $(dir_obj)
+	$(CXX) $(CXXFLAGS) -o $(TARGET_DIR)/$(exec) $(dir_obj)
 
 ## Includes
 $(shell mkdir -p $(DEPEND_DIR) >/dev/null)

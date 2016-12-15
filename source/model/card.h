@@ -18,7 +18,7 @@ public:
 	bool is(Card card);
 	static Card inputCard();
 	static Card getCard(char color, int figure);
-	string print();
+	string print() const;
 };
 
 #endif

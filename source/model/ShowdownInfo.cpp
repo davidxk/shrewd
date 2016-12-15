@@ -7,7 +7,7 @@ ShowdownInfo::ShowdownInfo(vector<Card> aPHole, Hand::Rank rank):
 ShowdownInfo::ShowdownInfo(vector<Card> aPHole, Hand aHand):
 	pHole(aPHole), hand(aHand) { }
 
-string ShowdownInfo::print()
+string ShowdownInfo::print() const
 {
 	string str;
 	for(int i=0; i<pHole.size(); i++)

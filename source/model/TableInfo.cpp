@@ -4,7 +4,7 @@
 TableInfo::TableInfo(std::unordered_map<int, RdState> aLastrd, int aPot):
 	lastrd(aLastrd), pot(aPot) { }
 
-string TableInfo::print()
+string TableInfo::print() const
 {
 	string str;
 	for(auto it=lastrd.begin(); it!=lastrd.end(); ++it )

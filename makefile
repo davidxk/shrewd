@@ -1,3 +1,4 @@
+.PHONY: default test clean
 default:
 	cd build/; make
 

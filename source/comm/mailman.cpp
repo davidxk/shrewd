@@ -8,7 +8,6 @@ void Mailman::init(const char* si, const char* sp, const char* ci, const char* c
 	strcpy(client_ip, ci);
 	strcpy(client_port, cp);
 	//tcp_log.open("./tcp.log");
-	cout<<"gone wrong\n";
 }
 
 void Mailman::bindCon()

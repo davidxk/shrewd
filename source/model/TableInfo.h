@@ -11,6 +11,6 @@ public:
 	int pot;
 public:
 	TableInfo(std::unordered_map<int, RdState> aLastrd, int aPot);
-	string print();
+	string print() const;
 };
 #endif

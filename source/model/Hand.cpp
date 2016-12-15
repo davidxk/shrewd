@@ -19,7 +19,7 @@ int Hand::compare(Hand* hand)
 	return 0;
 }
 
-string Hand::print()
+string Hand::print() const
 {
 	string str;
 	switch(rank)
