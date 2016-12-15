@@ -1,10 +1,9 @@
 default:
-	cd makeproject/; make
+	cd build/; make
 
-tests:
-	cd test/makeproject/; make
+test:
+	cd tests/build/; make
 
 clean:
-	# do something
-
-
+	cd build/; make clean
+	cd tests/build/; make clean
