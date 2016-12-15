@@ -11,7 +11,7 @@ HoleAnalyzer::HoleAnalyzer()
 void HoleAnalyzer::loadData()
 {
 	//until I find a better way to address the path
-	std::ifstream data("../libs/win_and_tie.txt"); 
+	std::ifstream data("../input/win_and_tie.txt"); 
 	if(data.bad()) cout<<"Error: data-loading failed! \n";
 
 	const int maxPlayer=10;

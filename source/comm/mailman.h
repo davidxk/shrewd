@@ -21,9 +21,9 @@ class Mailman
 {
 public:
 	virtual void init(const char* si, const char* sp, const char* ci, const char* cp);
-	void bindCon();
-	void connectCon();
-	void closeCon();
+	virtual void bindCon();
+	virtual void connectCon();
+	virtual void closeCon();
 
 	virtual string read();
 	virtual void write(string msg);

@@ -14,8 +14,8 @@ void Controller::init(Player* ply, const char* pid, const char* name,
 
 void Controller::start()
 {
-	//mailman->bindCon();
-	//mailman->connectCon();
+	mailman->bindCon();
+	mailman->connectCon();
 	mailman->write( psr.writeReg( player->sendReg() ) );
 	
 	string msg;
@@ -36,7 +36,7 @@ void Controller::start()
 		if(msg.empty()) msg=mailman->read();
 	}
 	cout<<"Player: GAMEOVER! "<<endl;
-	//mailman->closeCon();
+	mailman->closeCon();
 }
 
 void Controller::gameStart(string& msg)
