@@ -23,3 +23,6 @@
 # Debug Info
 *.dSYM*
 *.plist
+
+# Backup file
+*.bak
