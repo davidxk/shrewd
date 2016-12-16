@@ -19,8 +19,9 @@ Ctrl+A				# Like A in Vim
 Ctrl+E				# Like $ in Vim
 Ctrl+K				# Like D in Vim
 for each in $(ls | grep note_); do mv $each notes/; done
-sed -n 				# Don't print the resulting file
+sed -n 5p			# -n don't print the resulting file; show line 5
 sed s/re//p			# Print the substituted place 
+grep '\d{3}' -R .	# They use the same regex; \d{3} for three \d
 grep "\.cpp$"		# \. is treated as literal '.'
 grep re --exclude tags
 time code.xx		# Fine execution time
