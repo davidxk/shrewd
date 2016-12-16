@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# Infer .h file from given cc file
+# Usage: perl get_dot_h_file.pl ClassName.cc
+
 my $USR = 1, $SYS = 2; 
 
 # has support for: template, constructor, destructor

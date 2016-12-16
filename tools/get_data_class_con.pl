@@ -1,5 +1,6 @@
 #!/usr/bin/perl 
 
+# Infer class constructor from POD class defined in .h file
 # Usage: perl get_data_class_con.pl DataClass.h
 
 my $class_name, $arg_list;
